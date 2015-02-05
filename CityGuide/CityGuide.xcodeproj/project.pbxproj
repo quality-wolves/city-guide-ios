@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */; };
-		A4E9A8EB1A83E9DF006E12F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A8EA1A83E9DF006E12F7 /* ViewController.swift */; };
-		A4E9A8EE1A83E9DF006E12F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8EC1A83E9DF006E12F7 /* Main.storyboard */; };
 		A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */; };
 		A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */; };
 		A4E9A8FF1A83E9E0006E12F7 /* CityGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A8FE1A83E9E0006E12F7 /* CityGuideTests.swift */; };
+		F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */; };
+		F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */; };
+		F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */; };
+		F5A25C461A84059500A9B0E3 /* MenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C441A84059500A9B0E3 /* MenuCollectionCell.xib */; };
+		F5A25C4A1A84115100A9B0E3 /* HotspotCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C481A84115100A9B0E3 /* HotspotCollectionViewController.swift */; };
+		F5A25C4B1A84115100A9B0E3 /* HotspotCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +33,17 @@
 		A4E9A8E31A83E9DF006E12F7 /* CityGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E9A8E71A83E9DF006E12F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A4E9A8EA1A83E9DF006E12F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A4E9A8ED1A83E9DF006E12F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A4E9A8F21A83E9DF006E12F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A4E9A8F81A83E9E0006E12F7 /* CityGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityGuideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E9A8FD1A83E9E0006E12F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E9A8FE1A83E9E0006E12F7 /* CityGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityGuideTests.swift; sourceTree = "<group>"; };
+		F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
+		F5A25C441A84059500A9B0E3 /* MenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCollectionCell.xib; sourceTree = "<group>"; };
+		F5A25C481A84115100A9B0E3 /* HotspotCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotspotCollectionViewController.swift; sourceTree = "<group>"; };
+		F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotCollectionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +85,8 @@
 		A4E9A8E51A83E9DF006E12F7 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				F5A25C3D1A83FB7900A9B0E3 /* View Controllers */,
 				A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */,
-				A4E9A8EA1A83E9DF006E12F7 /* ViewController.swift */,
-				A4E9A8EC1A83E9DF006E12F7 /* Main.storyboard */,
 				A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */,
 				A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */,
 				A4E9A8E61A83E9DF006E12F7 /* Supporting Files */,
@@ -110,6 +117,35 @@
 				A4E9A8FD1A83E9E0006E12F7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F5A25C471A84113400A9B0E3 /* Hotspots page */,
+				F5A25C421A84033C00A9B0E3 /* Collection cell */,
+				F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */,
+				F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F5A25C421A84033C00A9B0E3 /* Collection cell */ = {
+			isa = PBXGroup;
+			children = (
+				F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */,
+				F5A25C441A84059500A9B0E3 /* MenuCollectionCell.xib */,
+			);
+			name = "Collection cell";
+			sourceTree = "<group>";
+		};
+		F5A25C471A84113400A9B0E3 /* Hotspots page */ = {
+			isa = PBXGroup;
+			children = (
+				F5A25C481A84115100A9B0E3 /* HotspotCollectionViewController.swift */,
+				F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */,
+			);
+			name = "Hotspots page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +228,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4E9A8EE1A83E9DF006E12F7 /* Main.storyboard in Resources */,
+				F5A25C461A84059500A9B0E3 /* MenuCollectionCell.xib in Resources */,
 				A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */,
+				F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */,
+				F5A25C4B1A84115100A9B0E3 /* HotspotCollectionViewController.xib in Resources */,
 				A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,8 +250,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4E9A8EB1A83E9DF006E12F7 /* ViewController.swift in Sources */,
+				F5A25C4A1A84115100A9B0E3 /* HotspotCollectionViewController.swift in Sources */,
+				F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */,
 				A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */,
+				F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +276,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A4E9A8EC1A83E9DF006E12F7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A4E9A8ED1A83E9DF006E12F7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -405,6 +437,7 @@
 				A4E9A9041A83E9E0006E12F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4E9A9051A83E9E0006E12F7 /* Build configuration list for PBXNativeTarget "CityGuideTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +446,7 @@
 				A4E9A9071A83E9E0006E12F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
