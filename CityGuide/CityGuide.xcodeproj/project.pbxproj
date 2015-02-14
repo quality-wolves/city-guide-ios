@@ -11,6 +11,17 @@
 		A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */; };
 		A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */; };
 		A4E9A8FF1A83E9E0006E12F7 /* CityGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A8FE1A83E9E0006E12F7 /* CityGuideTests.swift */; };
+		A99D5AD71A8FC8C30054B547 /* Hotspot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D5AD61A8FC8C30054B547 /* Hotspot.swift */; };
+		A99D5ADA1A8FCA5B0054B547 /* development.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = A99D5AD91A8FCA5B0054B547 /* development.sqlite3 */; };
+		A99D5ADF1A8FCB6E0054B547 /* BaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = A99D5ADC1A8FCB6E0054B547 /* BaseData.m */; };
+		A99D5AE01A8FCB6E0054B547 /* SQLiteWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A99D5ADE1A8FCB6E0054B547 /* SQLiteWrapper.m */; };
+		A99D5AE61A8FCFAC0054B547 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A99D5AE51A8FCFAC0054B547 /* libsqlite3.dylib */; };
+		A99D5AF61A8FE4E20054B547 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A99D5AF51A8FE4E20054B547 /* SSZipArchive.m */; };
+		A99D5B011A8FE4F20054B547 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = A99D5AF91A8FE4F20054B547 /* ioapi.c */; };
+		A99D5B021A8FE4F20054B547 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = A99D5AFB1A8FE4F20054B547 /* mztools.c */; };
+		A99D5B031A8FE4F20054B547 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = A99D5AFD1A8FE4F20054B547 /* unzip.c */; };
+		A99D5B041A8FE4F20054B547 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = A99D5AFF1A8FE4F20054B547 /* zip.c */; };
+		A99D5B061A8FE5950054B547 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A99D5B051A8FE5950054B547 /* libz.dylib */; };
 		F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */; };
 		F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */; };
 		F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */; };
@@ -38,6 +49,26 @@
 		A4E9A8F81A83E9E0006E12F7 /* CityGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityGuideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E9A8FD1A83E9E0006E12F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E9A8FE1A83E9E0006E12F7 /* CityGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityGuideTests.swift; sourceTree = "<group>"; };
+		A99D5AD61A8FC8C30054B547 /* Hotspot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotspot.swift; sourceTree = "<group>"; };
+		A99D5AD91A8FCA5B0054B547 /* development.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = development.sqlite3; path = CityGuide/Resources/development.sqlite3; sourceTree = "<group>"; };
+		A99D5ADB1A8FCB6E0054B547 /* BaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseData.h; sourceTree = "<group>"; };
+		A99D5ADC1A8FCB6E0054B547 /* BaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseData.m; sourceTree = "<group>"; };
+		A99D5ADD1A8FCB6E0054B547 /* SQLiteWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteWrapper.h; sourceTree = "<group>"; };
+		A99D5ADE1A8FCB6E0054B547 /* SQLiteWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteWrapper.m; sourceTree = "<group>"; };
+		A99D5AE41A8FCEAC0054B547 /* CityGuide-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CityGuide-Bridging-Header.h"; sourceTree = "<group>"; };
+		A99D5AE51A8FCFAC0054B547 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A99D5AF41A8FE4E20054B547 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = Frameworks/SSZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
+		A99D5AF51A8FE4E20054B547 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = Frameworks/SSZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
+		A99D5AF81A8FE4F20054B547 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = Frameworks/SSZipArchive/minizip/crypt.h; sourceTree = "<group>"; };
+		A99D5AF91A8FE4F20054B547 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = Frameworks/SSZipArchive/minizip/ioapi.c; sourceTree = "<group>"; };
+		A99D5AFA1A8FE4F20054B547 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = Frameworks/SSZipArchive/minizip/ioapi.h; sourceTree = "<group>"; };
+		A99D5AFB1A8FE4F20054B547 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mztools.c; path = Frameworks/SSZipArchive/minizip/mztools.c; sourceTree = "<group>"; };
+		A99D5AFC1A8FE4F20054B547 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mztools.h; path = Frameworks/SSZipArchive/minizip/mztools.h; sourceTree = "<group>"; };
+		A99D5AFD1A8FE4F20054B547 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = Frameworks/SSZipArchive/minizip/unzip.c; sourceTree = "<group>"; };
+		A99D5AFE1A8FE4F20054B547 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = Frameworks/SSZipArchive/minizip/unzip.h; sourceTree = "<group>"; };
+		A99D5AFF1A8FE4F20054B547 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Frameworks/SSZipArchive/minizip/zip.c; sourceTree = "<group>"; };
+		A99D5B001A8FE4F20054B547 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = Frameworks/SSZipArchive/minizip/zip.h; sourceTree = "<group>"; };
+		A99D5B051A8FE5950054B547 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
@@ -51,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99D5B061A8FE5950054B547 /* libz.dylib in Frameworks */,
+				A99D5AE61A8FCFAC0054B547 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +102,8 @@
 			children = (
 				A4E9A8E51A83E9DF006E12F7 /* CityGuide */,
 				A4E9A8FB1A83E9E0006E12F7 /* CityGuideTests */,
+				A99D5AD81A8FCA460054B547 /* Resources */,
+				A99D5AE71A8FE3410054B547 /* Frameworks */,
 				A4E9A8E41A83E9DF006E12F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +120,7 @@
 		A4E9A8E51A83E9DF006E12F7 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				A99D5ACB1A8FC70D0054B547 /* Models */,
 				F5A25C3D1A83FB7900A9B0E3 /* View Controllers */,
 				A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */,
 				A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */,
@@ -98,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				A4E9A8E71A83E9DF006E12F7 /* Info.plist */,
+				A99D5AE41A8FCEAC0054B547 /* CityGuide-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +154,78 @@
 				A4E9A8FD1A83E9E0006E12F7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A99D5ACB1A8FC70D0054B547 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A99D5AD51A8FC8AF0054B547 /* Hotspot */,
+				A99D5ACE1A8FC8840054B547 /* Database */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A99D5ACE1A8FC8840054B547 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A99D5ADB1A8FCB6E0054B547 /* BaseData.h */,
+				A99D5ADC1A8FCB6E0054B547 /* BaseData.m */,
+				A99D5ADD1A8FCB6E0054B547 /* SQLiteWrapper.h */,
+				A99D5ADE1A8FCB6E0054B547 /* SQLiteWrapper.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		A99D5AD51A8FC8AF0054B547 /* Hotspot */ = {
+			isa = PBXGroup;
+			children = (
+				A99D5AD61A8FC8C30054B547 /* Hotspot.swift */,
+			);
+			name = Hotspot;
+			sourceTree = "<group>";
+		};
+		A99D5AD81A8FCA460054B547 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A99D5AD91A8FCA5B0054B547 /* development.sqlite3 */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A99D5AE71A8FE3410054B547 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A99D5B051A8FE5950054B547 /* libz.dylib */,
+				A99D5AF31A8FE4D20054B547 /* SSZipArchive */,
+				A99D5AE51A8FCFAC0054B547 /* libsqlite3.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A99D5AF31A8FE4D20054B547 /* SSZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				A99D5AF71A8FE4E60054B547 /* minizip */,
+				A99D5AF41A8FE4E20054B547 /* SSZipArchive.h */,
+				A99D5AF51A8FE4E20054B547 /* SSZipArchive.m */,
+			);
+			name = SSZipArchive;
+			sourceTree = "<group>";
+		};
+		A99D5AF71A8FE4E60054B547 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				A99D5AF81A8FE4F20054B547 /* crypt.h */,
+				A99D5AF91A8FE4F20054B547 /* ioapi.c */,
+				A99D5AFA1A8FE4F20054B547 /* ioapi.h */,
+				A99D5AFB1A8FE4F20054B547 /* mztools.c */,
+				A99D5AFC1A8FE4F20054B547 /* mztools.h */,
+				A99D5AFD1A8FE4F20054B547 /* unzip.c */,
+				A99D5AFE1A8FE4F20054B547 /* unzip.h */,
+				A99D5AFF1A8FE4F20054B547 /* zip.c */,
+				A99D5B001A8FE4F20054B547 /* zip.h */,
+			);
+			name = minizip;
 			sourceTree = "<group>";
 		};
 		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
@@ -231,6 +340,7 @@
 				F5A25C461A84059500A9B0E3 /* MenuCollectionCell.xib in Resources */,
 				A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */,
 				F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */,
+				A99D5ADA1A8FCA5B0054B547 /* development.sqlite3 in Resources */,
 				F5A25C4B1A84115100A9B0E3 /* HotspotCollectionViewController.xib in Resources */,
 				A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */,
 			);
@@ -251,8 +361,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5A25C4A1A84115100A9B0E3 /* HotspotCollectionViewController.swift in Sources */,
+				A99D5B031A8FE4F20054B547 /* unzip.c in Sources */,
 				F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */,
+				A99D5ADF1A8FCB6E0054B547 /* BaseData.m in Sources */,
+				A99D5AD71A8FC8C30054B547 /* Hotspot.swift in Sources */,
+				A99D5B021A8FE4F20054B547 /* mztools.c in Sources */,
+				A99D5AF61A8FE4E20054B547 /* SSZipArchive.m in Sources */,
 				A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */,
+				A99D5B011A8FE4F20054B547 /* ioapi.c in Sources */,
+				A99D5B041A8FE4F20054B547 /* zip.c in Sources */,
+				A99D5AE01A8FCB6E0054B547 /* SQLiteWrapper.m in Sources */,
 				F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,7 +443,9 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = Frameworks;
 			};
 			name = Debug;
 		};
@@ -360,6 +480,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = Frameworks;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
