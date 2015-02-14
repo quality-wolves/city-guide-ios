@@ -12,17 +12,16 @@ class HotspotCollectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+	}
     
     required override init() {
-        super.init(nibName: "HotspotCollectionViewController", bundle: nil)
-    }
+		super.init(nibName: "HotspotCollectionViewController", bundle: nil)
+	}
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
+
+	}
 
     override func prefersStatusBarHidden() -> Bool {
         return true
