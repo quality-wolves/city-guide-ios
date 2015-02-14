@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "Salero.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "image2.png"
+      "filename" : "Salero@2x.png"
     },
     {
       "idiom" : "universal",

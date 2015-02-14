@@ -9,24 +9,66 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
     var mainVC: MainViewController!
-
+    var hotspotsController: HotspotCollectionViewController!
+    
+    internal var transitionController: HATransitionController?
+    
+    class func sharedInstance() -> AppDelegate {
+        return  UIApplication.sharedApplication().delegate as AppDelegate
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         mainVC = MainViewController()
+        hotspotsController = HotspotCollectionViewController()
+        println(hotspotsController.view.description)
+        transitionController = HATransitionController(collectionView: hotspotsController.collectionView)
+
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
         navigationController = UINavigationController(rootViewController: mainVC)
         navigationController?.navigationBarHidden = true;
+        navigationController?.delegate = self;
         window?.rootViewController = navigationController
+        
         self.window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        if (transitionController === animationController) {
+            
+            return self.transitionController
+        }
+        return nil
+    }
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if !fromVC.isKindOfClass(UICollectionViewController) || !toVC.isKindOfClass(UICollectionViewController) {
+            return nil
+        }
+//        if let frm = fromVC as? UICollectionViewController {
+//            if let tvc = toVC as? UICollectionViewController {
+//                self.transitionController?.navigationOperation = operation
+//                return self.transitionController
+//            }
+//        }
+        
+        if (self.transitionController?.hasActiveInteraction != nil) {
+            return nil
+        }
+        
+        self.transitionController?.navigationOperation = operation
+        return self.transitionController
+
+//        return nil
     }
 
     func applicationWillResignActive(application: UIApplication) {

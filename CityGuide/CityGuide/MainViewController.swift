@@ -42,6 +42,7 @@ enum Menu: Int {
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +126,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.navigationController?.pushViewController(HotspotCollectionViewController(), animated: true)
+        self.navigationController?.pushViewController(AppDelegate.sharedInstance().hotspotsController, animated: true)
         
     }
     /*

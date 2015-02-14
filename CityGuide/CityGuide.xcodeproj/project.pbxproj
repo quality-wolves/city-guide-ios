@@ -15,8 +15,13 @@
 		F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */; };
 		F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */; };
 		F5A25C461A84059500A9B0E3 /* MenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C441A84059500A9B0E3 /* MenuCollectionCell.xib */; };
-		F5A25C4A1A84115100A9B0E3 /* HotspotCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C481A84115100A9B0E3 /* HotspotCollectionViewController.swift */; };
 		F5A25C4B1A84115100A9B0E3 /* HotspotCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */; };
+		F5FF3FDE1A8D3CF80003D13E /* HAPaperCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FD51A8D3CF80003D13E /* HAPaperCollectionViewController.m */; };
+		F5FF3FDF1A8D3CF80003D13E /* HATransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FD71A8D3CF80003D13E /* HATransitionController.m */; };
+		F5FF3FE01A8D3CF80003D13E /* HATransitionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FD91A8D3CF80003D13E /* HATransitionLayout.m */; };
+		F5FF3FE11A8D3CF80003D13E /* HACollectionViewSmallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FDB1A8D3CF80003D13E /* HACollectionViewSmallLayout.m */; };
+		F5FF3FE21A8D3CF80003D13E /* HACollectionViewLargeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FDD1A8D3CF80003D13E /* HACollectionViewLargeLayout.m */; };
+		F5FF3FE51A8D40420003D13E /* HotspotCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FE41A8D40420003D13E /* HotspotCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +47,20 @@
 		F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
 		F5A25C441A84059500A9B0E3 /* MenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCollectionCell.xib; sourceTree = "<group>"; };
-		F5A25C481A84115100A9B0E3 /* HotspotCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotspotCollectionViewController.swift; sourceTree = "<group>"; };
 		F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotCollectionViewController.xib; sourceTree = "<group>"; };
+		F5FF3FD31A8D3CF70003D13E /* CityGuide-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CityGuide-Bridging-Header.h"; sourceTree = "<group>"; };
+		F5FF3FD41A8D3CF80003D13E /* HAPaperCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPaperCollectionViewController.h; sourceTree = "<group>"; };
+		F5FF3FD51A8D3CF80003D13E /* HAPaperCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAPaperCollectionViewController.m; sourceTree = "<group>"; };
+		F5FF3FD61A8D3CF80003D13E /* HATransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HATransitionController.h; sourceTree = "<group>"; };
+		F5FF3FD71A8D3CF80003D13E /* HATransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HATransitionController.m; sourceTree = "<group>"; };
+		F5FF3FD81A8D3CF80003D13E /* HATransitionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HATransitionLayout.h; sourceTree = "<group>"; };
+		F5FF3FD91A8D3CF80003D13E /* HATransitionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HATransitionLayout.m; sourceTree = "<group>"; };
+		F5FF3FDA1A8D3CF80003D13E /* HACollectionViewSmallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACollectionViewSmallLayout.h; sourceTree = "<group>"; };
+		F5FF3FDB1A8D3CF80003D13E /* HACollectionViewSmallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACollectionViewSmallLayout.m; sourceTree = "<group>"; };
+		F5FF3FDC1A8D3CF80003D13E /* HACollectionViewLargeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACollectionViewLargeLayout.h; sourceTree = "<group>"; };
+		F5FF3FDD1A8D3CF80003D13E /* HACollectionViewLargeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACollectionViewLargeLayout.m; sourceTree = "<group>"; };
+		F5FF3FE31A8D40420003D13E /* HotspotCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotCollectionViewController.h; sourceTree = "<group>"; };
+		F5FF3FE41A8D40420003D13E /* HotspotCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,10 +139,21 @@
 		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F5FF3FD41A8D3CF80003D13E /* HAPaperCollectionViewController.h */,
+				F5FF3FD51A8D3CF80003D13E /* HAPaperCollectionViewController.m */,
+				F5FF3FD61A8D3CF80003D13E /* HATransitionController.h */,
+				F5FF3FD71A8D3CF80003D13E /* HATransitionController.m */,
+				F5FF3FD81A8D3CF80003D13E /* HATransitionLayout.h */,
+				F5FF3FD91A8D3CF80003D13E /* HATransitionLayout.m */,
+				F5FF3FDA1A8D3CF80003D13E /* HACollectionViewSmallLayout.h */,
+				F5FF3FDB1A8D3CF80003D13E /* HACollectionViewSmallLayout.m */,
+				F5FF3FDC1A8D3CF80003D13E /* HACollectionViewLargeLayout.h */,
+				F5FF3FDD1A8D3CF80003D13E /* HACollectionViewLargeLayout.m */,
 				F5A25C471A84113400A9B0E3 /* Hotspots page */,
 				F5A25C421A84033C00A9B0E3 /* Collection cell */,
 				F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */,
 				F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */,
+				F5FF3FD31A8D3CF70003D13E /* CityGuide-Bridging-Header.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -142,8 +170,9 @@
 		F5A25C471A84113400A9B0E3 /* Hotspots page */ = {
 			isa = PBXGroup;
 			children = (
-				F5A25C481A84115100A9B0E3 /* HotspotCollectionViewController.swift */,
 				F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */,
+				F5FF3FE31A8D40420003D13E /* HotspotCollectionViewController.h */,
+				F5FF3FE41A8D40420003D13E /* HotspotCollectionViewController.m */,
 			);
 			name = "Hotspots page";
 			sourceTree = "<group>";
@@ -250,10 +279,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5A25C4A1A84115100A9B0E3 /* HotspotCollectionViewController.swift in Sources */,
+				F5FF3FDE1A8D3CF80003D13E /* HAPaperCollectionViewController.m in Sources */,
+				F5FF3FE01A8D3CF80003D13E /* HATransitionLayout.m in Sources */,
 				F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */,
 				A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */,
 				F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */,
+				F5FF3FDF1A8D3CF80003D13E /* HATransitionController.m in Sources */,
+				F5FF3FE11A8D3CF80003D13E /* HACollectionViewSmallLayout.m in Sources */,
+				F5FF3FE51A8D40420003D13E /* HotspotCollectionViewController.m in Sources */,
+				F5FF3FE21A8D3CF80003D13E /* HACollectionViewLargeLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,9 +402,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CityGuide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -378,9 +415,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CityGuide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
 			};
 			name = Release;
 		};

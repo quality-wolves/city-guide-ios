@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HotspotCollectionViewController: UIViewController {
+class HotspotCollectionViewController: HAPaperCollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
