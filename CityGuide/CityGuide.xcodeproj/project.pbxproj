@@ -10,7 +10,16 @@
 		A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */; };
 		A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */; };
 		A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */; };
-		A4E9A8FF1A83E9E0006E12F7 /* CityGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A8FE1A83E9E0006E12F7 /* CityGuideTests.swift */; };
+		A9C8FEC81A90D8FF005826D3 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEC71A90D8FF005826D3 /* SSZipArchive.m */; };
+		A9C8FED31A90D921005826D3 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FECB1A90D921005826D3 /* ioapi.c */; };
+		A9C8FED41A90D921005826D3 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FECD1A90D921005826D3 /* mztools.c */; };
+		A9C8FED51A90D921005826D3 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FECF1A90D921005826D3 /* unzip.c */; };
+		A9C8FED61A90D921005826D3 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FED11A90D921005826D3 /* zip.c */; };
+		A9C8FEDE1A90D93E005826D3 /* BaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEDA1A90D93E005826D3 /* BaseData.m */; };
+		A9C8FEDF1A90D93E005826D3 /* Hotspot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEDB1A90D93E005826D3 /* Hotspot.swift */; };
+		A9C8FEE01A90D93E005826D3 /* SQLiteWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEDD1A90D93E005826D3 /* SQLiteWrapper.m */; };
+		A9C8FEE21A90DA54005826D3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FEE11A90DA54005826D3 /* libsqlite3.dylib */; };
+		A9C8FEE41A90DA5B005826D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FEE31A90DA5B005826D3 /* libz.dylib */; };
 		F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */; };
 		F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */; };
 		F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */; };
@@ -24,25 +33,30 @@
 		F5FF3FE51A8D40420003D13E /* HotspotCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FE41A8D40420003D13E /* HotspotCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A4E9A8F91A83E9E0006E12F7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A4E9A8DB1A83E9DF006E12F7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A4E9A8E21A83E9DF006E12F7;
-			remoteInfo = CityGuide;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		A4E9A8E31A83E9DF006E12F7 /* CityGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E9A8E71A83E9DF006E12F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A4E9A8F21A83E9DF006E12F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		A4E9A8F81A83E9E0006E12F7 /* CityGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityGuideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4E9A8FD1A83E9E0006E12F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4E9A8FE1A83E9E0006E12F7 /* CityGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityGuideTests.swift; sourceTree = "<group>"; };
+		A9C8FEC61A90D8FF005826D3 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = Frameworks/SSZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
+		A9C8FEC71A90D8FF005826D3 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = Frameworks/SSZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
+		A9C8FECA1A90D921005826D3 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = Frameworks/SSZipArchive/minizip/crypt.h; sourceTree = "<group>"; };
+		A9C8FECB1A90D921005826D3 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = Frameworks/SSZipArchive/minizip/ioapi.c; sourceTree = "<group>"; };
+		A9C8FECC1A90D921005826D3 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = Frameworks/SSZipArchive/minizip/ioapi.h; sourceTree = "<group>"; };
+		A9C8FECD1A90D921005826D3 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mztools.c; path = Frameworks/SSZipArchive/minizip/mztools.c; sourceTree = "<group>"; };
+		A9C8FECE1A90D921005826D3 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mztools.h; path = Frameworks/SSZipArchive/minizip/mztools.h; sourceTree = "<group>"; };
+		A9C8FECF1A90D921005826D3 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = Frameworks/SSZipArchive/minizip/unzip.c; sourceTree = "<group>"; };
+		A9C8FED01A90D921005826D3 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = Frameworks/SSZipArchive/minizip/unzip.h; sourceTree = "<group>"; };
+		A9C8FED11A90D921005826D3 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Frameworks/SSZipArchive/minizip/zip.c; sourceTree = "<group>"; };
+		A9C8FED21A90D921005826D3 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = Frameworks/SSZipArchive/minizip/zip.h; sourceTree = "<group>"; };
+		A9C8FED91A90D93E005826D3 /* BaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseData.h; sourceTree = "<group>"; };
+		A9C8FEDA1A90D93E005826D3 /* BaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseData.m; sourceTree = "<group>"; };
+		A9C8FEDB1A90D93E005826D3 /* Hotspot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotspot.swift; sourceTree = "<group>"; };
+		A9C8FEDC1A90D93E005826D3 /* SQLiteWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteWrapper.h; sourceTree = "<group>"; };
+		A9C8FEDD1A90D93E005826D3 /* SQLiteWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteWrapper.m; sourceTree = "<group>"; };
+		A9C8FEE11A90DA54005826D3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A9C8FEE31A90DA5B005826D3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
@@ -68,13 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A4E9A8F51A83E9E0006E12F7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A9C8FEE41A90DA5B005826D3 /* libz.dylib in Frameworks */,
+				A9C8FEE21A90DA54005826D3 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				A4E9A8E51A83E9DF006E12F7 /* CityGuide */,
-				A4E9A8FB1A83E9E0006E12F7 /* CityGuideTests */,
+				A9C8FEC41A90D8C4005826D3 /* Resources */,
+				A9C8FEC31A90D8B6005826D3 /* Frameworks */,
 				A4E9A8E41A83E9DF006E12F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				A4E9A8E31A83E9DF006E12F7 /* CityGuide.app */,
-				A4E9A8F81A83E9E0006E12F7 /* CityGuideTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +111,7 @@
 		A4E9A8E51A83E9DF006E12F7 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				A9C8FED71A90D924005826D3 /* Models */,
 				F5A25C3D1A83FB7900A9B0E3 /* View Controllers */,
 				A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */,
 				A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */,
@@ -114,26 +124,73 @@
 		A4E9A8E61A83E9DF006E12F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5FF3FD31A8D3CF70003D13E /* CityGuide-Bridging-Header.h */,
 				A4E9A8E71A83E9DF006E12F7 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A4E9A8FB1A83E9E0006E12F7 /* CityGuideTests */ = {
+		A9C8FEC31A90D8B6005826D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A4E9A8FE1A83E9E0006E12F7 /* CityGuideTests.swift */,
-				A4E9A8FC1A83E9E0006E12F7 /* Supporting Files */,
+				A9C8FEE31A90DA5B005826D3 /* libz.dylib */,
+				A9C8FEE11A90DA54005826D3 /* libsqlite3.dylib */,
+				A9C8FEC51A90D8F0005826D3 /* SSZipArchive */,
 			);
-			path = CityGuideTests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A4E9A8FC1A83E9E0006E12F7 /* Supporting Files */ = {
+		A9C8FEC41A90D8C4005826D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A4E9A8FD1A83E9E0006E12F7 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A9C8FEC51A90D8F0005826D3 /* SSZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				A9C8FEC91A90D90E005826D3 /* minizip */,
+				A9C8FEC61A90D8FF005826D3 /* SSZipArchive.h */,
+				A9C8FEC71A90D8FF005826D3 /* SSZipArchive.m */,
+			);
+			name = SSZipArchive;
+			sourceTree = "<group>";
+		};
+		A9C8FEC91A90D90E005826D3 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				A9C8FECA1A90D921005826D3 /* crypt.h */,
+				A9C8FECB1A90D921005826D3 /* ioapi.c */,
+				A9C8FECC1A90D921005826D3 /* ioapi.h */,
+				A9C8FECD1A90D921005826D3 /* mztools.c */,
+				A9C8FECE1A90D921005826D3 /* mztools.h */,
+				A9C8FECF1A90D921005826D3 /* unzip.c */,
+				A9C8FED01A90D921005826D3 /* unzip.h */,
+				A9C8FED11A90D921005826D3 /* zip.c */,
+				A9C8FED21A90D921005826D3 /* zip.h */,
+			);
+			name = minizip;
+			sourceTree = "<group>";
+		};
+		A9C8FED71A90D924005826D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A9C8FED81A90D92D005826D3 /* Database */,
+				A9C8FEDB1A90D93E005826D3 /* Hotspot.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A9C8FED81A90D92D005826D3 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A9C8FED91A90D93E005826D3 /* BaseData.h */,
+				A9C8FEDA1A90D93E005826D3 /* BaseData.m */,
+				A9C8FEDC1A90D93E005826D3 /* SQLiteWrapper.h */,
+				A9C8FEDD1A90D93E005826D3 /* SQLiteWrapper.m */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
@@ -153,7 +210,6 @@
 				F5A25C421A84033C00A9B0E3 /* Collection cell */,
 				F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */,
 				F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */,
-				F5FF3FD31A8D3CF70003D13E /* CityGuide-Bridging-Header.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -197,24 +253,6 @@
 			productReference = A4E9A8E31A83E9DF006E12F7 /* CityGuide.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A4E9A8F71A83E9E0006E12F7 /* CityGuideTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A4E9A9051A83E9E0006E12F7 /* Build configuration list for PBXNativeTarget "CityGuideTests" */;
-			buildPhases = (
-				A4E9A8F41A83E9E0006E12F7 /* Sources */,
-				A4E9A8F51A83E9E0006E12F7 /* Frameworks */,
-				A4E9A8F61A83E9E0006E12F7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A4E9A8FA1A83E9E0006E12F7 /* PBXTargetDependency */,
-			);
-			name = CityGuideTests;
-			productName = CityGuideTests;
-			productReference = A4E9A8F81A83E9E0006E12F7 /* CityGuideTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,10 +264,6 @@
 				TargetAttributes = {
 					A4E9A8E21A83E9DF006E12F7 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					A4E9A8F71A83E9E0006E12F7 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = A4E9A8E21A83E9DF006E12F7;
 					};
 				};
 			};
@@ -247,7 +281,6 @@
 			projectRoot = "";
 			targets = (
 				A4E9A8E21A83E9DF006E12F7 /* CityGuide */,
-				A4E9A8F71A83E9E0006E12F7 /* CityGuideTests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,13 +298,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4E9A8F61A83E9E0006E12F7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -280,34 +306,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5FF3FDE1A8D3CF80003D13E /* HAPaperCollectionViewController.m in Sources */,
+				A9C8FEE01A90D93E005826D3 /* SQLiteWrapper.m in Sources */,
 				F5FF3FE01A8D3CF80003D13E /* HATransitionLayout.m in Sources */,
+				A9C8FEDE1A90D93E005826D3 /* BaseData.m in Sources */,
+				A9C8FED41A90D921005826D3 /* mztools.c in Sources */,
 				F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */,
+				A9C8FED51A90D921005826D3 /* unzip.c in Sources */,
 				A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */,
 				F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */,
 				F5FF3FDF1A8D3CF80003D13E /* HATransitionController.m in Sources */,
+				A9C8FEDF1A90D93E005826D3 /* Hotspot.swift in Sources */,
+				A9C8FEC81A90D8FF005826D3 /* SSZipArchive.m in Sources */,
 				F5FF3FE11A8D3CF80003D13E /* HACollectionViewSmallLayout.m in Sources */,
+				A9C8FED31A90D921005826D3 /* ioapi.c in Sources */,
+				A9C8FED61A90D921005826D3 /* zip.c in Sources */,
 				F5FF3FE51A8D40420003D13E /* HotspotCollectionViewController.m in Sources */,
 				F5FF3FE21A8D3CF80003D13E /* HACollectionViewLargeLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4E9A8F41A83E9E0006E12F7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A4E9A8FF1A83E9E0006E12F7 /* CityGuideTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A4E9A8FA1A83E9E0006E12F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A4E9A8E21A83E9DF006E12F7 /* CityGuide */;
-			targetProxy = A4E9A8F91A83E9E0006E12F7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */ = {
@@ -423,40 +441,6 @@
 			};
 			name = Release;
 		};
-		A4E9A9061A83E9E0006E12F7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CityGuideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CityGuide.app/CityGuide";
-			};
-			name = Debug;
-		};
-		A4E9A9071A83E9E0006E12F7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CityGuideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CityGuide.app/CityGuide";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -474,15 +458,6 @@
 			buildConfigurations = (
 				A4E9A9031A83E9E0006E12F7 /* Debug */,
 				A4E9A9041A83E9E0006E12F7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A4E9A9051A83E9E0006E12F7 /* Build configuration list for PBXNativeTarget "CityGuideTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A4E9A9061A83E9E0006E12F7 /* Debug */,
-				A4E9A9071A83E9E0006E12F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
