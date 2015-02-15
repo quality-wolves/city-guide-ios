@@ -15,7 +15,7 @@
 
 #import "CityGuide-Swift.h"
 
-@interface HotspotCollectionViewController () <UINavigationControllerDelegate>
+@interface HotspotCollectionViewController () <UINavigationControllerDelegate, HATransitionControllerDelegate>
 
 @property (nonatomic, strong) HATransitionController *transitionController;
 
@@ -68,6 +68,7 @@
     [super viewDidLoad];
     
 	self.transitionController = [[HATransitionController alloc] initWithCollectionView: self.collectionView];
+	self.transitionController.delegate = self;
 
     _slide = 0;
     
@@ -143,6 +144,22 @@
 	[self changeSlide];
 }
 
+- (void)interactionBeganAtPoint:(CGPoint)point
+{
+	// Very basic communication between the transition controller and the top view controller
+	// It would be easy to add more control, support pop, push or no-op
+	HotspotCollectionViewController *presentingVC = (HotspotCollectionViewController *)[self.navigationController topViewController];
+	HotspotCollectionViewController *presentedVC = (HotspotCollectionViewController *)[presentingVC nextViewControllerAtPoint:point];
+	if (presentedVC != nil)
+	{
+		[self.navigationController pushViewController:presentedVC animated:YES];
+	}
+	else
+	{
+		[self.navigationController popViewControllerAnimated:YES];
+	}
+}
+
 #pragma mark - View
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -203,7 +220,7 @@
 	//            }
 	//        }
 	
-	if (self.transitionController.hasActiveInteraction)
+	if (!self.transitionController.hasActiveInteraction)
 		return nil;
 	
 	self.transitionController.navigationOperation = operation;
