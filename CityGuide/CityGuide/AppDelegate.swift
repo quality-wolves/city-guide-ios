@@ -9,32 +9,27 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
     var mainVC: MainViewController!
-    var hotspotsController: HotspotCollectionViewController!
-    
-    internal var transitionController: HATransitionController?
-    
+	
     class func sharedInstance() -> AppDelegate {
         return  UIApplication.sharedApplication().delegate as AppDelegate
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
+		
+		DataManager.instance();
+		
         mainVC = MainViewController()
-        hotspotsController = HotspotCollectionViewController()
-        println(hotspotsController.view.description)
-        transitionController = HATransitionController(collectionView: hotspotsController.collectionView)
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
         navigationController = UINavigationController(rootViewController: mainVC)
         navigationController?.navigationBarHidden = true;
-        navigationController?.delegate = self;
         window?.rootViewController = navigationController
         
         self.window?.makeKeyAndVisible()
@@ -42,35 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
         return true
     }
     
-    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if (transitionController === animationController) {
-            
-            return self.transitionController
-        }
-        return nil
-    }
-    
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if !fromVC.isKindOfClass(UICollectionViewController) || !toVC.isKindOfClass(UICollectionViewController) {
-            return nil
-        }
-//        if let frm = fromVC as? UICollectionViewController {
-//            if let tvc = toVC as? UICollectionViewController {
-//                self.transitionController?.navigationOperation = operation
-//                return self.transitionController
-//            }
-//        }
-        
-        if (self.transitionController?.hasActiveInteraction != nil) {
-            return nil
-        }
-        
-        self.transitionController?.navigationOperation = operation
-        return self.transitionController
-
-//        return nil
-    }
-
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -92,7 +58,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-

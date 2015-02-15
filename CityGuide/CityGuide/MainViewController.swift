@@ -8,45 +8,17 @@
 
 import UIKit
 
-enum Menu: Int {
-    case Stay = 0
-    case Eat, Buy, Drink, See, Do, Favourites, Map, Whatson, Soundtrack
-    func description() -> String {
-        switch self {
-        case .Stay:
-            return "Stay"
-        case .Eat:
-            return "Eat"
-        case .Buy:
-            return "Buy"
-        case .Drink:
-            return "Drink"
-        case .See:
-            return "See"
-        case .Do:
-            return "Do"
-        case .Favourites:
-            return "Favourites"
-        case .Map:
-            return "Map"
-        case .Whatson:
-            return "Whatson"
-        case .Soundtrack:
-                return "Soundtrack"
-        default:
-            return String(self.rawValue)
-        }
-    }
-}
-
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
+	private var categories: [Category]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.registerNib(UINib(nibName: "MenuCollectionCell", bundle: nil), forCellWithReuseIdentifier: "MenuCollectionCell")
+		
+		categories = Category.allCategories();
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,42 +53,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let identifier = "MenuCollectionCell"
         var cell: MenuCollectionCell? = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as? MenuCollectionCell
-        
-        var menuItem: Menu = Menu(rawValue: indexPath.row)!
-        cell?.titleLabel.text = menuItem.description()
-        switch menuItem {
-        case .Stay:
-            cell?.backgroundImage.image = UIImage(named: "Menu2 2")
-            break
-        case .Eat:
-            cell?.backgroundImage.image = UIImage(named: "Salero")
-            break
-        case .Buy, .Favourites:
-            cell?.backgroundImage.image = UIImage(named: "BARCELONA-BUY 5")
-            break
-        case .Drink, .Map:
-            cell?.backgroundImage.image = UIImage(named: "Drink-1 2")
-            break
-        case .See, .Whatson:
-            cell?.backgroundImage.image = UIImage(named: "See 2")
-            break
-        case .Do, .Soundtrack:
-            cell?.backgroundImage.image = UIImage(named: "Cine")
-            break
-//        case .Favourites:
-//            cell?.backgroundImage.image = UIImage(named: "BARCELONA-BUY 5")
-//            break
-//        case .Map:
-//            cell?.backgroundImage.image = UIImage(named: "")
-//            break
-//        case .Whatson:
-//            cell?.backgroundImage.image = UIImage(named: "")
-//            break
-//        case .Soundtrack:
-//            cell?.backgroundImage.image = UIImage(named: "")
-//            break
-        }
-        
+		cell?.setCategory(categories[indexPath.row]);
         return cell!
     }
     
@@ -126,8 +63,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.navigationController?.pushViewController(AppDelegate.sharedInstance().hotspotsController, animated: true)
-        
+		let category = categories[indexPath.row]
+		let hotspots = Hotspot.hotspotsByCategory(category)
+		
+		var hotspotsController = HotspotCollectionViewController(hotspots: hotspots)
+        self.navigationController?.pushViewController(hotspotsController, animated: true)
     }
     /*
     // MARK: - Navigation

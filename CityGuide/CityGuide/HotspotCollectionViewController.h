@@ -10,4 +10,6 @@
 
 @interface HotspotCollectionViewController : HAPaperCollectionViewController
 
+- (id) initWithHotspots: (NSArray*) hotspots;
+
 @end

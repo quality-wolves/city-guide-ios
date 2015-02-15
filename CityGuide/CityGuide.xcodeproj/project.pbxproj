@@ -20,6 +20,15 @@
 		A9C8FEE01A90D93E005826D3 /* SQLiteWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEDD1A90D93E005826D3 /* SQLiteWrapper.m */; };
 		A9C8FEE21A90DA54005826D3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FEE11A90DA54005826D3 /* libsqlite3.dylib */; };
 		A9C8FEE41A90DA5B005826D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FEE31A90DA5B005826D3 /* libz.dylib */; };
+		A9C8FEE61A90EF52005826D3 /* development.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C8FEE51A90EF52005826D3 /* development.sqlite3 */; };
+		A9C8FEE81A9101C5005826D3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEE71A9101C5005826D3 /* Category.swift */; };
+		A9C8FEEC1A912FDF005826D3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEEB1A912FDF005826D3 /* DataManager.m */; };
+		A9C8FEEE1A9133ED005826D3 /* thumbnails.zip in Resources */ = {isa = PBXBuildFile; fileRef = A9C8FEED1A9133ED005826D3 /* thumbnails.zip */; };
+		A9C8FEF51A914445005826D3 /* UIView+LoadFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEF41A914445005826D3 /* UIView+LoadFromNib.m */; };
+		A9C8FEF71A914471005826D3 /* HotspotCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C8FEF61A914471005826D3 /* HotspotCollectionView.xib */; };
+		A9C8FEFA1A9145FE005826D3 /* NSObject+ClassName.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEF91A9145FE005826D3 /* NSObject+ClassName.m */; };
+		A9C8FF021A915C05005826D3 /* HotspotCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF011A915C05005826D3 /* HotspotCollectionView.m */; };
+		A9C8FF051A915C62005826D3 /* TransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF041A915C62005826D3 /* TransparentView.m */; };
 		F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */; };
 		F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */; };
 		F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */; };
@@ -57,6 +66,20 @@
 		A9C8FEDD1A90D93E005826D3 /* SQLiteWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteWrapper.m; sourceTree = "<group>"; };
 		A9C8FEE11A90DA54005826D3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A9C8FEE31A90DA5B005826D3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A9C8FEE51A90EF52005826D3 /* development.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = development.sqlite3; path = CityGuide/Resources/development.sqlite3; sourceTree = "<group>"; };
+		A9C8FEE71A9101C5005826D3 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A9C8FEEA1A912FDF005826D3 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		A9C8FEEB1A912FDF005826D3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		A9C8FEED1A9133ED005826D3 /* thumbnails.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = thumbnails.zip; path = CityGuide/Resources/thumbnails.zip; sourceTree = "<group>"; };
+		A9C8FEF31A914445005826D3 /* UIView+LoadFromNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+LoadFromNib.h"; path = "CityGuide/Additions/UIView+LoadFromNib.h"; sourceTree = "<group>"; };
+		A9C8FEF41A914445005826D3 /* UIView+LoadFromNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+LoadFromNib.m"; path = "CityGuide/Additions/UIView+LoadFromNib.m"; sourceTree = "<group>"; };
+		A9C8FEF61A914471005826D3 /* HotspotCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotCollectionView.xib; sourceTree = "<group>"; };
+		A9C8FEF81A9145FE005826D3 /* NSObject+ClassName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+ClassName.h"; path = "CityGuide/Additions/NSObject+ClassName.h"; sourceTree = "<group>"; };
+		A9C8FEF91A9145FE005826D3 /* NSObject+ClassName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ClassName.m"; path = "CityGuide/Additions/NSObject+ClassName.m"; sourceTree = "<group>"; };
+		A9C8FF001A915C05005826D3 /* HotspotCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotCollectionView.h; sourceTree = "<group>"; };
+		A9C8FF011A915C05005826D3 /* HotspotCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotCollectionView.m; sourceTree = "<group>"; };
+		A9C8FF031A915C62005826D3 /* TransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentView.h; sourceTree = "<group>"; };
+		A9C8FF041A915C62005826D3 /* TransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentView.m; sourceTree = "<group>"; };
 		F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
@@ -111,6 +134,8 @@
 		A4E9A8E51A83E9DF006E12F7 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				A9C8FEFB1A9152DD005826D3 /* Views */,
+				A9C8FEF21A914413005826D3 /* Additions */,
 				A9C8FED71A90D924005826D3 /* Models */,
 				F5A25C3D1A83FB7900A9B0E3 /* View Controllers */,
 				A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */,
@@ -143,6 +168,8 @@
 		A9C8FEC41A90D8C4005826D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9C8FEED1A9133ED005826D3 /* thumbnails.zip */,
+				A9C8FEE51A90EF52005826D3 /* development.sqlite3 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -176,8 +203,10 @@
 		A9C8FED71A90D924005826D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A9C8FEE91A912FCB005826D3 /* DataManager */,
 				A9C8FED81A90D92D005826D3 /* Database */,
 				A9C8FEDB1A90D93E005826D3 /* Hotspot.swift */,
+				A9C8FEE71A9101C5005826D3 /* Category.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -191,6 +220,36 @@
 				A9C8FEDD1A90D93E005826D3 /* SQLiteWrapper.m */,
 			);
 			name = Database;
+			sourceTree = "<group>";
+		};
+		A9C8FEE91A912FCB005826D3 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				A9C8FEEA1A912FDF005826D3 /* DataManager.h */,
+				A9C8FEEB1A912FDF005826D3 /* DataManager.m */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		A9C8FEF21A914413005826D3 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				A9C8FEF81A9145FE005826D3 /* NSObject+ClassName.h */,
+				A9C8FEF91A9145FE005826D3 /* NSObject+ClassName.m */,
+				A9C8FEF31A914445005826D3 /* UIView+LoadFromNib.h */,
+				A9C8FEF41A914445005826D3 /* UIView+LoadFromNib.m */,
+			);
+			name = Additions;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A9C8FEFB1A9152DD005826D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9C8FF031A915C62005826D3 /* TransparentView.h */,
+				A9C8FF041A915C62005826D3 /* TransparentView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
@@ -226,9 +285,12 @@
 		F5A25C471A84113400A9B0E3 /* Hotspots page */ = {
 			isa = PBXGroup;
 			children = (
-				F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */,
 				F5FF3FE31A8D40420003D13E /* HotspotCollectionViewController.h */,
 				F5FF3FE41A8D40420003D13E /* HotspotCollectionViewController.m */,
+				F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */,
+				A9C8FF001A915C05005826D3 /* HotspotCollectionView.h */,
+				A9C8FF011A915C05005826D3 /* HotspotCollectionView.m */,
+				A9C8FEF61A914471005826D3 /* HotspotCollectionView.xib */,
 			);
 			name = "Hotspots page";
 			sourceTree = "<group>";
@@ -292,7 +354,10 @@
 			files = (
 				F5A25C461A84059500A9B0E3 /* MenuCollectionCell.xib in Resources */,
 				A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */,
+				A9C8FEF71A914471005826D3 /* HotspotCollectionView.xib in Resources */,
+				A9C8FEEE1A9133ED005826D3 /* thumbnails.zip in Resources */,
 				F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */,
+				A9C8FEE61A90EF52005826D3 /* development.sqlite3 in Resources */,
 				F5A25C4B1A84115100A9B0E3 /* HotspotCollectionViewController.xib in Resources */,
 				A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */,
 			);
@@ -306,11 +371,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5FF3FDE1A8D3CF80003D13E /* HAPaperCollectionViewController.m in Sources */,
+				A9C8FF021A915C05005826D3 /* HotspotCollectionView.m in Sources */,
+				A9C8FEF51A914445005826D3 /* UIView+LoadFromNib.m in Sources */,
 				A9C8FEE01A90D93E005826D3 /* SQLiteWrapper.m in Sources */,
 				F5FF3FE01A8D3CF80003D13E /* HATransitionLayout.m in Sources */,
 				A9C8FEDE1A90D93E005826D3 /* BaseData.m in Sources */,
 				A9C8FED41A90D921005826D3 /* mztools.c in Sources */,
+				A9C8FEE81A9101C5005826D3 /* Category.swift in Sources */,
 				F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */,
+				A9C8FF051A915C62005826D3 /* TransparentView.m in Sources */,
 				A9C8FED51A90D921005826D3 /* unzip.c in Sources */,
 				A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */,
 				F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */,
@@ -321,6 +390,8 @@
 				A9C8FED31A90D921005826D3 /* ioapi.c in Sources */,
 				A9C8FED61A90D921005826D3 /* zip.c in Sources */,
 				F5FF3FE51A8D40420003D13E /* HotspotCollectionViewController.m in Sources */,
+				A9C8FEFA1A9145FE005826D3 /* NSObject+ClassName.m in Sources */,
+				A9C8FEEC1A912FDF005826D3 /* DataManager.m in Sources */,
 				F5FF3FE21A8D3CF80003D13E /* HACollectionViewLargeLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +449,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = Frameworks/;
 			};
 			name = Debug;
 		};
@@ -412,6 +484,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = Frameworks/;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -426,6 +499,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "Frameworks/**";
 			};
 			name = Debug;
 		};
@@ -438,6 +512,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "Frameworks/**";
 			};
 			name = Release;
 		};
