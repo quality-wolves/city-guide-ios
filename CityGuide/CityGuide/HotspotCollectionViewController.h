@@ -11,5 +11,6 @@
 @interface HotspotCollectionViewController : HAPaperCollectionViewController
 
 - (id) initWithHotspots: (NSArray*) hotspots;
+- (UICollectionViewController *)nextViewControllerAtPoint:(CGPoint)point;
 
 @end

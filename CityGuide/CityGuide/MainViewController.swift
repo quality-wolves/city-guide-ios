@@ -67,6 +67,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 		let hotspots = Hotspot.hotspotsByCategory(category)
 		
 		var hotspotsController = HotspotCollectionViewController(hotspots: hotspots)
+//		navigationController = UINavigationController(rootViewController: mainVC)
+//		navigationController?.navigationBarHidden = true;
+		
         self.navigationController?.pushViewController(hotspotsController, animated: true)
     }
     /*
