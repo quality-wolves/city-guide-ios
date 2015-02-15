@@ -9,17 +9,11 @@
 import UIKit
 
 class MenuCollectionCell: UICollectionViewCell {
-
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var backgroundImage: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var backgroundImage: UIImageView!
+	
+	func setCategory(category: Category) {
+		titleLabel.text = category.name;
+		backgroundImage.image = UIImage(named: category.imageFileName());
+	}
 }

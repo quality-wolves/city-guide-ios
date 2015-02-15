@@ -9,14 +9,23 @@
 #import "HotspotCollectionViewController.h"
 #import "HACollectionViewLargeLayout.h"
 #import "HACollectionViewSmallLayout.h"
+#import "HATransitionController.h"
+#import "DataManager.h"
+#import "HotspotCollectionView.h"
 
-@interface HotspotCollectionViewController ()
+#import "CityGuide-Swift.h"
+
+@interface HotspotCollectionViewController () <UINavigationControllerDelegate>
+
+@property (nonatomic, strong) HATransitionController *transitionController;
 
 @property (nonatomic, assign) NSInteger slide;
 @property (nonatomic, strong) UIView *mainView;
 @property (nonatomic, strong) UIImageView *topImage;
 @property (nonatomic, strong) UIImageView *reflected;
-@property (nonatomic, strong) NSArray *galleryImages;
+
+@property (nonatomic, strong) NSArray *hotspots;
+@property (nonatomic, strong) HotspotCollectionView *hotspotView;
 
 @end
 
@@ -25,9 +34,18 @@
 - (id) init {
     HACollectionViewSmallLayout *smallLayout = [[HACollectionViewSmallLayout alloc] init];
     if (self = [super initWithCollectionViewLayout:smallLayout]) {
-        return self;
     }
+	
     return self;
+}
+
+- (id) initWithHotspots: (NSArray*) hotspots {
+	if(self = [self init]) {
+		self.hotspots = hotspots;
+		[self internalViewDidLoad];
+	}
+	
+	return self;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,8 +67,8 @@
 {
     [super viewDidLoad];
     
+	self.transitionController = [[HATransitionController alloc] initWithCollectionView: self.collectionView];
 
-    _galleryImages = @[@"Menu2 2", @"BARCELONA-BUY 5", @"Drink-1 2", @"See 2", @"Cine"];
     _slide = 0;
     
     
@@ -93,56 +111,6 @@
     [_topImage addSubview:perfectPixelContent];
     
     
-    // Label logo
-    UILabel *logo = [[UILabel alloc] initWithFrame:CGRectMake(15, 12, 290, 0)];
-    logo.backgroundColor = [UIColor clearColor];
-    logo.textColor = [UIColor whiteColor];
-    logo.font = [UIFont fontWithName:@"Helvetica-Bold" size:22];
-    logo.text = @"Paper";
-    [logo sizeToFit];
-    // Label Shadow
-    [logo setClipsToBounds:NO];
-    [logo.layer setShadowOffset:CGSizeMake(0, 0)];
-    [logo.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [logo.layer setShadowRadius:1.0];
-    [logo.layer setShadowOpacity:0.6];
-    [_mainView addSubview:logo];
-    
-    
-    // Label Title
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(15, logo.frame.origin.y + CGRectGetHeight(logo.frame) + 8, 290, 0)];
-    title.backgroundColor = [UIColor clearColor];
-    title.textColor = [UIColor whiteColor];
-    title.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
-    title.text = @"Heberti Almeida";
-    [title sizeToFit];
-    // Label Shadow
-    [title setClipsToBounds:NO];
-    [title.layer setShadowOffset:CGSizeMake(0, 0)];
-    [title.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [title.layer setShadowRadius:1.0];
-    [title.layer setShadowOpacity:0.6];
-    [_mainView addSubview:title];
-    
-    
-    // Label SubTitle
-    UILabel *subTitle = [[UILabel alloc] initWithFrame:CGRectMake(15, title.frame.origin.y + CGRectGetHeight(title.frame), 290, 0)];
-    subTitle.backgroundColor = [UIColor clearColor];
-    subTitle.textColor = [UIColor whiteColor];
-    subTitle.font = [UIFont fontWithName:@"Helvetica" size:13];
-    subTitle.text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit";
-    subTitle.lineBreakMode = NSLineBreakByWordWrapping;
-    subTitle.numberOfLines = 0;
-    [subTitle sizeToFit];
-    // Label Shadow
-    [subTitle setClipsToBounds:NO];
-    [subTitle.layer setShadowOffset:CGSizeMake(0, 0)];
-    [subTitle.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [subTitle.layer setShadowRadius:1.0];
-    [subTitle.layer setShadowOpacity:0.6];
-    [_mainView addSubview:subTitle];
-    
-    
     // First Load
     [self changeSlide];
     
@@ -151,23 +119,95 @@
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
+- (void) internalViewDidLoad {
+	self.hotspotView = [HotspotCollectionView create];
+	
+	// Label Shadow
+	[self.hotspotView.titleLabel setClipsToBounds:NO];
+	[self.hotspotView.titleLabel.layer setShadowOffset:CGSizeMake(0, 0)];
+	[self.hotspotView.titleLabel.layer setShadowColor:[[UIColor blackColor] CGColor]];
+	[self.hotspotView.titleLabel.layer setShadowRadius:1.0];
+	[self.hotspotView.titleLabel.layer setShadowOpacity:0.6];
+	
+	[self.hotspotView.backButton setClipsToBounds:NO];
+	[self.hotspotView.backButton.layer setShadowOffset:CGSizeMake(0, 0)];
+	[self.hotspotView.backButton.layer setShadowColor:[[UIColor blackColor] CGColor]];
+	[self.hotspotView.backButton.layer setShadowRadius:1.0];
+	[self.hotspotView.backButton.layer setShadowOpacity:0.6];
+	
+	Hotspot *hotspot = _hotspots[_slide];
+	[self.hotspotView.backButton setTitle: [hotspot categoryName] forState: UIControlStateNormal];
+	
+	[self.view addSubview: self.hotspotView];
+
+	[self changeSlide];
+}
+
+#pragma mark - View
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
+	
+	self.navigationController.delegate = self;
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear: animated];
+	
+	self.navigationController.delegate = nil;
+}
+
 #pragma mark - Change slider
-- (void)changeSlide
-{
+
+- (void)changeSlide {
+	if(!_hotspots)
+		return;
+		
     //    if (_fullscreen == NO && _transitioning == NO) {
-    if(_slide > _galleryImages.count-1) _slide = 0;
-    
-    UIImage *toImage = [UIImage imageNamed:_galleryImages[_slide]];
+    if(_slide > _hotspots.count - 1)
+		_slide = 0;
+	
+	Hotspot *hotspot = _hotspots[_slide];
+	
+	UIImage *toImage = [[DataManager instance] imageByHotspot: hotspot];
     [UIView transitionWithView:_mainView
                       duration:0.6f
                        options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationCurveEaseInOut
                     animations:^{
                         _topImage.image = toImage;
                         _reflected.image = toImage;
+						self.hotspotView.titleLabel.text = hotspot.name;
                     } completion:nil];
     _slide++;
     //    }
 }
 
+#pragma mark - UINavigationControllerDelegate
+
+- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
+	if (self.transitionController == animationController) {
+		return self.transitionController;
+	}
+	
+	return nil;
+}
+
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+	if(![fromVC isKindOfClass: [UICollectionViewController class]] || ![toVC isKindOfClass: [UICollectionViewController class]])
+		return nil;
+	
+	//        if let frm = fromVC as? UICollectionViewController {
+	//            if let tvc = toVC as? UICollectionViewController {
+	//                self.transitionController?.navigationOperation = operation
+	//                return self.transitionController
+	//            }
+	//        }
+	
+	if (self.transitionController.hasActiveInteraction)
+		return nil;
+	
+	self.transitionController.navigationOperation = operation;
+	return self.transitionController;
+}
 
 @end
