@@ -7,7 +7,11 @@
 //
 
 #import <MapKit/MapKit.h>
+#import "CityGuide-Swift.h"
+#import "HotspotAnnotation.h"
 
 @interface HotspotAnnotationView : MKAnnotationView
+
+
 
 @end

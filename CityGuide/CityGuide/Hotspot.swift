@@ -36,11 +36,21 @@ class Hotspot: BaseData {
 		
 		return array[0];
 	}
+    
+    func categoryImageName() -> String {
+
+        if let c = self.category {
+            println("Category image = " + c.mapiconFileName())
+            return c.mapiconFileName()
+        }
+        println("no image")
+        return ""
+    }
 	
 	class func hotspotsByCategory(category: Category) -> [Hotspot] {
 		let categoryString = category.name.lowercaseString
 		let array = convertArray(sendRequest(String(format: "%@ WHERE category = \"%@\"", dataRequestString(), categoryString), converter: { (sqlite3_stmt stmt) -> AnyObject! in
-			return self.itemWithSqlite3_stmt(stmt);
+			return self.itemWithSqlite3_stmt(stmt)
 		}));
 		
 		for item in array {
@@ -70,7 +80,8 @@ class Hotspot: BaseData {
 		item.id = UInt(sqlite3_column_int(stmt, 0));
 		item.name = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(1))));
 		item.desc = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(2))));
-//		item.category = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(3))));
+        var n = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(3))))
+        item.category = Category.categoryByName(n!)
 		item.imageFileName = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(4))));
         
         item.lat = sqlite3_column_double(stmt, CInt(5))

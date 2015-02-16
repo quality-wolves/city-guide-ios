@@ -10,12 +10,14 @@
 
 @implementation HotspotAnnotationView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (id) initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier]) {
+        if ([annotation isKindOfClass:[HotspotAnnotation class]]) {
+            HotspotAnnotation *ha = (HotspotAnnotation *) annotation;
+            self.image = [UIImage imageNamed:[ha.hotspot categoryImageName]];
+        }
+    }
+    return self;
 }
-*/
 
 @end

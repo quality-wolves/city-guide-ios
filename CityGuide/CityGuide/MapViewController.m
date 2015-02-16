@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "CityGuide-Swift.h"
 #import "HotspotAnnotation.h"
+#import "HotspotAnnotationView.h"
 
 @interface MapViewController () <MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -42,22 +43,26 @@
     NSMutableArray *ann = [NSMutableArray new];
     
     for (Hotspot *h in self.hotspots) {
-        HotspotAnnotation *a = [[HotspotAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(h.lat, h.lon) title:h.name];
+        HotspotAnnotation *a = [[HotspotAnnotation alloc] initWithHotspot:h];
         [ann addObject:a];
     }
-    
+
     self.annotations = ann;
     [_mapView addAnnotations:self.annotations];
-    [_mapView showAnnotations:self.annotations animated:NO];
+}
+
+- (void) mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+//    [_mapView showAnnotations:self.annotations animated:NO];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
-    MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"loc"];
+    
+    MKAnnotationView *annotationView = [[HotspotAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"loc"];
     annotationView.canShowCallout = YES;
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeInfoDark];
     
     return annotationView;
 }

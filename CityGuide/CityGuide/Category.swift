@@ -48,6 +48,18 @@ class Category {
 		self.id = id
 		self.name = name
 	}
+    
+    func mapiconFileName() -> String {
+        switch id {
+        case .Stay: return "map_stay.png"
+        case .Eat: return "map_eat.png"
+        case .Buy: return "map_buy.png"
+        case .Drink: return "map_drink.png"
+        case .See: return "map_see.png"
+        case .Do: return "map_do.png"
+        default: return ""
+        }
+    }
 	
 	func imageFileName() -> String {
 		switch id {
@@ -60,6 +72,16 @@ class Category {
 		}
 	}
 	
+    class func categoryByName(name: String) -> Category? {
+        var categories = Category.allCategories()
+        for c in categories {
+            if c.name.lowercaseString == name.lowercaseString {
+                return c
+            }
+        }
+        return nil
+    }
+    
 	class func allCategories() -> [Category] {
 		return [Category(id: CategoryEnum.Stay, name: "Stay"),
 				Category(id: CategoryEnum.Eat, name: "Eat"),

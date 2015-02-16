@@ -19,4 +19,11 @@
     return self;
 }
 
+- (id) initWithHotspot: (Hotspot *) h {
+    if (self = [self initWithCoordinate:CLLocationCoordinate2DMake(h.lat, h.lon) title:h.name]) {
+        self.hotspot = h;
+    }
+    return self;
+}
+
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "CityGuide-Swift.h"
 
 @interface HotspotAnnotation : NSObject<MKAnnotation>
 
@@ -18,8 +19,11 @@
 // Title and subtitle for use by selection UI.
 @property (nonatomic, readonly, copy) NSString *title;
 @property (nonatomic, readonly, copy) NSString *subtitle;
+@property (strong, nonatomic) Hotspot *hotspot;
+
 
 - (id) initWithCoordinate: (CLLocationCoordinate2D) coord title: (NSString *) title;
+- (id) initWithHotspot: (Hotspot *) hotspot;
 
 //// Called as a result of dragging an annotation view.
 //- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate NS_AVAILABLE(10_9, 4_0);
