@@ -8,6 +8,7 @@
 
 #import "HotspotDetailsCell.h"
 #import "DataManager.h"
+#import "CollectionLayoutManager.h"
 #import "CityGuide-Swift.h"
 
 @interface HotspotDetailsCell ()
@@ -15,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -28,6 +30,12 @@
 	self.imageView.image = [[DataManager instance] imageByHotspot: hotspot];
 	self.titleLabel.text = hotspot.name;
 	self.descriptionLabel.text = hotspot.desc;
+}
+
+- (void)willTransitionFromLayout:(UICollectionViewLayout *)oldLayout toLayout:(UICollectionViewLayout *)newLayout {
+	[super willTransitionFromLayout: oldLayout toLayout: newLayout];
+	
+	self.scrollView.userInteractionEnabled = newLayout == [CollectionLayoutManager instance].largeLayout;
 }
 
 @end

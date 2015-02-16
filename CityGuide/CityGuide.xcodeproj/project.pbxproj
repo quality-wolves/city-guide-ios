@@ -41,6 +41,7 @@
 		A9C8FF2C1A92863B005826D3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF2B1A92863B005826D3 /* MapKit.framework */; };
 		A9C8FF331A92A1A3005826D3 /* HotspotDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF311A92A1A3005826D3 /* HotspotDetailsCell.m */; };
 		A9C8FF341A92A1A3005826D3 /* HotspotDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C8FF321A92A1A3005826D3 /* HotspotDetailsCell.xib */; };
+		A9C8FF371A92B492005826D3 /* CollectionLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF361A92B492005826D3 /* CollectionLayoutManager.m */; };
 		F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */; };
 		F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */; };
 		F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */; };
@@ -125,6 +126,8 @@
 		A9C8FF301A92A1A3005826D3 /* HotspotDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotDetailsCell.h; sourceTree = "<group>"; };
 		A9C8FF311A92A1A3005826D3 /* HotspotDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotDetailsCell.m; sourceTree = "<group>"; };
 		A9C8FF321A92A1A3005826D3 /* HotspotDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotDetailsCell.xib; sourceTree = "<group>"; };
+		A9C8FF351A92B492005826D3 /* CollectionLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionLayoutManager.h; sourceTree = "<group>"; };
+		A9C8FF361A92B492005826D3 /* CollectionLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionLayoutManager.m; sourceTree = "<group>"; };
 		F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				A9C8FED81A90D92D005826D3 /* Database */,
 				A9C8FEDB1A90D93E005826D3 /* Hotspot.swift */,
 				A9C8FEE71A9101C5005826D3 /* Category.swift */,
+				A9C8FF351A92B492005826D3 /* CollectionLayoutManager.h */,
+				A9C8FF361A92B492005826D3 /* CollectionLayoutManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */,
 				F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */,
 				F5FF3FDF1A8D3CF80003D13E /* HATransitionController.m in Sources */,
+				A9C8FF371A92B492005826D3 /* CollectionLayoutManager.m in Sources */,
 				A9C8FEDF1A90D93E005826D3 /* Hotspot.swift in Sources */,
 				A9C8FEC81A90D8FF005826D3 /* SSZipArchive.m in Sources */,
 				F5FF3FE11A8D3CF80003D13E /* HACollectionViewSmallLayout.m in Sources */,
