@@ -71,6 +71,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		let category = categories[indexPath.row]
+        
+        if (category.id == CategoryEnum.Map) {
+            var mapVC = MapViewController()
+            self.navigationController?.pushViewController(mapVC, animated: true)
+            return
+        }
+        
 		let hotspots = Hotspot.hotspotsByCategory(category)
 		
         if hotspots.count == 0 {

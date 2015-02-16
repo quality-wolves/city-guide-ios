@@ -7,31 +7,87 @@
 //
 
 #import "MapViewController.h"
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "CityGuide-Swift.h"
+#import "HotspotAnnotation.h"
 
-@interface MapViewController ()
-
+@interface MapViewController () <MKMapViewDelegate>
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) NSArray *hotspots;
+@property (strong, nonatomic) NSArray *annotations;
+@property BOOL didUpdatedUserLocBefore;
 @end
 
 @implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.didUpdatedUserLocBefore = NO;
+    self.locationManager = [CLLocationManager new];
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+
+    
+    self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(41.387128, 2.168564999999944), MKCoordinateSpanMake(1, 1));
+    self.mapView.showsUserLocation = YES;
+    [self reload];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) reload {
+    self.hotspots = [Hotspot allHotspots];
+    [self.mapView removeAnnotations:self.annotations];
+    NSMutableArray *ann = [NSMutableArray new];
+    
+    for (Hotspot *h in self.hotspots) {
+        HotspotAnnotation *a = [[HotspotAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(h.lat, h.lon) title:h.name];
+        [ann addObject:a];
+    }
+    
+    self.annotations = ann;
+    [_mapView addAnnotations:self.annotations];
+    [_mapView showAnnotations:self.annotations animated:NO];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"loc"];
+    annotationView.canShowCallout = YES;
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    return annotationView;
 }
-*/
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appToBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appReturnsActive) name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)appToBackground{
+    [self.mapView setShowsUserLocation:NO];
+}
+
+- (void)appReturnsActive{
+    [self.mapView setShowsUserLocation:YES];
+}
+
+- (IBAction)backAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (BOOL) prefersStatusBarHidden {
+    return YES;
+}
 
 @end
