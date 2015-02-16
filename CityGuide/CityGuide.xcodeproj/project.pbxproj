@@ -29,6 +29,8 @@
 		A9C8FEFA1A9145FE005826D3 /* NSObject+ClassName.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEF91A9145FE005826D3 /* NSObject+ClassName.m */; };
 		A9C8FF021A915C05005826D3 /* HotspotCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF011A915C05005826D3 /* HotspotCollectionView.m */; };
 		A9C8FF051A915C62005826D3 /* TransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF041A915C62005826D3 /* TransparentView.m */; };
+		A9C8FF091A925549005826D3 /* ZipArchiveDelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF081A925549005826D3 /* ZipArchiveDelegateHelper.m */; };
+		A9C8FF0C1A926922005826D3 /* HotspotDetailsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF0B1A926922005826D3 /* HotspotDetailsCollectionViewController.m */; };
 		F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */; };
 		F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */; };
 		F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */; };
@@ -80,6 +82,10 @@
 		A9C8FF011A915C05005826D3 /* HotspotCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotCollectionView.m; sourceTree = "<group>"; };
 		A9C8FF031A915C62005826D3 /* TransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentView.h; sourceTree = "<group>"; };
 		A9C8FF041A915C62005826D3 /* TransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentView.m; sourceTree = "<group>"; };
+		A9C8FF071A925549005826D3 /* ZipArchiveDelegateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchiveDelegateHelper.h; sourceTree = "<group>"; };
+		A9C8FF081A925549005826D3 /* ZipArchiveDelegateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipArchiveDelegateHelper.m; sourceTree = "<group>"; };
+		A9C8FF0A1A926922005826D3 /* HotspotDetailsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotDetailsCollectionViewController.h; sourceTree = "<group>"; };
+		A9C8FF0B1A926922005826D3 /* HotspotDetailsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotDetailsCollectionViewController.m; sourceTree = "<group>"; };
 		F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
@@ -227,6 +233,8 @@
 			children = (
 				A9C8FEEA1A912FDF005826D3 /* DataManager.h */,
 				A9C8FEEB1A912FDF005826D3 /* DataManager.m */,
+				A9C8FF071A925549005826D3 /* ZipArchiveDelegateHelper.h */,
+				A9C8FF081A925549005826D3 /* ZipArchiveDelegateHelper.m */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -285,6 +293,8 @@
 		F5A25C471A84113400A9B0E3 /* Hotspots page */ = {
 			isa = PBXGroup;
 			children = (
+				A9C8FF0A1A926922005826D3 /* HotspotDetailsCollectionViewController.h */,
+				A9C8FF0B1A926922005826D3 /* HotspotDetailsCollectionViewController.m */,
 				F5FF3FE31A8D40420003D13E /* HotspotCollectionViewController.h */,
 				F5FF3FE41A8D40420003D13E /* HotspotCollectionViewController.m */,
 				F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */,
@@ -389,8 +399,10 @@
 				F5FF3FE11A8D3CF80003D13E /* HACollectionViewSmallLayout.m in Sources */,
 				A9C8FED31A90D921005826D3 /* ioapi.c in Sources */,
 				A9C8FED61A90D921005826D3 /* zip.c in Sources */,
+				A9C8FF0C1A926922005826D3 /* HotspotDetailsCollectionViewController.m in Sources */,
 				F5FF3FE51A8D40420003D13E /* HotspotCollectionViewController.m in Sources */,
 				A9C8FEFA1A9145FE005826D3 /* NSObject+ClassName.m in Sources */,
+				A9C8FF091A925549005826D3 /* ZipArchiveDelegateHelper.m in Sources */,
 				A9C8FEEC1A912FDF005826D3 /* DataManager.m in Sources */,
 				F5FF3FE21A8D3CF80003D13E /* HACollectionViewLargeLayout.m in Sources */,
 			);

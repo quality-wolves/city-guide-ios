@@ -15,6 +15,7 @@
 
 + (instancetype) instance;
 
+- (void) downloadImages: (void(^)()) completionHandler;
 - (UIImage*) imageByHotspot: (Hotspot*) hotspot;
 
 @end

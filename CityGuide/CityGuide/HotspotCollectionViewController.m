@@ -29,6 +29,8 @@
 
 @end
 
+
+
 @implementation HotspotCollectionViewController
 
 - (id) init {
@@ -121,7 +123,10 @@
 }
 
 - (void) internalViewDidLoad {
+	__weak typeof(self) wself = self;
+	
 	self.hotspotView = [HotspotCollectionView create];
+	self.hotspotView.backButtonAction = ^() { [wself.navigationController popViewControllerAnimated:YES]; };
 	
 	// Label Shadow
 	[self.hotspotView.titleLabel setClipsToBounds:NO];
@@ -150,12 +155,9 @@
 	// It would be easy to add more control, support pop, push or no-op
 	HotspotCollectionViewController *presentingVC = (HotspotCollectionViewController *)[self.navigationController topViewController];
 	HotspotCollectionViewController *presentedVC = (HotspotCollectionViewController *)[presentingVC nextViewControllerAtPoint:point];
-	if (presentedVC != nil)
-	{
+	if (presentedVC != nil)	{
 		[self.navigationController pushViewController:presentedVC animated:YES];
-	}
-	else
-	{
+	} else {
 		[self.navigationController popViewControllerAnimated:YES];
 	}
 }
@@ -166,6 +168,13 @@
 	[super viewWillAppear: animated];
 	
 	self.navigationController.delegate = self;
+	
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+	[super viewDidAppear: animated];
+	
+	[self.view bringSubviewToFront: self.hotspotView];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -212,13 +221,6 @@
 - (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
 	if(![fromVC isKindOfClass: [UICollectionViewController class]] || ![toVC isKindOfClass: [UICollectionViewController class]])
 		return nil;
-	
-	//        if let frm = fromVC as? UICollectionViewController {
-	//            if let tvc = toVC as? UICollectionViewController {
-	//                self.transitionController?.navigationOperation = operation
-	//                return self.transitionController
-	//            }
-	//        }
 	
 	if (!self.transitionController.hasActiveInteraction)
 		return nil;

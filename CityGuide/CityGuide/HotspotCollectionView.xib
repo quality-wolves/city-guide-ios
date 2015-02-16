@@ -21,6 +21,9 @@
                     <state key="highlighted">
                         <color key="titleColor" red="0.53290719696969702" green="0.53290719696969702" blue="0.53290719696969702" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="backButtonClicked" destination="BbN-Yw-Tbl" eventType="touchUpInside" id="uMp-1L-ueY"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buf-q6-qbs">
                     <rect key="frame" x="272" y="19" width="40" height="18"/>
