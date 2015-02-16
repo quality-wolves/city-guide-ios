@@ -1,5 +1,5 @@
 //
-//  CollectionLayoutManager.h
+//  CollectionLayouts.h
 //  CityGuide
 //
 //  Created by Chudin Yuriy on 17.02.15.
@@ -9,11 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface CollectionLayoutManager : NSObject
+@interface CollectionLayouts : NSObject
 
 @property (nonatomic, readonly, strong) UICollectionViewLayout *smallLayout;
 @property (nonatomic, readonly, strong) UICollectionViewLayout *largeLayout;
-
-+ (instancetype) instance;
 
 @end

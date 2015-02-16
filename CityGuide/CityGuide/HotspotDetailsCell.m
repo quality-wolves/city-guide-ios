@@ -8,7 +8,7 @@
 
 #import "HotspotDetailsCell.h"
 #import "DataManager.h"
-#import "CollectionLayoutManager.h"
+#import "CollectionLayouts.h"
 #import "CityGuide-Swift.h"
 
 @interface HotspotDetailsCell ()
@@ -35,7 +35,7 @@
 - (void)willTransitionFromLayout:(UICollectionViewLayout *)oldLayout toLayout:(UICollectionViewLayout *)newLayout {
 	[super willTransitionFromLayout: oldLayout toLayout: newLayout];
 	
-	self.scrollView.userInteractionEnabled = newLayout == [CollectionLayoutManager instance].largeLayout;
+	self.scrollView.userInteractionEnabled = newLayout == self.collectionLayouts.largeLayout;
 }
 
 @end
