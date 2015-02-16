@@ -298,7 +298,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
+		A9C8FF2D1A928884005826D3 /* Paper */ = {
 			isa = PBXGroup;
 			children = (
 				F5FF3FD41A8D3CF80003D13E /* HAPaperCollectionViewController.h */,
@@ -311,6 +311,14 @@
 				F5FF3FDB1A8D3CF80003D13E /* HACollectionViewSmallLayout.m */,
 				F5FF3FDC1A8D3CF80003D13E /* HACollectionViewLargeLayout.h */,
 				F5FF3FDD1A8D3CF80003D13E /* HACollectionViewLargeLayout.m */,
+			);
+			name = Paper;
+			sourceTree = "<group>";
+		};
+		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A9C8FF2D1A928884005826D3 /* Paper */,
 				F5A25C471A84113400A9B0E3 /* Hotspots page */,
 				F5A25C421A84033C00A9B0E3 /* Collection cell */,
 				F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */,
