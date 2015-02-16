@@ -13,6 +13,7 @@
 #import "DataManager.h"
 #import "HotspotCollectionView.h"
 #import "HotspotDetailsCell.h"
+#import "CollectionLayoutManager.h"
 
 #import "CityGuide-Swift.h"
 
@@ -39,8 +40,7 @@
 @implementation HotspotCollectionViewController
 
 - (id) init {
-    HACollectionViewSmallLayout *smallLayout = [[HACollectionViewSmallLayout alloc] init];
-    if (self = [super initWithCollectionViewLayout:smallLayout]) {
+    if (self = [super initWithCollectionViewLayout: [CollectionLayoutManager instance].smallLayout]) {
     }
 	
     return self;
@@ -49,17 +49,9 @@
 - (id) initWithHotspots: (NSArray*) hotspots {
 	if(self = [self init]) {
 		self.hotspots = hotspots;
-		
-		for(Hotspot *h in self.hotspots) {
-			NSLog(@"\n %d, %@, %@", h.id, h.name, h.desc);
-		}
 	}
 	
 	return self;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-	[self showDetails];
 }
 
 - (void)viewDidLoad {
@@ -227,6 +219,10 @@
 	return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+	[self showDetails];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 	return self.hotspots.count;
 }
@@ -240,9 +236,11 @@
 - (void) showDetails {
 	[self stopSlideTimer];
 	
-	HACollectionViewLargeLayout *largeLayout = [[HACollectionViewLargeLayout alloc] init];
-	[self.collectionView setCollectionViewLayout: largeLayout animated:YES];
+	[self.collectionView setCollectionViewLayout: [CollectionLayoutManager instance].largeLayout animated:YES];
 	[self.collectionView setDecelerationRate: UIScrollViewDecelerationRateFast];
+	
+	UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
+	[self.collectionView addGestureRecognizer:pinchGesture];
 	
 	[self.view insertSubview: self.hotspotView belowSubview:self.collectionView];
 }
@@ -250,7 +248,17 @@
 - (void) hideDetails {
 	[self startSlideTimer];
 
+	[self.collectionView setCollectionViewLayout: [CollectionLayoutManager instance].smallLayout animated:YES];
+	[self.collectionView setDecelerationRate: UIScrollViewDecelerationRateNormal];
 	[self.view insertSubview: self.hotspotView aboveSubview:self.collectionView];
+}
+
+- (void)handlePinch:(UIPinchGestureRecognizer *)sender {
+	// here we want to end the transition interaction if the user stops or finishes the pinch gesture
+	if (sender.state == UIGestureRecognizerStateEnded) {
+		[self hideDetails];
+		[self.collectionView removeGestureRecognizer: sender];
+	}
 }
 
 //#pragma mark - UINavigationControllerDelegate
