@@ -12,11 +12,10 @@
 #import "HATransitionController.h"
 #import "DataManager.h"
 #import "HotspotCollectionView.h"
+#import "HotspotDetailsCell.h"
 
 #import "CityGuide-Swift.h"
 
-
-#define CELL_ID @"CELL_ID"
 
 
 @interface HotspotCollectionViewController () //<UINavigationControllerDelegate, HATransitionControllerDelegate>
@@ -30,6 +29,8 @@
 
 @property (nonatomic, strong) NSArray *hotspots;
 @property (nonatomic, strong) HotspotCollectionView *hotspotView;
+
+@property (nonatomic, strong) NSTimer *slideTimer;
 
 @end
 
@@ -48,20 +49,24 @@
 - (id) initWithHotspots: (NSArray*) hotspots {
 	if(self = [self init]) {
 		self.hotspots = hotspots;
+		
+		for(Hotspot *h in self.hotspots) {
+			NSLog(@"\n %d, %@, %@", h.id, h.name, h.desc);
+		}
 	}
 	
 	return self;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    HACollectionViewLargeLayout *largeLayout = [[HACollectionViewLargeLayout alloc] init];
-	[collectionView setCollectionViewLayout: largeLayout animated:YES];
+	[self showDetails];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
+	NSString *reuseId = [HotspotDetailsCell className];
+	[self.collectionView registerNib: [UINib nibWithNibName: reuseId bundle:nil] forCellWithReuseIdentifier: reuseId];
 	[self.collectionView setBackgroundColor:[UIColor clearColor]];
 	
 	[self setupSlides];
@@ -71,9 +76,18 @@
 	// First Load
 	[self changeSlide];
 	
-	// Loop gallery - fix loop: http://bynomial.com/blog/?p=67
-	NSTimer *timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(changeSlide) userInfo:nil repeats:YES];
-	[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+	[self startSlideTimer];
+	
+}
+
+- (void) startSlideTimer {
+	self.slideTimer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(changeSlide) userInfo:nil repeats:YES];
+	[[NSRunLoop mainRunLoop] addTimer: self.slideTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void) stopSlideTimer {
+	[self.slideTimer invalidate];
+	self.slideTimer = nil;
 }
 
 - (void) setupSlides {
@@ -141,7 +155,7 @@
 	Hotspot *hotspot = _hotspots[_slide];
 	[self.hotspotView.backButton setTitle: [hotspot categoryName] forState: UIControlStateNormal];
 	
-	[self.view insertSubview:self.hotspotView belowSubview:self.collectionView];
+	[self.view addSubview: self.hotspotView];
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -187,7 +201,6 @@
 	if(!_hotspots)
 		return;
 		
-    //    if (_fullscreen == NO && _transitioning == NO) {
     if(_slide > _hotspots.count - 1)
 		_slide = 0;
 	
@@ -203,30 +216,41 @@
 						self.hotspotView.titleLabel.text = hotspot.name;
                     } completion:nil];
     _slide++;
-    //    }
 }
 
 #pragma mark - UICollectionViewController
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
-	cell.backgroundColor = [UIColor whiteColor];
-	cell.layer.cornerRadius = 4;
-	cell.clipsToBounds = YES;
-	
-	UIImageView *backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Cell"]];
-	cell.backgroundView = backgroundView;
+	HotspotDetailsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: [HotspotDetailsCell className] forIndexPath:indexPath];
+	cell.hotspot = self.hotspots[indexPath.row];
 	
 	return cell;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return 20;
+	return self.hotspots.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 	return 1;
+}
+
+#pragma mark - Details
+
+- (void) showDetails {
+	[self stopSlideTimer];
+	
+	HACollectionViewLargeLayout *largeLayout = [[HACollectionViewLargeLayout alloc] init];
+	[self.collectionView setCollectionViewLayout: largeLayout animated:YES];
+	[self.collectionView setDecelerationRate: UIScrollViewDecelerationRateFast];
+	
+	[self.view insertSubview: self.hotspotView belowSubview:self.collectionView];
+}
+
+- (void) hideDetails {
+	[self startSlideTimer];
+
+	[self.view insertSubview: self.hotspotView aboveSubview:self.collectionView];
 }
 
 //#pragma mark - UINavigationControllerDelegate
