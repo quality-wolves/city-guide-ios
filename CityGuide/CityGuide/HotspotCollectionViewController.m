@@ -15,7 +15,11 @@
 
 #import "CityGuide-Swift.h"
 
-@interface HotspotCollectionViewController () <UINavigationControllerDelegate, HATransitionControllerDelegate>
+
+#define CELL_ID @"CELL_ID"
+
+
+@interface HotspotCollectionViewController () //<UINavigationControllerDelegate, HATransitionControllerDelegate>
 
 @property (nonatomic, strong) HATransitionController *transitionController;
 
@@ -44,85 +48,78 @@
 - (id) initWithHotspots: (NSArray*) hotspots {
 	if(self = [self init]) {
 		self.hotspots = hotspots;
-		[self internalViewDidLoad];
 	}
 	
 	return self;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *vc = [self nextViewControllerAtPoint:CGPointZero];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (UICollectionViewController *)nextViewControllerAtPoint:(CGPoint)point
-{
-    // We could have multiple section stacks and find the right one,
     HACollectionViewLargeLayout *largeLayout = [[HACollectionViewLargeLayout alloc] init];
-    HAPaperCollectionViewController *nextCollectionViewController = [[HAPaperCollectionViewController alloc] initWithCollectionViewLayout:largeLayout];
-    
-    nextCollectionViewController.useLayoutToLayoutNavigationTransitions = YES;
-    return nextCollectionViewController;
+	[collectionView setCollectionViewLayout: largeLayout animated:YES];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
-	self.transitionController = [[HATransitionController alloc] initWithCollectionView: self.collectionView];
-	self.transitionController.delegate = self;
 
-    _slide = 0;
-    
-    
-    // Init mainView
-    _mainView = [[UIView alloc] initWithFrame:self.view.bounds];
-    _mainView.clipsToBounds = YES;
-    _mainView.layer.cornerRadius = 4;
-    [self.view insertSubview:_mainView belowSubview:self.collectionView];
-    
-    // ImageView on top
-    _topImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
-    _reflected = [[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_topImage.bounds), 320, 320)];
-    [_mainView addSubview:_topImage];
-    [_mainView addSubview:_reflected];
-    
-    
-    // Reflect imageView
-    _reflected.transform = CGAffineTransformMakeScale(1.0, -1.0);
-    
-    
-    // Gradient to top image
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = _topImage.bounds;
-    gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] CGColor],
-                        (id)[[UIColor colorWithWhite:0 alpha:0] CGColor]];
-    [_topImage.layer insertSublayer:gradient atIndex:0];
-    
-    
-    // Gradient to reflected image
-    CAGradientLayer *gradientReflected = [CAGradientLayer layer];
-    gradientReflected.frame = _reflected.bounds;
-    gradientReflected.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:1] CGColor],
-                                 (id)[[UIColor colorWithWhite:0 alpha:0] CGColor]];
-    [_reflected.layer insertSublayer:gradientReflected atIndex:0];
-    
-    
-    // Content perfect pixel
-    UIView *perfectPixelContent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_topImage.bounds), 1)];
-    perfectPixelContent.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2];
-    [_topImage addSubview:perfectPixelContent];
-    
-    
-    // First Load
-    [self changeSlide];
-    
-    // Loop gallery - fix loop: http://bynomial.com/blog/?p=67
-    NSTimer *timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(changeSlide) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+	[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
+	[self.collectionView setBackgroundColor:[UIColor clearColor]];
+	
+	[self setupSlides];
+
+	[self setupHotspotView];
+	
+	// First Load
+	[self changeSlide];
+	
+	// Loop gallery - fix loop: http://bynomial.com/blog/?p=67
+	NSTimer *timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(changeSlide) userInfo:nil repeats:YES];
+	[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
-- (void) internalViewDidLoad {
+- (void) setupSlides {
+	_slide = 0;
+	
+	
+	// Init mainView
+	_mainView = [[UIView alloc] initWithFrame:self.view.bounds];
+	_mainView.clipsToBounds = YES;
+	_mainView.layer.cornerRadius = 4;
+	[self.view insertSubview:_mainView belowSubview:self.collectionView];
+	
+	// ImageView on top
+	_topImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+	_reflected = [[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_topImage.bounds), 320, 320)];
+	[_mainView addSubview:_topImage];
+	[_mainView addSubview:_reflected];
+	
+	
+	// Reflect imageView
+	_reflected.transform = CGAffineTransformMakeScale(1.0, -1.0);
+	
+	
+	// Gradient to top image
+	CAGradientLayer *gradient = [CAGradientLayer layer];
+	gradient.frame = _topImage.bounds;
+	gradient.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4] CGColor],
+						(id)[[UIColor colorWithWhite:0 alpha:0] CGColor]];
+	[_topImage.layer insertSublayer:gradient atIndex:0];
+	
+	
+	// Gradient to reflected image
+	CAGradientLayer *gradientReflected = [CAGradientLayer layer];
+	gradientReflected.frame = _reflected.bounds;
+	gradientReflected.colors = @[(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:1] CGColor],
+								 (id)[[UIColor colorWithWhite:0 alpha:0] CGColor]];
+	[_reflected.layer insertSublayer:gradientReflected atIndex:0];
+	
+	
+	// Content perfect pixel
+	UIView *perfectPixelContent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_topImage.bounds), 1)];
+	perfectPixelContent.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2];
+	[_topImage addSubview:perfectPixelContent];
+}
+
+- (void) setupHotspotView {
 	__weak typeof(self) wself = self;
 	
 	self.hotspotView = [HotspotCollectionView create];
@@ -144,37 +141,40 @@
 	Hotspot *hotspot = _hotspots[_slide];
 	[self.hotspotView.backButton setTitle: [hotspot categoryName] forState: UIControlStateNormal];
 	
-	[self.view addSubview: self.hotspotView];
-
-	[self changeSlide];
+	[self.view insertSubview:self.hotspotView belowSubview:self.collectionView];
 }
 
-- (void)interactionBeganAtPoint:(CGPoint)point
+- (BOOL)prefersStatusBarHidden
 {
-	// Very basic communication between the transition controller and the top view controller
-	// It would be easy to add more control, support pop, push or no-op
-	HotspotCollectionViewController *presentingVC = (HotspotCollectionViewController *)[self.navigationController topViewController];
-	HotspotCollectionViewController *presentedVC = (HotspotCollectionViewController *)[presentingVC nextViewControllerAtPoint:point];
-	if (presentedVC != nil)	{
-		[self.navigationController pushViewController:presentedVC animated:YES];
-	} else {
-		[self.navigationController popViewControllerAnimated:YES];
-	}
+	return YES;
 }
+
+//- (void)interactionBeganAtPoint:(CGPoint)point
+//{
+//	// Very basic communication between the transition controller and the top view controller
+//	// It would be easy to add more control, support pop, push or no-op
+//	HotspotCollectionViewController *presentingVC = (HotspotCollectionViewController *)[self.navigationController topViewController];
+//	HotspotCollectionViewController *presentedVC = (HotspotCollectionViewController *)[presentingVC nextViewControllerAtPoint:point];
+//	if (presentedVC != nil)	{
+//		[self.navigationController pushViewController:presentedVC animated:YES];
+//	} else {
+//		[self.navigationController popViewControllerAnimated:YES];
+//	}
+//}
 
 #pragma mark - View
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
 	
-	self.navigationController.delegate = self;
+//	self.navigationController.delegate = self;
 	
 }
 
 - (void) viewDidAppear:(BOOL)animated {
 	[super viewDidAppear: animated];
 	
-	[self.view bringSubviewToFront: self.hotspotView];
+//	[self.view bringSubviewToFront: self.hotspotView];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -206,31 +206,54 @@
     //    }
 }
 
-#pragma mark - UINavigationControllerDelegate
+#pragma mark - UICollectionViewController
 
-- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
-	if (self.transitionController == animationController) {
-		return self.transitionController;
-	}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
+	cell.backgroundColor = [UIColor whiteColor];
+	cell.layer.cornerRadius = 4;
+	cell.clipsToBounds = YES;
 	
-	return nil;
+	UIImageView *backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Cell"]];
+	cell.backgroundView = backgroundView;
+	
+	return cell;
 }
 
-- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-	if(![fromVC isKindOfClass: [UICollectionViewController class]] || ![toVC isKindOfClass: [UICollectionViewController class]])
-		return nil;
-	
-	if (!self.transitionController.hasActiveInteraction)
-		return nil;
-	
-	self.transitionController.navigationOperation = operation;
-	return self.transitionController;
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+	return 20;
 }
 
-#pragma mark - dealloc
-
-- (void) dealloc {
-	self.navigationController.delegate = nil;
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+	return 1;
 }
+
+//#pragma mark - UINavigationControllerDelegate
+//
+//- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
+//	if (self.transitionController == animationController) {
+//		return self.transitionController;
+//	}
+//	
+//	return nil;
+//}
+//
+//- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+//	if(![fromVC isKindOfClass: [UICollectionViewController class]] || ![toVC isKindOfClass: [UICollectionViewController class]])
+//		return nil;
+//	
+//	if (!self.transitionController.hasActiveInteraction)
+//		return nil;
+//	
+//	self.transitionController.navigationOperation = operation;
+//	return self.transitionController;
+//}
+//
+//#pragma mark - dealloc
+//
+//- (void) dealloc {
+//	self.navigationController.delegate = nil;
+//}
 
 @end

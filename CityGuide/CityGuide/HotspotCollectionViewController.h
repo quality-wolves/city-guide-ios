@@ -8,9 +8,8 @@
 
 #import "HAPaperCollectionViewController.h"
 
-@interface HotspotCollectionViewController : HAPaperCollectionViewController
+@interface HotspotCollectionViewController : UICollectionViewController
 
 - (id) initWithHotspots: (NSArray*) hotspots;
-- (UICollectionViewController *)nextViewControllerAtPoint:(CGPoint)point;
 
 @end
