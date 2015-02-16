@@ -8,6 +8,7 @@
 
 #import "HAPaperCollectionViewController.h"
 #import "HATransitionLayout.h"
+#import <UIKit/UIKit.h>
 
 #define MAX_COUNT 20
 
@@ -38,7 +39,7 @@
     cell.backgroundColor = [UIColor whiteColor];
     cell.layer.cornerRadius = 4;
     cell.clipsToBounds = YES;
-    
+	
     UIImageView *backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Cell"]];
     cell.backgroundView = backgroundView;
     
