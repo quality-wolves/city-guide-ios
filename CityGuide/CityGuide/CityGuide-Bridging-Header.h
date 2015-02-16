@@ -11,7 +11,9 @@
 #import "HAPaperCollectionViewController.h"
 #import "BaseData.h"
 #import "DataManager.h"
-#import "Additions/UIView+LoadFromNib.h"
+
+#import "AMToolkit/AMToolkit.h"
+#import "AMToolkit/AMCategories.h"
 
 #define kAppName @"City Guide"
 

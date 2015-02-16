@@ -26,13 +26,17 @@
 		A9C8FEE81A9101C5005826D3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEE71A9101C5005826D3 /* Category.swift */; };
 		A9C8FEEC1A912FDF005826D3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEEB1A912FDF005826D3 /* DataManager.m */; };
 		A9C8FEEE1A9133ED005826D3 /* thumbnails.zip in Resources */ = {isa = PBXBuildFile; fileRef = A9C8FEED1A9133ED005826D3 /* thumbnails.zip */; };
-		A9C8FEF51A914445005826D3 /* UIView+LoadFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEF41A914445005826D3 /* UIView+LoadFromNib.m */; };
 		A9C8FEF71A914471005826D3 /* HotspotCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C8FEF61A914471005826D3 /* HotspotCollectionView.xib */; };
-		A9C8FEFA1A9145FE005826D3 /* NSObject+ClassName.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEF91A9145FE005826D3 /* NSObject+ClassName.m */; };
 		A9C8FF021A915C05005826D3 /* HotspotCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF011A915C05005826D3 /* HotspotCollectionView.m */; };
 		A9C8FF051A915C62005826D3 /* TransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF041A915C62005826D3 /* TransparentView.m */; };
 		A9C8FF091A925549005826D3 /* ZipArchiveDelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF081A925549005826D3 /* ZipArchiveDelegateHelper.m */; };
-		A9C8FF0C1A926922005826D3 /* HotspotDetailsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF0B1A926922005826D3 /* HotspotDetailsCollectionViewController.m */; };
+		A9C8FF1C1A927CAB005826D3 /* libAMToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF191A927C89005826D3 /* libAMToolkit.a */; };
+		A9C8FF1E1A927E24005826D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF1D1A927E24005826D3 /* CoreGraphics.framework */; };
+		A9C8FF221A9285AA005826D3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF211A9285AA005826D3 /* MessageUI.framework */; };
+		A9C8FF241A9285AF005826D3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF231A9285AF005826D3 /* CoreLocation.framework */; };
+		A9C8FF261A9285B6005826D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF251A9285B6005826D3 /* QuartzCore.framework */; };
+		A9C8FF2A1A9285F9005826D3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF291A9285F9005826D3 /* ImageIO.framework */; };
+		A9C8FF2C1A92863B005826D3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF2B1A92863B005826D3 /* MapKit.framework */; };
 		F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */; };
 		F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */; };
 		F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */; };
@@ -45,6 +49,23 @@
 		F5FF3FE21A8D3CF80003D13E /* HACollectionViewLargeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FDD1A8D3CF80003D13E /* HACollectionViewLargeLayout.m */; };
 		F5FF3FE51A8D40420003D13E /* HotspotCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FE41A8D40420003D13E /* HotspotCollectionViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9C8FF181A927C89005826D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C8FF141A927C88005826D3 /* AMToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AB5E5B73161077ED00F5AAFE;
+			remoteInfo = AMToolkit;
+		};
+		A9C8FF1A1A927CA7005826D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C8FF141A927C88005826D3 /* AMToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AB5E5B72161077ED00F5AAFE;
+			remoteInfo = AMToolkit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A4E9A8E31A83E9DF006E12F7 /* CityGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,19 +99,21 @@
 		A9C8FEEA1A912FDF005826D3 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		A9C8FEEB1A912FDF005826D3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A9C8FEED1A9133ED005826D3 /* thumbnails.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = thumbnails.zip; path = CityGuide/Resources/thumbnails.zip; sourceTree = "<group>"; };
-		A9C8FEF31A914445005826D3 /* UIView+LoadFromNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+LoadFromNib.h"; path = "CityGuide/Additions/UIView+LoadFromNib.h"; sourceTree = "<group>"; };
-		A9C8FEF41A914445005826D3 /* UIView+LoadFromNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+LoadFromNib.m"; path = "CityGuide/Additions/UIView+LoadFromNib.m"; sourceTree = "<group>"; };
 		A9C8FEF61A914471005826D3 /* HotspotCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotCollectionView.xib; sourceTree = "<group>"; };
-		A9C8FEF81A9145FE005826D3 /* NSObject+ClassName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+ClassName.h"; path = "CityGuide/Additions/NSObject+ClassName.h"; sourceTree = "<group>"; };
-		A9C8FEF91A9145FE005826D3 /* NSObject+ClassName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ClassName.m"; path = "CityGuide/Additions/NSObject+ClassName.m"; sourceTree = "<group>"; };
 		A9C8FF001A915C05005826D3 /* HotspotCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotCollectionView.h; sourceTree = "<group>"; };
 		A9C8FF011A915C05005826D3 /* HotspotCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotCollectionView.m; sourceTree = "<group>"; };
 		A9C8FF031A915C62005826D3 /* TransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentView.h; sourceTree = "<group>"; };
 		A9C8FF041A915C62005826D3 /* TransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentView.m; sourceTree = "<group>"; };
 		A9C8FF071A925549005826D3 /* ZipArchiveDelegateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchiveDelegateHelper.h; sourceTree = "<group>"; };
 		A9C8FF081A925549005826D3 /* ZipArchiveDelegateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipArchiveDelegateHelper.m; sourceTree = "<group>"; };
-		A9C8FF0A1A926922005826D3 /* HotspotDetailsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotDetailsCollectionViewController.h; sourceTree = "<group>"; };
-		A9C8FF0B1A926922005826D3 /* HotspotDetailsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotDetailsCollectionViewController.m; sourceTree = "<group>"; };
+		A9C8FF141A927C88005826D3 /* AMToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AMToolkit.xcodeproj; path = Frameworks/AMToolkit/AMToolkit.xcodeproj; sourceTree = "<group>"; };
+		A9C8FF1D1A927E24005826D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A9C8FF211A9285AA005826D3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A9C8FF231A9285AF005826D3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A9C8FF251A9285B6005826D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A9C8FF271A9285CE005826D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A9C8FF291A9285F9005826D3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		A9C8FF2B1A92863B005826D3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
@@ -116,6 +139,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C8FF2C1A92863B005826D3 /* MapKit.framework in Frameworks */,
+				A9C8FF2A1A9285F9005826D3 /* ImageIO.framework in Frameworks */,
+				A9C8FF261A9285B6005826D3 /* QuartzCore.framework in Frameworks */,
+				A9C8FF241A9285AF005826D3 /* CoreLocation.framework in Frameworks */,
+				A9C8FF221A9285AA005826D3 /* MessageUI.framework in Frameworks */,
+				A9C8FF1E1A927E24005826D3 /* CoreGraphics.framework in Frameworks */,
+				A9C8FF1C1A927CAB005826D3 /* libAMToolkit.a in Frameworks */,
 				A9C8FEE41A90DA5B005826D3 /* libz.dylib in Frameworks */,
 				A9C8FEE21A90DA54005826D3 /* libsqlite3.dylib in Frameworks */,
 			);
@@ -146,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				A9C8FEFB1A9152DD005826D3 /* Views */,
-				A9C8FEF21A914413005826D3 /* Additions */,
 				A9C8FED71A90D924005826D3 /* Models */,
 				F5A25C3D1A83FB7900A9B0E3 /* View Controllers */,
 				A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */,
@@ -169,6 +198,14 @@
 		A9C8FEC31A90D8B6005826D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9C8FF2B1A92863B005826D3 /* MapKit.framework */,
+				A9C8FF291A9285F9005826D3 /* ImageIO.framework */,
+				A9C8FF271A9285CE005826D3 /* AVFoundation.framework */,
+				A9C8FF251A9285B6005826D3 /* QuartzCore.framework */,
+				A9C8FF231A9285AF005826D3 /* CoreLocation.framework */,
+				A9C8FF211A9285AA005826D3 /* MessageUI.framework */,
+				A9C8FF1D1A927E24005826D3 /* CoreGraphics.framework */,
+				A9C8FF141A927C88005826D3 /* AMToolkit.xcodeproj */,
 				A9C8FEE31A90DA5B005826D3 /* libz.dylib */,
 				A9C8FEE11A90DA54005826D3 /* libsqlite3.dylib */,
 				A9C8FEC51A90D8F0005826D3 /* SSZipArchive */,
@@ -244,18 +281,6 @@
 			name = DataManager;
 			sourceTree = "<group>";
 		};
-		A9C8FEF21A914413005826D3 /* Additions */ = {
-			isa = PBXGroup;
-			children = (
-				A9C8FEF81A9145FE005826D3 /* NSObject+ClassName.h */,
-				A9C8FEF91A9145FE005826D3 /* NSObject+ClassName.m */,
-				A9C8FEF31A914445005826D3 /* UIView+LoadFromNib.h */,
-				A9C8FEF41A914445005826D3 /* UIView+LoadFromNib.m */,
-			);
-			name = Additions;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		A9C8FEFB1A9152DD005826D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +288,14 @@
 				A9C8FF041A915C62005826D3 /* TransparentView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		A9C8FF151A927C88005826D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9C8FF191A927C89005826D3 /* libAMToolkit.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
@@ -301,8 +334,6 @@
 		F5A25C471A84113400A9B0E3 /* Hotspots page */ = {
 			isa = PBXGroup;
 			children = (
-				A9C8FF0A1A926922005826D3 /* HotspotDetailsCollectionViewController.h */,
-				A9C8FF0B1A926922005826D3 /* HotspotDetailsCollectionViewController.m */,
 				F5FF3FE31A8D40420003D13E /* HotspotCollectionViewController.h */,
 				F5FF3FE41A8D40420003D13E /* HotspotCollectionViewController.m */,
 				F5A25C491A84115100A9B0E3 /* HotspotCollectionViewController.xib */,
@@ -327,6 +358,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A9C8FF1B1A927CA7005826D3 /* PBXTargetDependency */,
 			);
 			name = CityGuide;
 			productName = CityGuide;
@@ -358,12 +390,28 @@
 			mainGroup = A4E9A8DA1A83E9DF006E12F7;
 			productRefGroup = A4E9A8E41A83E9DF006E12F7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A9C8FF151A927C88005826D3 /* Products */;
+					ProjectRef = A9C8FF141A927C88005826D3 /* AMToolkit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A4E9A8E21A83E9DF006E12F7 /* CityGuide */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A9C8FF191A927C89005826D3 /* libAMToolkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAMToolkit.a;
+			remoteRef = A9C8FF181A927C89005826D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A4E9A8E11A83E9DF006E12F7 /* Resources */ = {
@@ -391,7 +439,6 @@
 			files = (
 				F5FF3FDE1A8D3CF80003D13E /* HAPaperCollectionViewController.m in Sources */,
 				A9C8FF021A915C05005826D3 /* HotspotCollectionView.m in Sources */,
-				A9C8FEF51A914445005826D3 /* UIView+LoadFromNib.m in Sources */,
 				A9C8FEE01A90D93E005826D3 /* SQLiteWrapper.m in Sources */,
 				F5FF3FE01A8D3CF80003D13E /* HATransitionLayout.m in Sources */,
 				A9C8FEDE1A90D93E005826D3 /* BaseData.m in Sources */,
@@ -409,9 +456,7 @@
 				F5FF3FE11A8D3CF80003D13E /* HACollectionViewSmallLayout.m in Sources */,
 				A9C8FED31A90D921005826D3 /* ioapi.c in Sources */,
 				A9C8FED61A90D921005826D3 /* zip.c in Sources */,
-				A9C8FF0C1A926922005826D3 /* HotspotDetailsCollectionViewController.m in Sources */,
 				F5FF3FE51A8D40420003D13E /* HotspotCollectionViewController.m in Sources */,
-				A9C8FEFA1A9145FE005826D3 /* NSObject+ClassName.m in Sources */,
 				A9C8FF091A925549005826D3 /* ZipArchiveDelegateHelper.m in Sources */,
 				A9C8FEEC1A912FDF005826D3 /* DataManager.m in Sources */,
 				F5FF3FE21A8D3CF80003D13E /* HACollectionViewLargeLayout.m in Sources */,
@@ -419,6 +464,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9C8FF1B1A927CA7005826D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AMToolkit;
+			targetProxy = A9C8FF1A1A927CA7005826D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */ = {
@@ -466,12 +519,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"Frameworks/**",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				USER_HEADER_SEARCH_PATHS = Frameworks/;
 			};
 			name = Debug;
 		};
@@ -503,10 +564,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"Frameworks/**",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = Frameworks/;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -517,11 +586,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CityGuide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				USER_HEADER_SEARCH_PATHS = "Frameworks/**";
 			};
 			name = Debug;
 		};
@@ -531,10 +600,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CityGuide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
-				USER_HEADER_SEARCH_PATHS = "Frameworks/**";
 			};
 			name = Release;
 		};

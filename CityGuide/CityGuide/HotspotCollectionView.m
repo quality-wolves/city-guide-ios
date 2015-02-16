@@ -7,7 +7,7 @@
 //
 
 #import "HotspotCollectionView.h"
-#import "Additions/UIView+LoadFromNib.h"
+#import "AMToolkit/AMToolkit.h"
 
 @implementation HotspotCollectionView
 
