@@ -10,6 +10,8 @@
 		A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */; };
 		A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */; };
 		A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */; };
+		A4E9A9141A9279C0006E12F7 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A9121A9279C0006E12F7 /* MapViewController.m */; };
+		A4E9A9151A9279C0006E12F7 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A9131A9279C0006E12F7 /* MapViewController.xib */; };
 		A9C8FEC81A90D8FF005826D3 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEC71A90D8FF005826D3 /* SSZipArchive.m */; };
 		A9C8FED31A90D921005826D3 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FECB1A90D921005826D3 /* ioapi.c */; };
 		A9C8FED41A90D921005826D3 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FECD1A90D921005826D3 /* mztools.c */; };
@@ -50,6 +52,9 @@
 		A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A4E9A8F21A83E9DF006E12F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A4E9A9111A9279C0006E12F7 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		A4E9A9121A9279C0006E12F7 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		A4E9A9131A9279C0006E12F7 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		A9C8FEC61A90D8FF005826D3 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = Frameworks/SSZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
 		A9C8FEC71A90D8FF005826D3 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = Frameworks/SSZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
 		A9C8FECA1A90D921005826D3 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = Frameworks/SSZipArchive/minizip/crypt.h; sourceTree = "<group>"; };
@@ -277,6 +282,9 @@
 				F5A25C421A84033C00A9B0E3 /* Collection cell */,
 				F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */,
 				F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */,
+				A4E9A9111A9279C0006E12F7 /* MapViewController.h */,
+				A4E9A9121A9279C0006E12F7 /* MapViewController.m */,
+				A4E9A9131A9279C0006E12F7 /* MapViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -366,6 +374,7 @@
 				A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */,
 				A9C8FEF71A914471005826D3 /* HotspotCollectionView.xib in Resources */,
 				A9C8FEEE1A9133ED005826D3 /* thumbnails.zip in Resources */,
+				A4E9A9151A9279C0006E12F7 /* MapViewController.xib in Resources */,
 				F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */,
 				A9C8FEE61A90EF52005826D3 /* development.sqlite3 in Resources */,
 				F5A25C4B1A84115100A9B0E3 /* HotspotCollectionViewController.xib in Resources */,
@@ -387,6 +396,7 @@
 				F5FF3FE01A8D3CF80003D13E /* HATransitionLayout.m in Sources */,
 				A9C8FEDE1A90D93E005826D3 /* BaseData.m in Sources */,
 				A9C8FED41A90D921005826D3 /* mztools.c in Sources */,
+				A4E9A9141A9279C0006E12F7 /* MapViewController.m in Sources */,
 				A9C8FEE81A9101C5005826D3 /* Category.swift in Sources */,
 				F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */,
 				A9C8FF051A915C62005826D3 /* TransparentView.m in Sources */,
