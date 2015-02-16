@@ -13,7 +13,7 @@
 #import "DataManager.h"
 #import "HotspotCollectionView.h"
 #import "HotspotDetailsCell.h"
-#import "CollectionLayoutManager.h"
+#import "CollectionLayouts.h"
 
 #import "CityGuide-Swift.h"
 
@@ -33,6 +33,8 @@
 
 @property (nonatomic, strong) NSTimer *slideTimer;
 
+@property (nonatomic, strong) CollectionLayouts *collectionLayouts;
+
 @end
 
 
@@ -40,7 +42,9 @@
 @implementation HotspotCollectionViewController
 
 - (id) init {
-    if (self = [super initWithCollectionViewLayout: [CollectionLayoutManager instance].smallLayout]) {
+	CollectionLayouts *layouts = [CollectionLayouts new];
+    if (self = [super initWithCollectionViewLayout: layouts.smallLayout]) {
+		self.collectionLayouts = layouts;
     }
 	
     return self;
@@ -214,6 +218,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	HotspotDetailsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: [HotspotDetailsCell className] forIndexPath:indexPath];
+	cell.collectionLayouts = self.collectionLayouts;
 	cell.hotspot = self.hotspots[indexPath.row];
 	
 	return cell;
@@ -236,7 +241,7 @@
 - (void) showDetails {
 	[self stopSlideTimer];
 	
-	[self.collectionView setCollectionViewLayout: [CollectionLayoutManager instance].largeLayout animated:YES];
+	[self.collectionView setCollectionViewLayout: self.collectionLayouts.largeLayout animated:YES];
 	[self.collectionView setDecelerationRate: UIScrollViewDecelerationRateFast];
 	
 	UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
@@ -248,7 +253,7 @@
 - (void) hideDetails {
 	[self startSlideTimer];
 
-	[self.collectionView setCollectionViewLayout: [CollectionLayoutManager instance].smallLayout animated:YES];
+	[self.collectionView setCollectionViewLayout: self.collectionLayouts.smallLayout animated:YES];
 	[self.collectionView setDecelerationRate: UIScrollViewDecelerationRateNormal];
 	[self.view insertSubview: self.hotspotView aboveSubview:self.collectionView];
 }
