@@ -13,4 +13,6 @@
 #import "DataManager.h"
 #import "Additions/UIView+LoadFromNib.h"
 
+#define kAppName @"City Guide"
+
 #endif

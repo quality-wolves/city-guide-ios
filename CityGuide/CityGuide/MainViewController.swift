@@ -71,6 +71,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 		let category = categories[indexPath.row]
 		let hotspots = Hotspot.hotspotsByCategory(category)
 		
+        if hotspots.count == 0 {
+            var alert = UIAlertView(title: kAppName, message: "Sorry, there is no items for " + category.name, delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+            return
+        }
+        
 		var hotspotsController = HotspotCollectionViewController(hotspots: hotspots)
 //		navigationController = UINavigationController(rootViewController: mainVC)
 //		navigationController?.navigationBarHidden = true;
