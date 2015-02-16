@@ -85,7 +85,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             alert.show()
             return
         }
-        
+		
 		var hotspotsController = HotspotCollectionViewController(hotspots: hotspots)
 //		navigationController = UINavigationController(rootViewController: mainVC)
 //		navigationController?.navigationBarHidden = true;

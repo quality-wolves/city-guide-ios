@@ -39,6 +39,8 @@
 		A9C8FF261A9285B6005826D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF251A9285B6005826D3 /* QuartzCore.framework */; };
 		A9C8FF2A1A9285F9005826D3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF291A9285F9005826D3 /* ImageIO.framework */; };
 		A9C8FF2C1A92863B005826D3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C8FF2B1A92863B005826D3 /* MapKit.framework */; };
+		A9C8FF331A92A1A3005826D3 /* HotspotDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF311A92A1A3005826D3 /* HotspotDetailsCell.m */; };
+		A9C8FF341A92A1A3005826D3 /* HotspotDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C8FF321A92A1A3005826D3 /* HotspotDetailsCell.xib */; };
 		F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */; };
 		F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */; };
 		F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */; };
@@ -120,6 +122,9 @@
 		A9C8FF271A9285CE005826D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A9C8FF291A9285F9005826D3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		A9C8FF2B1A92863B005826D3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A9C8FF301A92A1A3005826D3 /* HotspotDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotDetailsCell.h; sourceTree = "<group>"; };
+		A9C8FF311A92A1A3005826D3 /* HotspotDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotDetailsCell.m; sourceTree = "<group>"; };
+		A9C8FF321A92A1A3005826D3 /* HotspotDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotDetailsCell.xib; sourceTree = "<group>"; };
 		F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F5A25C431A84059500A9B0E3 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
@@ -366,6 +371,9 @@
 				A9C8FF001A915C05005826D3 /* HotspotCollectionView.h */,
 				A9C8FF011A915C05005826D3 /* HotspotCollectionView.m */,
 				A9C8FEF61A914471005826D3 /* HotspotCollectionView.xib */,
+				A9C8FF301A92A1A3005826D3 /* HotspotDetailsCell.h */,
+				A9C8FF311A92A1A3005826D3 /* HotspotDetailsCell.m */,
+				A9C8FF321A92A1A3005826D3 /* HotspotDetailsCell.xib */,
 			);
 			name = "Hotspots page";
 			sourceTree = "<group>";
@@ -448,6 +456,7 @@
 				A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */,
 				A9C8FEF71A914471005826D3 /* HotspotCollectionView.xib in Resources */,
 				A9C8FEEE1A9133ED005826D3 /* thumbnails.zip in Resources */,
+				A9C8FF341A92A1A3005826D3 /* HotspotDetailsCell.xib in Resources */,
 				A4E9A9151A9279C0006E12F7 /* MapViewController.xib in Resources */,
 				F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */,
 				A9C8FEE61A90EF52005826D3 /* development.sqlite3 in Resources */,
@@ -475,6 +484,7 @@
 				A4E9A9231A9290E6006E12F7 /* HotspotAnnotationView.m in Sources */,
 				A9C8FF051A915C62005826D3 /* TransparentView.m in Sources */,
 				A9C8FED51A90D921005826D3 /* unzip.c in Sources */,
+				A9C8FF331A92A1A3005826D3 /* HotspotDetailsCell.m in Sources */,
 				A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */,
 				F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */,
 				F5FF3FDF1A8D3CF80003D13E /* HATransitionController.m in Sources */,

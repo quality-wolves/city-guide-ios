@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HotspotDetailsCell" id="gTV-IL-0wX" customClass="HotspotDetailsCell">
+            <rect key="frame" x="0.0" y="0.0" width="306" height="535"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="306" height="535"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wbM-0C-FiW">
+                        <rect key="frame" x="10" y="10" width="286" height="286"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="wbM-0C-FiW" secondAttribute="height" id="loe-Hp-bNc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rc-pc-tcF">
+                        <rect key="frame" x="10" y="316" width="286" height="22"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-1I-MQK">
+                        <rect key="frame" x="10" y="353" width="286" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mgD-1I-MQK" firstAttribute="top" secondItem="8Rc-pc-tcF" secondAttribute="bottom" constant="15" id="9IP-9W-13P"/>
+                <constraint firstAttribute="trailing" secondItem="mgD-1I-MQK" secondAttribute="trailing" constant="10" id="BOc-uI-nmb"/>
+                <constraint firstAttribute="trailing" secondItem="wbM-0C-FiW" secondAttribute="trailing" constant="10" id="I3u-rA-oTE"/>
+                <constraint firstItem="wbM-0C-FiW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="RQ5-wr-7B9"/>
+                <constraint firstItem="mgD-1I-MQK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="h6z-7v-LWu"/>
+                <constraint firstItem="wbM-0C-FiW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="idr-1N-ThD"/>
+                <constraint firstItem="8Rc-pc-tcF" firstAttribute="top" secondItem="wbM-0C-FiW" secondAttribute="bottom" constant="20" id="lSP-7j-RJp"/>
+                <constraint firstItem="8Rc-pc-tcF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="qbb-xP-6It"/>
+                <constraint firstAttribute="trailing" secondItem="8Rc-pc-tcF" secondAttribute="trailing" constant="10" id="sGI-xg-kq7"/>
+            </constraints>
+            <size key="customSize" width="306" height="535"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="descriptionLabel" destination="mgD-1I-MQK" id="UFB-du-2UT"/>
+                <outlet property="imageView" destination="wbM-0C-FiW" id="cA2-p5-mZa"/>
+                <outlet property="titleLabel" destination="8Rc-pc-tcF" id="ask-Zw-Rmy"/>
+            </connections>
+            <point key="canvasLocation" x="526" y="503.5"/>
+        </collectionViewCell>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
