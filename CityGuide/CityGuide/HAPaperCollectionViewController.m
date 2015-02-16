@@ -10,7 +10,6 @@
 #import "HATransitionLayout.h"
 
 #define MAX_COUNT 20
-#define CELL_ID @"CELL_ID"
 
 @interface HAPaperCollectionViewController ()
 
@@ -23,8 +22,6 @@
 {
     if (self = [super initWithCollectionViewLayout:layout])
     {
-        [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
-        [self.collectionView setBackgroundColor:[UIColor clearColor]];
     }
     return self;
 }
@@ -37,7 +34,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
     cell.layer.cornerRadius = 4;
     cell.clipsToBounds = YES;
