@@ -13,6 +13,8 @@ class Hotspot: BaseData {
 	var name: String?
 	var desc: String?
 	var imageFileName: String?
+    var lat: Double = 0
+    var lon: Double = 0
 	var category: Category?
 
 	override init() {
@@ -24,7 +26,7 @@ class Hotspot: BaseData {
 	}
 	
 	class private func dataRequestString() -> String {
-		return "SELECT id, name, description, category, image_file_name FROM hotspots"
+		return "SELECT id, name, description, category, image_file_name, lat, lng FROM hotspots"
 	}
 	
 	class func hotspotById(id: UInt) -> Hotspot {
@@ -70,6 +72,9 @@ class Hotspot: BaseData {
 		item.desc = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(2))));
 //		item.category = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(3))));
 		item.imageFileName = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(4))));
+        
+        item.lat = sqlite3_column_double(stmt, CInt(5))
+        item.lon = sqlite3_column_double(stmt, CInt(6))
 		
 		return item;
 	}

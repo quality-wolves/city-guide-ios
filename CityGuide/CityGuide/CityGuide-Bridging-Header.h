@@ -9,6 +9,7 @@
 #import "HotspotCollectionViewController.h"
 #import "HATransitionController.h"
 #import "HAPaperCollectionViewController.h"
+#import "MapViewController.h"
 #import "BaseData.h"
 #import "DataManager.h"
 

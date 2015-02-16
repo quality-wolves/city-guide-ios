@@ -12,6 +12,8 @@
 		A4E9A8F31A83E9DF006E12F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */; };
 		A4E9A9141A9279C0006E12F7 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A9121A9279C0006E12F7 /* MapViewController.m */; };
 		A4E9A9151A9279C0006E12F7 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A9131A9279C0006E12F7 /* MapViewController.xib */; };
+		A4E9A9201A928FCE006E12F7 /* HotspotAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A91F1A928FCE006E12F7 /* HotspotAnnotation.m */; };
+		A4E9A9231A9290E6006E12F7 /* HotspotAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A9221A9290E6006E12F7 /* HotspotAnnotationView.m */; };
 		A9C8FEC81A90D8FF005826D3 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEC71A90D8FF005826D3 /* SSZipArchive.m */; };
 		A9C8FED31A90D921005826D3 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FECB1A90D921005826D3 /* ioapi.c */; };
 		A9C8FED41A90D921005826D3 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FECD1A90D921005826D3 /* mztools.c */; };
@@ -76,6 +78,10 @@
 		A4E9A9111A9279C0006E12F7 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		A4E9A9121A9279C0006E12F7 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		A4E9A9131A9279C0006E12F7 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		A4E9A91E1A928FCE006E12F7 /* HotspotAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotAnnotation.h; sourceTree = "<group>"; };
+		A4E9A91F1A928FCE006E12F7 /* HotspotAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotAnnotation.m; sourceTree = "<group>"; };
+		A4E9A9211A9290E6006E12F7 /* HotspotAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotAnnotationView.h; sourceTree = "<group>"; };
+		A4E9A9221A9290E6006E12F7 /* HotspotAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotAnnotationView.m; sourceTree = "<group>"; };
 		A9C8FEC61A90D8FF005826D3 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = Frameworks/SSZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
 		A9C8FEC71A90D8FF005826D3 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = Frameworks/SSZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
 		A9C8FECA1A90D921005826D3 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = Frameworks/SSZipArchive/minizip/crypt.h; sourceTree = "<group>"; };
@@ -195,6 +201,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A4E9A91D1A928F25006E12F7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9A9111A9279C0006E12F7 /* MapViewController.h */,
+				A4E9A9121A9279C0006E12F7 /* MapViewController.m */,
+				A4E9A9131A9279C0006E12F7 /* MapViewController.xib */,
+				A4E9A91E1A928FCE006E12F7 /* HotspotAnnotation.h */,
+				A4E9A91F1A928FCE006E12F7 /* HotspotAnnotation.m */,
+				A4E9A9211A9290E6006E12F7 /* HotspotAnnotationView.h */,
+				A4E9A9221A9290E6006E12F7 /* HotspotAnnotationView.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		A9C8FEC31A90D8B6005826D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +321,7 @@
 		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A4E9A91D1A928F25006E12F7 /* Map */,
 				F5FF3FD41A8D3CF80003D13E /* HAPaperCollectionViewController.h */,
 				F5FF3FD51A8D3CF80003D13E /* HAPaperCollectionViewController.m */,
 				F5FF3FD61A8D3CF80003D13E /* HATransitionController.h */,
@@ -315,9 +336,6 @@
 				F5A25C421A84033C00A9B0E3 /* Collection cell */,
 				F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */,
 				F5A25C3F1A83FCAC00A9B0E3 /* MainViewController.xib */,
-				A4E9A9111A9279C0006E12F7 /* MapViewController.h */,
-				A4E9A9121A9279C0006E12F7 /* MapViewController.m */,
-				A4E9A9131A9279C0006E12F7 /* MapViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -446,6 +464,7 @@
 				A4E9A9141A9279C0006E12F7 /* MapViewController.m in Sources */,
 				A9C8FEE81A9101C5005826D3 /* Category.swift in Sources */,
 				F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */,
+				A4E9A9231A9290E6006E12F7 /* HotspotAnnotationView.m in Sources */,
 				A9C8FF051A915C62005826D3 /* TransparentView.m in Sources */,
 				A9C8FED51A90D921005826D3 /* unzip.c in Sources */,
 				A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */,
@@ -455,6 +474,7 @@
 				A9C8FEC81A90D8FF005826D3 /* SSZipArchive.m in Sources */,
 				F5FF3FE11A8D3CF80003D13E /* HACollectionViewSmallLayout.m in Sources */,
 				A9C8FED31A90D921005826D3 /* ioapi.c in Sources */,
+				A4E9A9201A928FCE006E12F7 /* HotspotAnnotation.m in Sources */,
 				A9C8FED61A90D921005826D3 /* zip.c in Sources */,
 				F5FF3FE51A8D40420003D13E /* HotspotCollectionViewController.m in Sources */,
 				A9C8FF091A925549005826D3 /* ZipArchiveDelegateHelper.m in Sources */,
