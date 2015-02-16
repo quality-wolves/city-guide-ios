@@ -179,8 +179,6 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear: animated];
-	
-	self.navigationController.delegate = nil;
 }
 
 #pragma mark - Change slider
@@ -227,6 +225,12 @@
 	
 	self.transitionController.navigationOperation = operation;
 	return self.transitionController;
+}
+
+#pragma mark - dealloc
+
+- (void) dealloc {
+	self.navigationController.delegate = nil;
 }
 
 @end
