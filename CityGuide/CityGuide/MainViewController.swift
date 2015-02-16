@@ -28,9 +28,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLayoutSubviews() {
         var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        var padding:CGFloat = 5
+        var padding:CGFloat = 2
         var w:CGFloat = (self.view.frame.size.width - padding)/2.0
         flowLayout?.itemSize = CGSizeMake(w, w)
+        flowLayout?.minimumLineSpacing = padding;
+
         self.collectionView.collectionViewLayout = flowLayout!
     }
 
