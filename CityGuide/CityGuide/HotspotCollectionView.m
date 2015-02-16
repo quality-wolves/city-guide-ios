@@ -15,4 +15,9 @@
 	return [self loadFromNib];
 }
 
+- (IBAction) backButtonClicked {
+	if(self.backButtonAction)
+		self.backButtonAction();
+}
+
 @end

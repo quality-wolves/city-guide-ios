@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIButton *backButton;
+@property (nonatomic, strong) void (^backButtonAction)();
 
 + (instancetype) create;
 

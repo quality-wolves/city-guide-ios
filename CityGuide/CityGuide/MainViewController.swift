@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet weak var loadingView: UIView!
 
 	private var categories: [Category]!
     
@@ -19,6 +20,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.collectionView.registerNib(UINib(nibName: "MenuCollectionCell", bundle: nil), forCellWithReuseIdentifier: "MenuCollectionCell")
 		
 		categories = Category.allCategories();
+		
+		DataManager.instance().downloadImages({ () -> Void in
+			self.loadingView.hidden = true
+		});
     }
     
     override func viewDidLayoutSubviews() {
@@ -72,14 +77,4 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 		
         self.navigationController?.pushViewController(hotspotsController, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
