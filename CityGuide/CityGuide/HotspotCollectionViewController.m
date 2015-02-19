@@ -14,9 +14,10 @@
 #import "HotspotCollectionView.h"
 #import "HotspotDetailsCell.h"
 #import "CollectionLayouts.h"
-
+#import "HATransitionLayout.h"
 #import "CityGuide-Swift.h"
-
+#import "TLTransitionLayout.h"
+#import "UICollectionView+TLTransitioning.h"
 
 
 @interface HotspotCollectionViewController () <HotspotDetailsDelegate> //<UINavigationControllerDelegate, HATransitionControllerDelegate>
@@ -225,8 +226,14 @@
 	return cell;
 }
 
+//
+- (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout {
+    return [[TLTransitionLayout alloc] initWithCurrentLayout:fromLayout nextLayout:toLayout];
+}
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-	[self showDetails];
+    [self showDetailsForIndexPath: (NSIndexPath *) indexPath];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -239,24 +246,34 @@
 
 #pragma mark - Details
 
-- (void) showDetails {
+- (void) showDetailsForIndexPath: (NSIndexPath *) indexPath {
 	[self stopSlideTimer];
-	
-	[self.collectionView setCollectionViewLayout: self.collectionLayouts.largeLayout animated:YES];
+
+    UICollectionViewLayout *toLayout = self.collectionLayouts.largeLayout; 
+    CGFloat duration = 0.7;
+    AHEasingFunction easing = QuarticEaseInOut;
+    TLTransitionLayout *layout = (TLTransitionLayout *)[self.collectionView transitionToCollectionViewLayout:toLayout duration:duration easing:easing completion:nil];
+    TLTransitionLayoutIndexPathPlacement placement = TLTransitionLayoutIndexPathPlacementCenter;
+    CGPoint toOffset = [self.collectionView toContentOffsetForLayout:layout indexPaths:@[indexPath] placement:placement];
+    layout.toContentOffset = toOffset;
+    [self.collectionView setDecelerationRate: UIScrollViewDecelerationRateNormal];
+    [self.view insertSubview: self.hotspotView aboveSubview:self.collectionView];
+
+    
 	[self.collectionView setDecelerationRate: UIScrollViewDecelerationRateFast];
-	
-	UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
-	[self.collectionView addGestureRecognizer:pinchGesture];
 	
 	[self.view insertSubview: self.hotspotView belowSubview:self.collectionView];
 }
 
+
+
 - (void) hideDetails {
 	[self startSlideTimer];
-
-	[self.collectionView setCollectionViewLayout: self.collectionLayouts.smallLayout animated:YES];
-	[self.collectionView setDecelerationRate: UIScrollViewDecelerationRateNormal];
-	[self.view insertSubview: self.hotspotView aboveSubview:self.collectionView];
+    UICollectionViewLayout *toLayout = self.collectionLayouts.smallLayout;
+    CGFloat duration = 0.7;
+    AHEasingFunction easing = CubicEaseInOut;
+    TLTransitionLayout *layout = (TLTransitionLayout *)[self.collectionView transitionToCollectionViewLayout:toLayout duration:duration easing:easing completion:nil];
+    
 }
 
 - (void)handlePinch:(UIPinchGestureRecognizer *)sender {
