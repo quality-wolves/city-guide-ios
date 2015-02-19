@@ -9,6 +9,8 @@
 #import "HotspotDetailsCell.h"
 #import "DataManager.h"
 #import "CollectionLayouts.h"
+#import "HACollectionViewLargeLayout.h"
+#import "HACollectionViewSmallLayout.h"
 #import "CityGuide-Swift.h"
 
 @interface HotspotDetailsCell () <UIScrollViewDelegate>
@@ -28,7 +30,8 @@
     _scrollView.delegate = self;
     _reachedPositiveScrollIndex = YES;
     [_scrollView addSubview:self.refreshControl];
-    
+    [self makeSmallLayout];
+
 }
 
 - (void) reload {
@@ -46,7 +49,7 @@
     
     offset = fabs(offset);
     
-    double n = 150.f;
+    double n = 65.f;
 
     double alpha = fabs(1 - offset/n);
     if (offset > n)
@@ -60,8 +63,12 @@
 
 - (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     NSLog(@"offset: %f", scrollView.contentOffset.y);
-    if (scrollView.contentOffset.y < -30) {
-//        NSLog(@"=== reload ===");
+    if (scrollView.contentOffset.y < -65) {
+        _reachedPositiveScrollIndex = YES;
+        [UIView animateWithDuration:0.7f animations:^() {
+            self.alpha = 1;
+
+        }];
         [self reload];
     }
     
@@ -70,15 +77,39 @@
 
 
 - (void)setHotspot:(Hotspot *)hotspot {
+    _hotspot = hotspot;
     self.imageView.image = [[DataManager instance] imageByHotspot: hotspot];
     self.titleLabel.text = hotspot.name;
-    self.descriptionLabel.text = hotspot.desc;
+}
+
+- (void) makeSmallLayout {
+    [UIView animateWithDuration:0.7f animations:^() {
+        self.descriptionLabel.alpha = 0;
+        self.descriptionLabel.text = @"";
+    }];
+
+}
+
+- (void) makeLargeLayout {
+    [UIView animateWithDuration:0.5f animations:^() {
+        self.descriptionLabel.alpha = 1;
+        self.descriptionLabel.text = _hotspot.desc;
+    }];
 }
 
 - (void)willTransitionFromLayout:(UICollectionViewLayout *)oldLayout toLayout:(UICollectionViewLayout *)newLayout {
     [super willTransitionFromLayout: oldLayout toLayout: newLayout];
+
+    if ([oldLayout isKindOfClass:[HACollectionViewLargeLayout class]])
+        [self makeSmallLayout];
     
     self.scrollView.userInteractionEnabled = newLayout == self.collectionLayouts.largeLayout;
+}
+
+- (void)didTransitionFromLayout:(UICollectionViewLayout *)oldLayout toLayout:(UICollectionViewLayout *)newLayout {
+    if ([newLayout isKindOfClass:[HACollectionViewLargeLayout class]])
+        [self makeLargeLayout];
+    
 }
 
 @end

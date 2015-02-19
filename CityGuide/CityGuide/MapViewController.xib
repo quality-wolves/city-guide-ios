@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController">
             <connections>
+                <outlet property="backButton" destination="mvG-Fd-X2t" id="DNQ-su-Im2"/>
                 <outlet property="mapView" destination="Bpb-R9-ERc" id="qqE-Tc-GNP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,22 +18,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of Barcelona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtC-Tm-tdO">
-                    <rect key="frame" x="10" y="40" width="91" height="18"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <rect key="frame" x="10" y="44" width="77" height="16"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                     <color key="textColor" white="0.81118935032894746" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvG-Fd-X2t">
-                    <rect key="frame" x="10" y="8" width="104" height="30"/>
+                    <rect key="frame" x="10" y="16" width="104" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="104" id="aNy-8I-Pld"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                    <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                    <inset key="titleEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="31" maxY="0.0"/>
                     <state key="normal" title="Map" image="backButtonIcon">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="highlighted">
                         <color key="titleColor" red="0.532907197" green="0.532907197" blue="0.532907197" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,12 +51,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="xtC-Tm-tdO" firstAttribute="top" secondItem="mvG-Fd-X2t" secondAttribute="bottom" constant="2" id="0Ek-35-vJG"/>
+                <constraint firstItem="xtC-Tm-tdO" firstAttribute="top" secondItem="mvG-Fd-X2t" secondAttribute="bottom" constant="-2" id="0Ek-35-vJG"/>
                 <constraint firstItem="xtC-Tm-tdO" firstAttribute="top" secondItem="mvG-Fd-X2t" secondAttribute="bottom" constant="2" id="18X-NH-BjG"/>
                 <constraint firstItem="xtC-Tm-tdO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="DnF-rL-TmO"/>
                 <constraint firstItem="mvG-Fd-X2t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="I4M-DM-gAs"/>
                 <constraint firstItem="xtC-Tm-tdO" firstAttribute="baseline" secondItem="mvG-Fd-X2t" secondAttribute="baseline" id="KJS-eV-bMR"/>
-                <constraint firstItem="mvG-Fd-X2t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="iii-0n-UaF"/>
+                <constraint firstItem="mvG-Fd-X2t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="iii-0n-UaF"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <variation key="default">

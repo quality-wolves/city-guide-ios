@@ -12,12 +12,15 @@
 #import "CityGuide-Swift.h"
 #import "HotspotAnnotation.h"
 #import "HotspotAnnotationView.h"
+#import "HotspotsDetailsViewController.h"
+
 
 @interface MapViewController () <MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSArray *hotspots;
 @property (strong, nonatomic) NSArray *annotations;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property BOOL didUpdatedUserLocBefore;
 @end
 
@@ -25,6 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.backButton setImage:[[self.backButton imageForState:UIControlStateNormal] imageTintedWithColor:[UIColor blackColor]] forState:UIControlStateNormal];
+
     self.didUpdatedUserLocBefore = NO;
     self.locationManager = [CLLocationManager new];
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
@@ -53,6 +59,14 @@
 
 - (void) mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
 //    [_mapView showAnnotations:self.annotations animated:NO];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    if ([view.annotation isKindOfClass:[HotspotAnnotation class]]) {
+        HotspotAnnotation *ann = (HotspotAnnotation *) view.annotation;
+        HotspotsDetailsViewController *vc = [[HotspotsDetailsViewController alloc] initWithHotspot:ann.hotspot];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
