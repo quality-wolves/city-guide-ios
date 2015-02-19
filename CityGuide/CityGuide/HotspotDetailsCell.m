@@ -37,11 +37,15 @@
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"%f", scrollView.contentOffset.y);
     double offset = scrollView.contentOffset.y;
-    if (offset > 0)
+    if (offset > 0 || _reachedPositiveScrollIndex) {
+        _reachedPositiveScrollIndex = YES;
         return;
+    }
     
     offset = fabs(offset);
+    
     double n = 100.f;
 
     double alpha = fabs(1 - offset/n);
@@ -50,8 +54,12 @@
     self.alpha = alpha;
 }
 
+- (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    _reachedPositiveScrollIndex = NO;
+}
+
 - (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    NSLog(@"offset: %f", scrollView.contentOffset.y);
+    NSLog(@"offset: %f", scrollView.contentOffset.y);
     if (scrollView.contentOffset.y < -30) {
 //        NSLog(@"=== reload ===");
         [self reload];
