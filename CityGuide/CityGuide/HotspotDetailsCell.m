@@ -42,9 +42,10 @@
         return;
     
     offset = fabs(offset);
-//    NSLog(@"offset: %f", offset);
-    double alpha = fabs(100 - offset)/100.f;
-    if (offset > 100)
+    double n = 100.f;
+
+    double alpha = fabs(1 - offset/n);
+    if (offset > n)
         alpha = 0.f;
     self.alpha = alpha;
 }
