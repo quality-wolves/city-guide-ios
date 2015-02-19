@@ -82,7 +82,9 @@ class Hotspot: BaseData {
 		item.desc = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(2))));
         var n = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(3))))
         item.category = Category.categoryByName(n!)
-		item.imageFileName = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(4))));
+        var filename = String(format: "hotspots-%d-%@", item.id, String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(4))))!);
+        var pathExtension = filename.pathExtension
+        item.imageFileName = String(format: "%@-large.%@", filename.stringByDeletingPathExtension, pathExtension)
         
         item.lat = sqlite3_column_double(stmt, CInt(5))
         item.lon = sqlite3_column_double(stmt, CInt(6))

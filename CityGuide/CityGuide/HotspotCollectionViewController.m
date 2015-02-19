@@ -19,7 +19,7 @@
 
 
 
-@interface HotspotCollectionViewController () //<UINavigationControllerDelegate, HATransitionControllerDelegate>
+@interface HotspotCollectionViewController () <HotspotDetailsDelegate> //<UINavigationControllerDelegate, HATransitionControllerDelegate>
 
 @property (nonatomic, strong) HATransitionController *transitionController;
 
@@ -220,6 +220,7 @@
 	HotspotDetailsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: [HotspotDetailsCell className] forIndexPath:indexPath];
 	cell.collectionLayouts = self.collectionLayouts;
 	cell.hotspot = self.hotspots[indexPath.row];
+    cell.delegate = self;
 	
 	return cell;
 }
@@ -264,6 +265,10 @@
 		[self hideDetails];
 		[self.collectionView removeGestureRecognizer: sender];
 	}
+}
+
+- (void) shouldCloseHotspotsDetails:(HotspotDetailsCell *)cell {
+    [self hideDetails];
 }
 
 //#pragma mark - UINavigationControllerDelegate
