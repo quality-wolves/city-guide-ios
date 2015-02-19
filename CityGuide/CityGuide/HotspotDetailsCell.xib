@@ -24,14 +24,14 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rc-pc-tcF">
-                                <rect key="frame" x="10" y="316" width="286" height="22"/>
+                                <rect key="frame" x="10" y="304" width="286" height="22"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-1I-MQK">
-                                <rect key="frame" x="10" y="353" width="286" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <rect key="frame" x="10" y="334" width="286" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -40,14 +40,14 @@
                             <constraint firstAttribute="bottom" secondItem="mgD-1I-MQK" secondAttribute="bottom" constant="15" id="8Mc-Lx-Zdh"/>
                             <constraint firstItem="8Rc-pc-tcF" firstAttribute="leading" secondItem="mgD-1I-MQK" secondAttribute="leading" id="9Be-xa-ujM"/>
                             <constraint firstAttribute="trailing" secondItem="wbM-0C-FiW" secondAttribute="trailing" constant="10" id="G5M-gg-UXW"/>
-                            <constraint firstItem="mgD-1I-MQK" firstAttribute="top" secondItem="8Rc-pc-tcF" secondAttribute="bottom" constant="15" id="Qtz-mo-Xwh"/>
+                            <constraint firstItem="mgD-1I-MQK" firstAttribute="top" secondItem="8Rc-pc-tcF" secondAttribute="bottom" constant="8" id="Qtz-mo-Xwh"/>
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="leading" secondItem="EZ5-YA-VTF" secondAttribute="leading" constant="10" id="T2X-jM-iTe"/>
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="leading" secondItem="8Rc-pc-tcF" secondAttribute="leading" id="Tgh-0w-jkN"/>
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="top" secondItem="EZ5-YA-VTF" secondAttribute="top" constant="10" id="Yod-6K-yek"/>
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="trailing" secondItem="8Rc-pc-tcF" secondAttribute="trailing" id="ZcW-qP-xC0"/>
                             <constraint firstItem="8Rc-pc-tcF" firstAttribute="trailing" secondItem="mgD-1I-MQK" secondAttribute="trailing" id="b4X-tw-KgS"/>
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="width" secondItem="EZ5-YA-VTF" secondAttribute="width" constant="-20" id="bc5-ti-cZD"/>
-                            <constraint firstItem="8Rc-pc-tcF" firstAttribute="top" secondItem="wbM-0C-FiW" secondAttribute="bottom" constant="20" id="wYt-wj-LfD"/>
+                            <constraint firstItem="8Rc-pc-tcF" firstAttribute="top" secondItem="wbM-0C-FiW" secondAttribute="bottom" constant="8" id="wYt-wj-LfD"/>
                         </constraints>
                     </scrollView>
                 </subviews>

@@ -249,13 +249,17 @@
 - (void) showDetailsForIndexPath: (NSIndexPath *) indexPath {
 	[self stopSlideTimer];
 
+    [self.collectionView cancelInteractiveTransitionInPlaceWithCompletion:nil];
+
     UICollectionViewLayout *toLayout = self.collectionLayouts.largeLayout; 
     CGFloat duration = 0.7;
     AHEasingFunction easing = QuarticEaseInOut;
     TLTransitionLayout *layout = (TLTransitionLayout *)[self.collectionView transitionToCollectionViewLayout:toLayout duration:duration easing:easing completion:nil];
+    
     TLTransitionLayoutIndexPathPlacement placement = TLTransitionLayoutIndexPathPlacementCenter;
     CGPoint toOffset = [self.collectionView toContentOffsetForLayout:layout indexPaths:@[indexPath] placement:placement];
     layout.toContentOffset = toOffset;
+    
     [self.collectionView setDecelerationRate: UIScrollViewDecelerationRateNormal];
     [self.view insertSubview: self.hotspotView aboveSubview:self.collectionView];
 
@@ -269,10 +273,15 @@
 
 - (void) hideDetails {
 	[self startSlideTimer];
+    [self.collectionView cancelInteractiveTransitionInPlaceWithCompletion:nil];
+
     UICollectionViewLayout *toLayout = self.collectionLayouts.smallLayout;
     CGFloat duration = 0.7;
     AHEasingFunction easing = CubicEaseInOut;
-    TLTransitionLayout *layout = (TLTransitionLayout *)[self.collectionView transitionToCollectionViewLayout:toLayout duration:duration easing:easing completion:nil];
+    TLTransitionLayout *layout = (TLTransitionLayout *)[self.collectionView transitionToCollectionViewLayout:toLayout duration:duration easing:easing completion: ^(BOOL completed, BOOL finished) {
+            [self.view insertSubview: self.collectionView belowSubview:self.hotspotView];
+    }];
+
     
 }
 
