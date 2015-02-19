@@ -46,7 +46,7 @@
     
     offset = fabs(offset);
     
-    double n = 100.f;
+    double n = 150.f;
 
     double alpha = fabs(1 - offset/n);
     if (offset > n)
