@@ -168,6 +168,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4D3E76C1A963A7500C194B5 /* Data manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Data manager";
+			sourceTree = "<group>";
+		};
 		A4E9A8DA1A83E9DF006E12F7 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +196,7 @@
 		A4E9A8E51A83E9DF006E12F7 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				A4D3E76C1A963A7500C194B5 /* Data manager */,
 				A9C8FEFB1A9152DD005826D3 /* Views */,
 				A9C8FED71A90D924005826D3 /* Models */,
 				F5A25C3D1A83FB7900A9B0E3 /* View Controllers */,
@@ -568,7 +576,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -597,7 +605,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -613,12 +621,13 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
+				PROVISIONING_PROFILE = "ca94f054-cb30-4208-b2c6-082f585199c5";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
