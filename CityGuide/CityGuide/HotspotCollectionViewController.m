@@ -75,7 +75,6 @@
 	// First Load
 	[self changeSlide];
 	
-	[self startSlideTimer];
     self.transitionController = [[HATransitionController alloc] initWithCollectionView:self.collectionView];
     self.transitionController.delegate = self;
 	
@@ -186,19 +185,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
-	
-//	self.navigationController.delegate = self;
-	
+    [self startSlideTimer];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
 	[super viewDidAppear: animated];
-	
-//	[self.view bringSubviewToFront: self.hotspotView];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear: animated];
+    [self stopSlideTimer];
 }
 
 #pragma mark - Change slider
@@ -212,8 +208,9 @@
     if (_hotspots.count > 1)
         while (prevSlide == _slide)
             _slide = arc4random()%_hotspots.count;
-//    if(_slide > _hotspots.count - 1)
-//		_slide = 0;
+
+    if(_slide > _hotspots.count - 1)
+		_slide = 0;
 	
 	Hotspot *hotspot = _hotspots[_slide];
 	
@@ -289,7 +286,7 @@
 
 
 - (void) hideDetails {
-	[self startSlideTimer];
+    [self startSlideTimer];
     [self.collectionView cancelInteractiveTransitionInPlaceWithCompletion:nil];
 
     UICollectionViewLayout *toLayout = self.collectionLayouts.smallLayout;

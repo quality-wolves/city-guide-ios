@@ -48,11 +48,17 @@ class Hotspot: BaseData {
     }
 	
 	class func hotspotsByCategory(category: Category) -> [Hotspot] {
-		let categoryString = category.name.lowercaseString
-		let array = convertArray(sendRequest(String(format: "%@ WHERE category = \"%@\"", dataRequestString(), categoryString), converter: { (sqlite3_stmt stmt) -> AnyObject! in
-			return self.itemWithSqlite3_stmt(stmt)
-		}));
-		
+        var array: [Hotspot];
+        
+        if (category.id == CategoryEnum.Favourites) {
+            array = FavouritesManager.sharedManager().allFavourites() as [Hotspot]
+        } else {
+            let categoryString = category.name.lowercaseString
+            array = convertArray(sendRequest(String(format: "%@ WHERE category = \"%@\"", dataRequestString(), categoryString), converter: { (sqlite3_stmt stmt) -> AnyObject! in
+                return self.itemWithSqlite3_stmt(stmt)
+            }));
+        }
+        
 		for item in array {
 			item.category = category;
 		}
@@ -74,6 +80,14 @@ class Hotspot: BaseData {
 		
 		return hotspots;
 	}
+    
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let obj = object as? Hotspot {
+            
+            return self.id == obj.id
+        }
+        return super.isEqual(object)
+    }
 	
 	class private func itemWithSqlite3_stmt(stmt: COpaquePointer) -> AnyObject {
 		var item = Hotspot();

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CityGuide-Swift.h"
+@class Hotspot;
 
 @interface FavouritesManager : NSObject
 

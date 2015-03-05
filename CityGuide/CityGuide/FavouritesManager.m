@@ -7,6 +7,7 @@
 //
 
 #import "FavouritesManager.h"
+#import "CityGuide-Swift.h"
 
 #define FAVOURITES_IDS_STORE_KEY @"FAVOURITES_IDS_STORE_KEY"
 @interface FavouritesManager()
@@ -68,10 +69,9 @@
 
 - (void) removeHotspotFromFavourites: (Hotspot *) hotspot {
     NSNumber *idNumber = [NSNumber numberWithUnsignedInteger:[hotspot id]];
-//    if ([_favoritesIds indexOfObject:idNumber] == NSNotFound) {
     [_favoritesIds removeObject:idNumber];
     [_favourites removeObject:hotspot];
-//    }
+    [self save];
 }
 
 - (NSArray *) allFavourites {

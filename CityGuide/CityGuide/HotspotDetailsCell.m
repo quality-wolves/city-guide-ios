@@ -12,6 +12,7 @@
 #import "HACollectionViewLargeLayout.h"
 #import "HACollectionViewSmallLayout.h"
 #import "CityGuide-Swift.h"
+#import "FavouritesManager.h"
 
 @interface HotspotDetailsCell () <UIScrollViewDelegate>
 
@@ -20,6 +21,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
 @property BOOL reachedPositiveScrollIndex;
 @property double wMax, wMin, fSizeMax, fSizeMin;
 @end
@@ -38,7 +40,15 @@
     _fSizeMax = 18;
     _fSizeMin = 14;
 
+}
 
+- (IBAction)favouriteAction:(id)sender {
+    _favouriteButton.selected = !_favouriteButton.selected;
+    if (_favouriteButton.selected) {
+        [[FavouritesManager sharedManager] addFavouriteHotspot:_hotspot];
+    } else {
+        [[FavouritesManager sharedManager] removeHotspotFromFavourites:_hotspot];
+    }
 }
 
 - (void) reload {
@@ -86,21 +96,23 @@
     _hotspot = hotspot;
     self.imageView.image = [[DataManager instance] imageByHotspot: hotspot];
     self.titleLabel.text = hotspot.name;
+    _favouriteButton.selected = [[FavouritesManager sharedManager] isFavourite:_hotspot];
 
-//    self.descriptionLabel.text = _hotspot.desc;
-//    [self makeSmallLayoutAnimated:NO];
 }
 
 - (void) makeSmallLayoutAnimated: (BOOL) animated {
-    void (^block)(void) = ^() {
+    if (!animated) {
         self.descriptionLabel.alpha = 0;
         self.descriptionLabel.text = @"";
-    };
-    
-    if (animated)
-        [UIView animateWithDuration:0.7f animations:[block copy]];
-    else
-        block();
+        self.favouriteButton.alpha = 0;
+    } else {
+        [UIView animateWithDuration:0.3f animations:^() {
+            self.descriptionLabel.alpha = 0;
+            self.favouriteButton.alpha = 0;
+        } completion:^(BOOL finished) {
+            self.descriptionLabel.text = @"";
+        }];
+    }
 }
 
 - (void) layoutSubviews {
@@ -111,17 +123,17 @@
 }
 
 - (void) makeLargeLayoutAnimated: (BOOL) animated {
-    void (^block)(void) = ^() {
+    if (!animated) {
         self.descriptionLabel.alpha = 1;
         self.descriptionLabel.text = _hotspot.desc;
-    };
-    
-    if (animated)
-        [UIView animateWithDuration:0.5f animations:[block copy]];
-    else
-        block();
-
-
+        self.favouriteButton.alpha = 1;
+    } else {
+        [UIView animateWithDuration:0.3f animations:^() {
+            self.descriptionLabel.alpha = 1;
+            self.descriptionLabel.text = _hotspot.desc;
+            self.favouriteButton.alpha = 1;
+        }];
+    }
 
 }
 
@@ -129,39 +141,11 @@
     [super willTransitionFromLayout: oldLayout toLayout: newLayout];
 
     if ([oldLayout isKindOfClass:[HACollectionViewLargeLayout class]]) {
-        [UIView animateWithDuration:0.3f animations:^() {
-            self.descriptionLabel.alpha = 0;
-        } completion:^(BOOL finished) {
-            self.descriptionLabel.text = @"";
-        }];
+        [self makeSmallLayoutAnimated:YES];
     } else if ([newLayout isKindOfClass:[HACollectionViewLargeLayout class]]) {
-        [UIView animateWithDuration:0.3f animations:^() {
-            self.descriptionLabel.alpha = 1;
-            self.descriptionLabel.text = _hotspot.desc;
-        }];
+        [self makeLargeLayoutAnimated:YES];
     }
-//    
-//    if ([oldLayout isKindOfClass:[HACollectionViewSmallLayout class]]) {
-//        [UIView animateWithDuration:0.1f animations:^() {
-//            self.titleLabel.transform = CGAffineTransformIdentity;
-//        }];
-//    }
-//    
-//    if ([newLayout isKindOfClass:[HACollectionViewSmallLayout class]]) {
-//        [UIView animateWithDuration:0.2f animations:^() {
-//            self.titleLabel.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.85, 0.85);
-//            self.titleLabel.transform = CGAffineTransformTranslate(self.titleLabel.transform, -11, -4);
-//
-//        }];
-//    }
     
     self.scrollView.userInteractionEnabled = newLayout == self.collectionLayouts.largeLayout;
 }
-//
-//- (void)didTransitionFromLayout:(UICollectionViewLayout *)oldLayout toLayout:(UICollectionViewLayout *)newLayout {
-//    if ([newLayout isKindOfClass:[HACollectionViewLargeLayout class]])
-//        [self makeLargeLayoutAnimated:YES];
-//    
-//}
-
 @end
