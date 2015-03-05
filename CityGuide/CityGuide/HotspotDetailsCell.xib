@@ -24,21 +24,32 @@
                                     <constraint firstAttribute="width" secondItem="wbM-0C-FiW" secondAttribute="height" priority="999" id="loe-Hp-bNc"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rc-pc-tcF">
-                                <rect key="frame" x="8" y="312" width="290" height="22"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Praktik Rambla" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rc-pc-tcF">
+                                <rect key="frame" x="8" y="312" width="290" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-1I-MQK">
-                                <rect key="frame" x="9" y="342" width="289" height="18"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <rect key="frame" x="9" y="346" width="289" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c16-Hk-CLb">
+                                <rect key="frame" x="248" y="8" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uco-Wd-C6J"/>
+                                    <constraint firstAttribute="width" constant="50" id="veD-tW-6vC"/>
+                                </constraints>
+                                <state key="normal" image="fav-icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="c16-Hk-CLb" secondAttribute="trailing" constant="8" id="3ND-ny-SJR"/>
                             <constraint firstAttribute="bottom" secondItem="mgD-1I-MQK" secondAttribute="bottom" constant="15" id="8Mc-Lx-Zdh"/>
                             <constraint firstItem="8Rc-pc-tcF" firstAttribute="leading" secondItem="mgD-1I-MQK" secondAttribute="leading" constant="-1" id="9Be-xa-ujM"/>
                             <constraint firstAttribute="trailing" secondItem="wbM-0C-FiW" secondAttribute="trailing" priority="250" id="G5M-gg-UXW"/>
@@ -48,6 +59,7 @@
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="top" secondItem="EZ5-YA-VTF" secondAttribute="top" id="Yod-6K-yek"/>
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="trailing" secondItem="8Rc-pc-tcF" secondAttribute="trailing" constant="8" id="ZcW-qP-xC0"/>
                             <constraint firstItem="8Rc-pc-tcF" firstAttribute="trailing" secondItem="mgD-1I-MQK" secondAttribute="trailing" id="b4X-tw-KgS"/>
+                            <constraint firstItem="c16-Hk-CLb" firstAttribute="top" secondItem="EZ5-YA-VTF" secondAttribute="top" constant="8" id="bHn-BO-Bj0"/>
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="width" secondItem="EZ5-YA-VTF" secondAttribute="width" id="bc5-ti-cZD"/>
                             <constraint firstItem="8Rc-pc-tcF" firstAttribute="top" secondItem="wbM-0C-FiW" secondAttribute="bottom" constant="6" id="wYt-wj-LfD"/>
                         </constraints>
@@ -77,6 +89,9 @@
             <point key="canvasLocation" x="526" y="503.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="fav-icon" width="33" height="29"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
