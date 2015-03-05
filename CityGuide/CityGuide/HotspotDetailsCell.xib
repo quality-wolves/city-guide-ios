@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -25,31 +25,36 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Praktik Rambla" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rc-pc-tcF">
-                                <rect key="frame" x="8" y="312" width="290" height="26"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
+                                <rect key="frame" x="8" y="312" width="290" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-1I-MQK">
-                                <rect key="frame" x="9" y="346" width="289" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
+                                <rect key="frame" x="9" y="342" width="289" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c16-Hk-CLb">
-                                <rect key="frame" x="248" y="8" width="50" height="50"/>
+                                <rect key="frame" x="251" y="0.0" width="55" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="uco-Wd-C6J"/>
-                                    <constraint firstAttribute="width" constant="50" id="veD-tW-6vC"/>
+                                    <constraint firstAttribute="height" constant="55" id="uco-Wd-C6J"/>
+                                    <constraint firstAttribute="width" constant="55" id="veD-tW-6vC"/>
                                 </constraints>
-                                <state key="normal" image="fav-icon">
+                                <state key="normal" image="fav-icon-white">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="fav-icon-selected"/>
+                                <connections>
+                                    <action selector="favouriteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="hv1-hh-13x"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="c16-Hk-CLb" secondAttribute="trailing" constant="8" id="3ND-ny-SJR"/>
+                            <constraint firstAttribute="trailing" secondItem="c16-Hk-CLb" secondAttribute="trailing" id="3ND-ny-SJR"/>
                             <constraint firstAttribute="bottom" secondItem="mgD-1I-MQK" secondAttribute="bottom" constant="15" id="8Mc-Lx-Zdh"/>
                             <constraint firstItem="8Rc-pc-tcF" firstAttribute="leading" secondItem="mgD-1I-MQK" secondAttribute="leading" constant="-1" id="9Be-xa-ujM"/>
                             <constraint firstAttribute="trailing" secondItem="wbM-0C-FiW" secondAttribute="trailing" priority="250" id="G5M-gg-UXW"/>
@@ -59,7 +64,7 @@
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="top" secondItem="EZ5-YA-VTF" secondAttribute="top" id="Yod-6K-yek"/>
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="trailing" secondItem="8Rc-pc-tcF" secondAttribute="trailing" constant="8" id="ZcW-qP-xC0"/>
                             <constraint firstItem="8Rc-pc-tcF" firstAttribute="trailing" secondItem="mgD-1I-MQK" secondAttribute="trailing" id="b4X-tw-KgS"/>
-                            <constraint firstItem="c16-Hk-CLb" firstAttribute="top" secondItem="EZ5-YA-VTF" secondAttribute="top" constant="8" id="bHn-BO-Bj0"/>
+                            <constraint firstItem="c16-Hk-CLb" firstAttribute="top" secondItem="EZ5-YA-VTF" secondAttribute="top" id="bHn-BO-Bj0"/>
                             <constraint firstItem="wbM-0C-FiW" firstAttribute="width" secondItem="EZ5-YA-VTF" secondAttribute="width" id="bc5-ti-cZD"/>
                             <constraint firstItem="8Rc-pc-tcF" firstAttribute="top" secondItem="wbM-0C-FiW" secondAttribute="bottom" constant="6" id="wYt-wj-LfD"/>
                         </constraints>
@@ -82,15 +87,17 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="descriptionLabel" destination="mgD-1I-MQK" id="UFB-du-2UT"/>
+                <outlet property="favouriteButton" destination="c16-Hk-CLb" id="Har-PV-6e8"/>
                 <outlet property="imageView" destination="wbM-0C-FiW" id="cA2-p5-mZa"/>
                 <outlet property="scrollView" destination="EZ5-YA-VTF" id="gFA-nz-6lZ"/>
                 <outlet property="titleLabel" destination="8Rc-pc-tcF" id="ask-Zw-Rmy"/>
             </connections>
-            <point key="canvasLocation" x="526" y="503.5"/>
+            <point key="canvasLocation" x="669" y="410.5"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="fav-icon" width="33" height="29"/>
+        <image name="fav-icon-selected" width="33" height="29"/>
+        <image name="fav-icon-white" width="33" height="29"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

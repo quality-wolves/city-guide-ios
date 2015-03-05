@@ -79,8 +79,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
 		let hotspots = Hotspot.hotspotsByCategory(category)
-		
+        
         if hotspots.count == 0 {
+            if category.id == CategoryEnum.Favourites {
+                var alert = UIAlertView(title: kAppName, message: "No favourites added yet!", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+                return
+            }
+            
             var alert = UIAlertView(title: kAppName, message: "Sorry, there is no items for " + category.name, delegate: nil, cancelButtonTitle: "OK")
             alert.show()
             return

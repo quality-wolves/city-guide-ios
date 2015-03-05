@@ -7,6 +7,7 @@
 //
 
 #import "HotspotsDetailsViewController.h"
+#import "FavouritesManager.h"
 
 @interface HotspotsDetailsViewController ()
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
@@ -14,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *favouritesButton;
 
 @end
 
@@ -33,6 +35,17 @@
     self.imageView.image = [[DataManager instance] imageByHotspot: _hotspot];
     self.titleLabel.text = _hotspot.name;
     self.descriptionLabel.text = _hotspot.desc;
+    self.favouritesButton.selected = [[FavouritesManager sharedManager] isFavourite:_hotspot];
+}
+
+
+- (IBAction)favouritesAction:(id)sender {
+    _favouritesButton.selected = !_favouritesButton.selected;
+    if (_favouritesButton.selected) {
+        [[FavouritesManager sharedManager] addFavouriteHotspot:_hotspot];
+    } else {
+        [[FavouritesManager sharedManager] removeHotspotFromFavourites:_hotspot];
+    }
 }
 
 - (BOOL) prefersStatusBarHidden {

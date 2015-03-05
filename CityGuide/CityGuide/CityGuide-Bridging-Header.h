@@ -12,6 +12,7 @@
 #import "MapViewController.h"
 #import "BaseData.h"
 #import "DataManager.h"
+#import "FavouritesManager.h"
 
 #import "AMToolkit/AMToolkit.h"
 #import "AMToolkit/AMCategories.h"
