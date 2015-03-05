@@ -274,7 +274,7 @@
     CGPoint toOffset = [self.collectionView toContentOffsetForLayout:layout indexPaths:@[indexPath] placement:placement];
     layout.toContentOffset = toOffset;
     
-    [self.collectionView setDecelerationRate: UIScrollViewDecelerationRateNormal];
+    [self.collectionView setDecelerationRate: UIScrollViewDecelerationRateFast ];
     [self.view insertSubview: self.hotspotView aboveSubview:self.collectionView];
 
     
