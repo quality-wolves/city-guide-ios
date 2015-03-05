@@ -18,9 +18,10 @@
 #import "CityGuide-Swift.h"
 #import "TLTransitionLayout.h"
 #import "UICollectionView+TLTransitioning.h"
+#import "HATransitionLayout.h"
+#include <stdlib.h>
 
-
-@interface HotspotCollectionViewController () <HotspotDetailsDelegate> //<UINavigationControllerDelegate, HATransitionControllerDelegate>
+@interface HotspotCollectionViewController () <HotspotDetailsDelegate, HATransitionControllerDelegate> //<UINavigationControllerDelegate, HATransitionControllerDelegate>
 
 @property (nonatomic, strong) HATransitionController *transitionController;
 
@@ -35,6 +36,7 @@
 @property (nonatomic, strong) NSTimer *slideTimer;
 
 @property (nonatomic, strong) CollectionLayouts *collectionLayouts;
+@property (strong, nonatomic) TLTransitionLayout *layout;
 
 @end
 
@@ -74,6 +76,8 @@
 	[self changeSlide];
 	
 	[self startSlideTimer];
+    self.transitionController = [[HATransitionController alloc] initWithCollectionView:self.collectionView];
+    self.transitionController.delegate = self;
 	
 }
 
@@ -160,18 +164,23 @@
 	return YES;
 }
 
-//- (void)interactionBeganAtPoint:(CGPoint)point
-//{
-//	// Very basic communication between the transition controller and the top view controller
-//	// It would be easy to add more control, support pop, push or no-op
-//	HotspotCollectionViewController *presentingVC = (HotspotCollectionViewController *)[self.navigationController topViewController];
-//	HotspotCollectionViewController *presentedVC = (HotspotCollectionViewController *)[presentingVC nextViewControllerAtPoint:point];
-//	if (presentedVC != nil)	{
-//		[self.navigationController pushViewController:presentedVC animated:YES];
-//	} else {
-//		[self.navigationController popViewControllerAnimated:YES];
-//	}
-//}
+- (void)updateWithProgress:(CGFloat)progress andOffset:(UIOffset)offset {
+    [self.layout setTransitionProgress:progress];
+}
+
+- (void)interactionBeganAtPoint:(CGPoint)point
+{
+    UICollectionViewLayout *nextLayout = self.collectionLayouts.smallLayout;
+    self.layout = (TLTransitionLayout *)[self.collectionView startInteractiveTransitionToCollectionViewLayout:nextLayout
+                                                                                                   completion:^(BOOL completed, BOOL finish) {
+                                   if (finish) {
+//                                       self.collectionView.contentOffset = self.layout.toContentOffset;
+                                       self.layout= nil;
+                                       [self.view insertSubview: self.collectionView belowSubview:self.hotspotView];
+                                   }
+                                                                                                   }];
+//    self.layout.toContentOffset = [self.collectionView toContentOffsetForLayout:self.layout indexPaths:self.collectionView.indexPathsForVisibleItems placement:TLTransitionLayoutIndexPathPlacementCenter];
+}
 
 #pragma mark - View
 
@@ -195,11 +204,16 @@
 #pragma mark - Change slider
 
 - (void)changeSlide {
-	if(!_hotspots)
+	if(!_hotspots.count)
 		return;
 		
-    if(_slide > _hotspots.count - 1)
-		_slide = 0;
+    
+    long prevSlide = _slide;
+    if (_hotspots.count > 1)
+        while (prevSlide == _slide)
+            _slide = arc4random()%_hotspots.count;
+//    if(_slide > _hotspots.count - 1)
+//		_slide = 0;
 	
 	Hotspot *hotspot = _hotspots[_slide];
 	
@@ -222,6 +236,9 @@
 	cell.collectionLayouts = self.collectionLayouts;
 	cell.hotspot = self.hotspots[indexPath.row];
     cell.delegate = self;
+    
+//    cell.layer.masksToBounds = YES;
+    cell.layer.cornerRadius = 0;
 	
 	return cell;
 }
@@ -285,43 +302,9 @@
     
 }
 
-- (void)handlePinch:(UIPinchGestureRecognizer *)sender {
-	// here we want to end the transition interaction if the user stops or finishes the pinch gesture
-	if (sender.state == UIGestureRecognizerStateEnded) {
-		[self hideDetails];
-		[self.collectionView removeGestureRecognizer: sender];
-	}
-}
-
 - (void) shouldCloseHotspotsDetails:(HotspotDetailsCell *)cell {
     [self hideDetails];
 }
 
-//#pragma mark - UINavigationControllerDelegate
-//
-//- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
-//	if (self.transitionController == animationController) {
-//		return self.transitionController;
-//	}
-//	
-//	return nil;
-//}
-//
-//- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-//	if(![fromVC isKindOfClass: [UICollectionViewController class]] || ![toVC isKindOfClass: [UICollectionViewController class]])
-//		return nil;
-//	
-//	if (!self.transitionController.hasActiveInteraction)
-//		return nil;
-//	
-//	self.transitionController.navigationOperation = operation;
-//	return self.transitionController;
-//}
-//
-//#pragma mark - dealloc
-//
-//- (void) dealloc {
-//	self.navigationController.delegate = nil;
-//}
 
 @end

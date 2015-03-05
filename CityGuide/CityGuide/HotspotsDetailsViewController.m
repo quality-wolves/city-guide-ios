@@ -31,7 +31,7 @@
     [self.backButton setImage:[[self.backButton imageForState:UIControlStateNormal] imageTintedWithColor:[UIColor blackColor]] forState:UIControlStateNormal];
     
     self.imageView.image = [[DataManager instance] imageByHotspot: _hotspot];
-    [self.backButton setTitle:_hotspot.name forState:UIControlStateNormal];
+    self.titleLabel.text = _hotspot.name;
     self.descriptionLabel.text = _hotspot.desc;
 }
 

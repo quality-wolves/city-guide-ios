@@ -10,14 +10,14 @@
 
 @protocol HATransitionControllerDelegate <NSObject>
 - (void)interactionBeganAtPoint:(CGPoint)point;
+- (void)updateWithProgress:(CGFloat)progress andOffset:(UIOffset)offset;
 @end
 
 
-@interface HATransitionController : NSObject  <UIViewControllerAnimatedTransitioning, UIViewControllerInteractiveTransitioning, UIGestureRecognizerDelegate>
+@interface HATransitionController : NSObject <UIGestureRecognizerDelegate>
 
 @property (nonatomic) id <HATransitionControllerDelegate> delegate;
 @property (nonatomic) BOOL hasActiveInteraction;
-@property (nonatomic) UINavigationControllerOperation navigationOperation;
 @property (nonatomic) UICollectionView *collectionView;
 
 - (instancetype)initWithCollectionView:(UICollectionView*)collectionView;

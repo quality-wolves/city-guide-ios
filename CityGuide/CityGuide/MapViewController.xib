@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of Barcelona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtC-Tm-tdO">
-                    <rect key="frame" x="10" y="44" width="77" height="16"/>
+                    <rect key="frame" x="12" y="46" width="77" height="16"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                     <color key="textColor" white="0.81118935032894746" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                         <action selector="backAction:" destination="-1" eventType="touchUpInside" id="BAV-Pt-ggd"/>
                     </connections>
                 </button>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bpb-R9-ERc">
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bpb-R9-ERc">
                     <rect key="frame" x="0.0" y="65" width="320" height="502"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="6n1-Yu-QmA"/>
@@ -51,9 +51,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="xtC-Tm-tdO" firstAttribute="top" secondItem="mvG-Fd-X2t" secondAttribute="bottom" constant="-2" id="0Ek-35-vJG"/>
+                <constraint firstItem="xtC-Tm-tdO" firstAttribute="top" secondItem="mvG-Fd-X2t" secondAttribute="bottom" id="0Ek-35-vJG"/>
                 <constraint firstItem="xtC-Tm-tdO" firstAttribute="top" secondItem="mvG-Fd-X2t" secondAttribute="bottom" constant="2" id="18X-NH-BjG"/>
-                <constraint firstItem="xtC-Tm-tdO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="DnF-rL-TmO"/>
+                <constraint firstItem="xtC-Tm-tdO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="DnF-rL-TmO"/>
                 <constraint firstItem="mvG-Fd-X2t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="I4M-DM-gAs"/>
                 <constraint firstItem="xtC-Tm-tdO" firstAttribute="baseline" secondItem="mvG-Fd-X2t" secondAttribute="baseline" id="KJS-eV-bMR"/>
                 <constraint firstItem="mvG-Fd-X2t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="iii-0n-UaF"/>

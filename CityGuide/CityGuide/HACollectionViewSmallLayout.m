@@ -13,13 +13,14 @@
 - (id)init
 {
     if (!(self = [super init])) return nil;
+
+    double height = [UIScreen mainScreen].bounds.size.height/2.f - 35;
     
-    self.itemSize = CGSizeMake(142, 200);
+    self.itemSize = CGSizeMake(145, height);
 //    double height = [UIScreen mainScreen].bounds.size.height - self.itemSize.height - 4;
-    double height = [UIScreen mainScreen].bounds.size.height/2.f;
-    self.sectionInset = UIEdgeInsetsMake(height, 10, 0, 10);
-    self.minimumInteritemSpacing = 10.0f;
-    self.minimumLineSpacing = 6.0f;
+    self.sectionInset = UIEdgeInsetsMake([UIScreen mainScreen].bounds.size.height-height, 0, 0, 1);
+    self.minimumInteritemSpacing = 8.0f;
+    self.minimumLineSpacing = 2.0f;
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     return self;

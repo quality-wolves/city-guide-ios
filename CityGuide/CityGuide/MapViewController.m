@@ -15,7 +15,7 @@
 #import "HotspotsDetailsViewController.h"
 
 
-@interface MapViewController () <MKMapViewDelegate>
+@interface MapViewController () <MKMapViewDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSArray *hotspots;
@@ -61,11 +61,43 @@
 //    [_mapView showAnnotations:self.annotations animated:NO];
 }
 
+- (void) showDetailsForIndex: (NSUInteger) index {
+    HotspotsDetailsViewController *vc = [[HotspotsDetailsViewController alloc] initWithHotspot:[_hotspots objectAtIndex:index]];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void) showDirectionsForIndex: (NSUInteger) index {
+    Hotspot *hotspot = [_hotspots objectAtIndex:index];
+    CLLocation *toLocation = [[CLLocation alloc] initWithLatitude:hotspot.lat longitude:hotspot.lon];
+    MKPlacemark* place = [[MKPlacemark alloc] initWithCoordinate: toLocation.coordinate addressDictionary: nil];
+    MKMapItem* destination = [[MKMapItem alloc] initWithPlacemark: place];
+    destination.name = hotspot.name;
+    
+    // Open the item in Maps, specifying the map region to display.
+    [MKMapItem openMapsWithItems:[NSArray arrayWithObject:destination]
+                   launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:
+                                  [NSValue valueWithMKCoordinate:toLocation.coordinate], MKLaunchOptionsMapCenterKey,
+                                  MKLaunchOptionsDirectionsModeDriving, MKLaunchOptionsDirectionsModeKey,
+                                  nil]];
+}
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0: //Description
+            [self showDetailsForIndex:actionSheet.tag];
+            break;
+        case 1: //Directions
+            [self showDirectionsForIndex:actionSheet.tag];
+        default:
+            break;
+    }
+}
+
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     if ([view.annotation isKindOfClass:[HotspotAnnotation class]]) {
-        HotspotAnnotation *ann = (HotspotAnnotation *) view.annotation;
-        HotspotsDetailsViewController *vc = [[HotspotsDetailsViewController alloc] initWithHotspot:ann.hotspot];
-        [self.navigationController pushViewController:vc animated:YES];
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Description", @"Directions", nil];
+        sheet.tag = [_hotspots indexOfObject:((HotspotAnnotation *)view.annotation).hotspot];
+        [sheet showInView:self.view];
     }
 }
 
