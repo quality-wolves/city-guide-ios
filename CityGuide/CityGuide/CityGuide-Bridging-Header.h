@@ -13,7 +13,8 @@
 #import "BaseData.h"
 #import "DataManager.h"
 #import "FavouritesManager.h"
-
+#import "HeaderViewCell.h"
+#import "HeaderView.h"
 #import "AMToolkit/AMToolkit.h"
 #import "AMToolkit/AMCategories.h"
 

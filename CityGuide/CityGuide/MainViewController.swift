@@ -8,30 +8,33 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, HeaderViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var loadingView: UIView!
+    var headerView: HeaderView!
 
-	private var categories: [Category]!
+	private var categories: [CGCategory]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.registerNib(UINib(nibName: "MenuCollectionCell", bundle: nil), forCellWithReuseIdentifier: "MenuCollectionCell")
+        self.collectionView.registerNib(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView")
 		
-		categories = Category.allCategories();
+		categories = CGCategory.allCategoriesExceptHotspots();
 		
-		DataManager.instance().downloadImages({ () -> Void in
-			self.loadingView.hidden = true
-		});
+//		DataManager.instance().downloadImages({ () -> Void in
+//			self.loadingView.hidden = true
+//		});
     }
     
     override func viewDidLayoutSubviews() {
         var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        var padding:CGFloat = 2
-        var w:CGFloat = (self.view.frame.size.width - padding)/2.0
-        flowLayout?.itemSize = CGSizeMake(w, w)
-        flowLayout?.minimumLineSpacing = padding;
+        var padding:CGFloat = 20
+        var w:CGFloat = (self.collectionView.frame.size.width - padding)/2.0
+        flowLayout?.itemSize = CGSizeMake(w, w/1.35)
+        flowLayout?.minimumLineSpacing = 2;
+        flowLayout?.minimumInteritemSpacing = 10;
 
         self.collectionView.collectionViewLayout = flowLayout!
     }
@@ -54,7 +57,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10;
+        return self.categories.count;
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -64,21 +67,31 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell!
     }
     
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView? {
+        if (kind == UICollectionElementKindSectionHeader) {
+            var headerView = self.collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as HeaderView
+            headerView.delegate = self;
+            return headerView
+        }
+        return nil
+    }
+    
+    func headerViewDidSelectedCategory(category: CGCategory!) {
+        didSelectCategory(category)
+    }
 
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
 
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-		let category = categories[indexPath.row]
-        
+    func didSelectCategory (category: CGCategory!) {
         if (category.id == CategoryEnum.Map) {
             var mapVC = MapViewController()
             self.navigationController?.pushViewController(mapVC, animated: true)
             return
         }
         
-		let hotspots = Hotspot.hotspotsByCategory(category)
+        let hotspots = Hotspot.hotspotsByCategory(category)
         
         if hotspots.count == 0 {
             if category.id == CategoryEnum.Favourites {
@@ -91,11 +104,16 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             alert.show()
             return
         }
-		
-		var hotspotsController = HotspotCollectionViewController(hotspots: hotspots)
-//		navigationController = UINavigationController(rootViewController: mainVC)
-//		navigationController?.navigationBarHidden = true;
-		
+        
+        var hotspotsController = HotspotCollectionViewController(hotspots: hotspots)
+        //		navigationController = UINavigationController(rootViewController: mainVC)
+        //		navigationController?.navigationBarHidden = true;
+        
         self.navigationController?.pushViewController(hotspotsController, animated: true)
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		let category = categories[indexPath.row]
+        
     }
 }
