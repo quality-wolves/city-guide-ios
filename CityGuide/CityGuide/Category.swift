@@ -10,7 +10,7 @@ import Foundation
 
 enum CategoryEnum: UInt {
 	case Stay = 0
-	case Eat, Buy, Drink, See, Do, Favourites, Map, Whatson, Soundtrack
+	case Eat, Buy, Drink, See, Do, Favourites, Map, Whatson, DayInBarcelona, BasicInformation, Soundtrack
 
 //	func description() -> String {
 //		switch self {
@@ -40,7 +40,7 @@ enum CategoryEnum: UInt {
 //	}
 }
 
-class Category {
+class CGCategory: NSObject {
 	var id: CategoryEnum = CategoryEnum.Stay
 	var name: String!
 	
@@ -63,17 +63,21 @@ class Category {
 	
 	func imageFileName() -> String {
 		switch id {
-		case .Stay: return "Menu2 2"
-		case .Eat: return "Salero"
+		case .Stay, .DayInBarcelona: return "Menu2 2"
+		case .Eat, .BasicInformation: return "Salero"
 		case .Buy, .Favourites: return "BARCELONA-BUY 5"
 		case .Drink, .Map: return "Drink-1 2"
 		case .See, .Whatson: return "See 2"
 		case .Do, .Soundtrack: return "Cine"
 		}
 	}
+    
+    func fullDescription() -> String {
+        return self.name.uppercaseString + ": " + "DISCOVER ALL THE COOL PLACES TO STAY DURING YOUR TRIP TO BARCELONA"
+    }
 	
-    class func categoryByName(name: String) -> Category? {
-        var categories = Category.allCategories()
+    class func categoryByName(name: String) -> CGCategory? {
+        var categories = CGCategory.allCategories()
         for c in categories {
             if c.name.lowercaseString == name.lowercaseString {
                 return c
@@ -82,16 +86,36 @@ class Category {
         return nil
     }
     
-	class func allCategories() -> [Category] {
-		return [Category(id: CategoryEnum.Stay, name: "Stay"),
-				Category(id: CategoryEnum.Eat, name: "Eat"),
-				Category(id: CategoryEnum.Buy, name: "Buy"),
-				Category(id: CategoryEnum.Drink, name: "Drink"),
-				Category(id: CategoryEnum.See, name: "See"),
-				Category(id: CategoryEnum.Do, name: "Do"),
-				Category(id: CategoryEnum.Favourites, name: "Favourites"),
-				Category(id: CategoryEnum.Map, name: "Map"),
-				Category(id: CategoryEnum.Whatson, name: "Whatson"),
-				Category(id: CategoryEnum.Soundtrack, name: "Soundtrack")];
+    class func allHotspotCategories() -> [CGCategory] {
+        return [CGCategory(id: CategoryEnum.Stay, name: "Stay"),
+            CGCategory(id: CategoryEnum.Eat, name: "Eat"),
+            CGCategory(id: CategoryEnum.Buy, name: "Buy"),
+            CGCategory(id: CategoryEnum.Drink, name: "Drink"),
+            CGCategory(id: CategoryEnum.See, name: "See"),
+            CGCategory(id: CategoryEnum.Do, name: "Do")];
+    }
+    
+	class func allCategories() -> [CGCategory] {
+		return [CGCategory(id: CategoryEnum.Stay, name: "Stay"),
+				CGCategory(id: CategoryEnum.Eat, name: "Eat"),
+				CGCategory(id: CategoryEnum.Buy, name: "Buy"),
+				CGCategory(id: CategoryEnum.Drink, name: "Drink"),
+				CGCategory(id: CategoryEnum.See, name: "See"),
+				CGCategory(id: CategoryEnum.Do, name: "Do"),
+				CGCategory(id: CategoryEnum.Favourites, name: "Favourites"),
+				CGCategory(id: CategoryEnum.Map, name: "Map"),
+				CGCategory(id: CategoryEnum.Whatson, name: "Whatson"),
+                CGCategory(id: CategoryEnum.DayInBarcelona, name: "A day in Barcelona"),
+                CGCategory(id: CategoryEnum.Whatson, name: "Basic Information"),
+				CGCategory(id: CategoryEnum.Soundtrack, name: "Soundtrack")];
 	}
+    
+    class func allCategoriesExceptHotspots() -> [CGCategory] {
+        return [CGCategory(id: CategoryEnum.Favourites, name: "Favourites"),
+        CGCategory(id: CategoryEnum.Map, name: "Map"),
+        CGCategory(id: CategoryEnum.Whatson, name: "Whatson"),
+        CGCategory(id: CategoryEnum.DayInBarcelona, name: "A day in Barcelona"),
+        CGCategory(id: CategoryEnum.Whatson, name: "Basic Information"),
+        CGCategory(id: CategoryEnum.Soundtrack, name: "Soundtrack")];
+    }
 }

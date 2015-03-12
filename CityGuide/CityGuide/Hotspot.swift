@@ -15,7 +15,7 @@ class Hotspot: BaseData {
 	var imageFileName: String?
     var lat: Double = 0
     var lon: Double = 0
-	var category: Category?
+	var category: CGCategory?
 
 	override init() {
 		super.init();
@@ -47,7 +47,7 @@ class Hotspot: BaseData {
         return ""
     }
 	
-	class func hotspotsByCategory(category: Category) -> [Hotspot] {
+	class func hotspotsByCategory(category: CGCategory) -> [Hotspot] {
         var array: [Hotspot];
         
         if (category.id == CategoryEnum.Favourites) {
@@ -95,7 +95,7 @@ class Hotspot: BaseData {
 		item.name = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(1))));
 		item.desc = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(2))));
         var n = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(3))))
-        item.category = Category.categoryByName(n!)
+        item.category = CGCategory.categoryByName(n!)
         var filename = String(format: "hotspots-%d-%@", item.id, String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(4))))!);
         var pathExtension = filename.pathExtension
         item.imageFileName = String(format: "%@-large.%@", filename.stringByDeletingPathExtension, pathExtension)

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderViewCell" id="gTV-IL-0wX" customClass="HeaderViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="280" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="280" height="200"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qEi-B4-wEq">
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="158"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISCOVER ALL THE COOL PLACES TO STAY DURING YOUR TRIP TO BARCELONA" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2z-Tz-etx">
+                        <rect key="frame" x="0.0" y="162" width="280" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="WQX-VZ-edT"/>
+                            <constraint firstAttribute="height" constant="34" id="z2K-wE-0ZQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="11"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WQX-VZ-edT"/>
+                            </mask>
+                        </variation>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="N2z-Tz-etx" secondAttribute="bottom" constant="4" id="5jY-Lh-cjm"/>
+                <constraint firstItem="qEi-B4-wEq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6ic-i4-tw8"/>
+                <constraint firstItem="N2z-Tz-etx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RBj-9l-qK4"/>
+                <constraint firstItem="qEi-B4-wEq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="c8U-Z7-axN"/>
+                <constraint firstItem="N2z-Tz-etx" firstAttribute="top" secondItem="qEi-B4-wEq" secondAttribute="bottom" constant="4" id="cnB-3A-V0G"/>
+                <constraint firstAttribute="trailing" secondItem="qEi-B4-wEq" secondAttribute="trailing" id="hKY-91-UKQ"/>
+                <constraint firstAttribute="trailing" secondItem="N2z-Tz-etx" secondAttribute="trailing" id="sTw-19-MrP"/>
+            </constraints>
+            <connections>
+                <outlet property="imageView" destination="qEi-B4-wEq" id="LiL-Zp-jkp"/>
+                <outlet property="titleLabel" destination="N2z-Tz-etx" id="pmw-hm-PYO"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -12,8 +12,8 @@ class MenuCollectionCell: UICollectionViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var backgroundImage: UIImageView!
 	
-	func setCategory(category: Category) {
-		titleLabel.text = category.name;
+	func setCategory(category: CGCategory) {
+		titleLabel.text = category.name.uppercaseString;
 		backgroundImage.image = UIImage(named: category.imageFileName());
 	}
 }
