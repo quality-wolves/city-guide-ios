@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="U6b-Vx-4bR" customClass="HeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="280" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="280" height="210"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="oJA-iN-o4e">
@@ -25,11 +25,21 @@
                         <outlet property="delegate" destination="U6b-Vx-4bR" id="dJJ-2N-PyB"/>
                     </connections>
                 </collectionView>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-BH-bgf">
+                    <rect key="frame" x="0.0" y="199" width="280" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="XyE-xn-3lD"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="oJA-iN-o4e" secondAttribute="bottom" id="M77-Wb-PT2"/>
+                <constraint firstAttribute="trailing" secondItem="bDD-BH-bgf" secondAttribute="trailing" id="L4D-NH-9uW"/>
+                <constraint firstAttribute="bottom" secondItem="oJA-iN-o4e" secondAttribute="bottom" constant="10" id="M77-Wb-PT2"/>
                 <constraint firstItem="oJA-iN-o4e" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="QMd-L4-3KZ"/>
+                <constraint firstItem="bDD-BH-bgf" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="f7N-PO-LPe"/>
+                <constraint firstAttribute="bottom" secondItem="bDD-BH-bgf" secondAttribute="bottom" constant="10" id="g95-Hg-6SP"/>
                 <constraint firstAttribute="trailing" secondItem="oJA-iN-o4e" secondAttribute="trailing" id="gkM-HV-RER"/>
                 <constraint firstItem="oJA-iN-o4e" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="lzv-2X-dpj"/>
             </constraints>

@@ -30,11 +30,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLayoutSubviews() {
         var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        var padding:CGFloat = 20
+        var padding:CGFloat = 10
         var w:CGFloat = (self.collectionView.frame.size.width - padding)/2.0
         flowLayout?.itemSize = CGSizeMake(w, w/1.35)
-        flowLayout?.minimumLineSpacing = 2;
-        flowLayout?.minimumInteritemSpacing = 10;
+        flowLayout?.minimumLineSpacing = 0;
+//        flowLayout?.minimumInteritemSpacing = 2;
 
         self.collectionView.collectionViewLayout = flowLayout!
     }
@@ -114,6 +114,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		let category = categories[indexPath.row]
-        
+        self.didSelectCategory(category)
     }
 }

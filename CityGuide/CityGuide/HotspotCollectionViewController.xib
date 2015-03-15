@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -48,8 +48,8 @@
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="xzU-h0-7n0"/>
                             <exclude reference="eYH-Vq-OaK"/>
+                            <exclude reference="xzU-h0-7n0"/>
                         </mask>
                     </variation>
                 </label>
@@ -87,23 +87,25 @@
                         </mask>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mj-Ga-Xbc">
-                    <rect key="frame" x="0.0" y="-1" width="173" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mj-Ga-Xbc">
+                    <rect key="frame" x="0.0" y="18" width="150" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="104" id="4Ux-wW-YM1"/>
-                        <constraint firstAttribute="height" constant="60" id="hzE-Ap-u42"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="104" id="l90-RX-6KW"/>
+                        <constraint firstAttribute="width" constant="150" id="0lt-Za-RCU"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                    <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="titleEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="31" maxY="0.0"/>
-                    <state key="normal" image="backButtonIcon">
+                    <state key="normal" image="back_arrow">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="highlighted">
                         <color key="titleColor" red="0.532907197" green="0.532907197" blue="0.532907197" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="uBb-Gs-qgv"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -118,12 +120,15 @@
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="width" secondItem="fj6-Fm-OvB" secondAttribute="width" id="KdR-10-lhm"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="top" secondItem="aJh-oK-qbr" secondAttribute="top" constant="16" id="Mdm-Mn-bTs"/>
                 <constraint firstItem="hup-R5-XCI" firstAttribute="top" secondItem="fj6-Fm-OvB" secondAttribute="bottom" constant="5" id="OnT-b0-Er5"/>
+                <constraint firstItem="0Mj-Ga-Xbc" firstAttribute="height" secondItem="XG9-cl-cZD" secondAttribute="height" id="TQS-zH-g9v"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="leading" secondItem="aJh-oK-qbr" secondAttribute="leading" constant="20" id="XEL-te-hKt"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="width" secondItem="hup-R5-XCI" secondAttribute="width" id="YD1-pX-x0S"/>
                 <constraint firstAttribute="bottom" secondItem="swc-MX-flE" secondAttribute="bottom" id="Z6k-ez-IqG"/>
+                <constraint firstItem="0Mj-Ga-Xbc" firstAttribute="leading" secondItem="aJh-oK-qbr" secondAttribute="leading" id="a3l-fd-xsP"/>
                 <constraint firstItem="swc-MX-flE" firstAttribute="top" secondItem="aJh-oK-qbr" secondAttribute="top" constant="102" id="cwa-4O-t4V"/>
                 <constraint firstItem="swc-MX-flE" firstAttribute="leading" secondItem="aJh-oK-qbr" secondAttribute="leading" id="eUw-na-o5Q"/>
                 <constraint firstAttribute="trailing" secondItem="XG9-cl-cZD" secondAttribute="trailing" constant="20" id="fLq-Bm-bZn"/>
+                <constraint firstItem="0Mj-Ga-Xbc" firstAttribute="centerY" secondItem="XG9-cl-cZD" secondAttribute="centerY" constant="2" id="hVF-Hi-Idm"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="bottom" secondItem="hup-R5-XCI" secondAttribute="bottom" constant="3" id="hhC-Vs-B4N"/>
                 <constraint firstAttribute="centerX" secondItem="fj6-Fm-OvB" secondAttribute="centerX" id="iUf-tF-ke6"/>
                 <constraint firstAttribute="trailing" secondItem="swc-MX-flE" secondAttribute="trailing" id="oyG-Ru-saX"/>
@@ -134,18 +139,18 @@
                 <mask key="constraints">
                     <exclude reference="44m-Gc-bNQ"/>
                     <exclude reference="6Me-Vh-tSo"/>
-                    <exclude reference="OnT-b0-Er5"/>
                     <exclude reference="39O-t4-vXD"/>
-                    <exclude reference="oyG-Ru-saX"/>
+                    <exclude reference="OnT-b0-Er5"/>
                     <exclude reference="cwa-4O-t4V"/>
                     <exclude reference="eUw-na-o5Q"/>
+                    <exclude reference="oyG-Ru-saX"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="432" y="458"/>
         </view>
     </objects>
     <resources>
-        <image name="backButtonIcon" width="13" height="21"/>
+        <image name="back_arrow" width="7" height="12"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
