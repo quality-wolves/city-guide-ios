@@ -11,9 +11,9 @@
 
 @implementation HotspotHeaderView
 
-- (void) setCategory: (CGCategory *) category {
-    self.titleLabel.text = [category fullDescription];
-    self.imageView.image = [UIImage imageNamed:[category imageFileName]];
+- (void) setHotspot: (Hotspot *) h {
+    self.titleLabel.text = [[h desc] uppercaseString];
+    self.imageView.image = [[DataManager instance] imageByHotspot:h];
 }
 
 @end

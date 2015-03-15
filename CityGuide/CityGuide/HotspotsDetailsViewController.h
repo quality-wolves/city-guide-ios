@@ -14,6 +14,6 @@
 @property (strong, nonatomic) NSArray *hotspots;
 
 - (id) initWithHotspot: (Hotspot *) hotspot;
-- (id) initWithHotspots: (NSArray *) hotspots;
+- (id) initWithHotspots: (NSArray *) hotspots showAtIndex: (NSUInteger) index;
 
 @end
