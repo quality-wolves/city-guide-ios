@@ -9,7 +9,7 @@
 #import "HotspotCollectionViewController.h"
 #import "DataManager.h"
 #import "HotspotSmallCell.h"
-#import "HeaderViewCell.h"
+#import "HotspotHeaderView.h"
 #import "HotspotsDetailsViewController.h"
 
 
@@ -48,18 +48,22 @@
     [super viewDidLoad];
 
 	[self.collectionView registerNib: [UINib nibWithNibName: @"HotspotSmallCell" bundle:nil] forCellWithReuseIdentifier: @"HotspotSmallCell"];
-	[self.collectionView registerNib: [UINib nibWithNibName: @"HeaderViewCell" bundle:nil] forCellWithReuseIdentifier: @"HeaderViewCell"];
+	[self.collectionView registerNib: [UINib nibWithNibName: @"HotspotHeaderView" bundle:nil] forCellWithReuseIdentifier: @"HotspotHeaderView"];
 }
 
 - (BOOL)prefersStatusBarHidden {
 	return YES;
 }
 
+- (IBAction)backAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - UICollectionViewController
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) { //header cell
-        HeaderViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"HeaderViewCell" forIndexPath:indexPath];
+        HotspotHeaderView *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"HotspotHeaderView" forIndexPath:indexPath];
         
         Hotspot *h = _hotspots[indexPath.row];
         cell.titleLabel.text = [h desc];
@@ -88,28 +92,14 @@
 	return 1;
 }
 
-/*
- override func viewDidLayoutSubviews() {
- var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
- var padding:CGFloat = 20
- var w:CGFloat = (self.collectionView.frame.size.width - padding)/2.0
- flowLayout?.itemSize = CGSizeMake(w, w/1.35)
- flowLayout?.minimumLineSpacing = 2;
- flowLayout?.minimumInteritemSpacing = 10;
- 
- self.collectionView.collectionViewLayout = flowLayout!
- }
- 
- */
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         CGFloat w = self.collectionView.frame.size.width;
-        return CGSizeMake(w, w/1.35f);
+        return CGSizeMake(w, 210);
         
     }
     
-    CGFloat padding = 20;
+    CGFloat padding = 10;
     CGFloat w = (self.collectionView.frame.size.width - padding)/2.0f;
     return CGSizeMake(w, w/1.35f);
 
@@ -121,8 +111,9 @@
 //    CGFloat padding = 20;
 //    CGFloat w = (self.collectionView.frame.size.width - padding)/2.0f;
 //    layout.itemSize = CGSizeMake(w, w/1.35f);
-    layout.minimumInteritemSpacing = 0;
-    layout.minimumInteritemSpacing = 0;
+    layout.minimumInteritemSpacing = 10;
+    layout.minimumLineSpacing = 0;
+//    layout.minimumInteritemSpacing = 0;
 
 }
 

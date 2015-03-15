@@ -10,12 +10,8 @@
 #import "FavouritesManager.h"
 
 @interface HotspotsDetailsViewController ()
-@property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
-@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (weak, nonatomic) IBOutlet UIButton *favouritesButton;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -23,28 +19,20 @@
 
 - (id) initWithHotspot: (Hotspot *) hotspot {
     if (self = [super initWithNibName:@"HotspotsDetailsViewController" bundle:nil]) {
-        self.hotspot = hotspot;
+        self.hotspots = @[hotspot];
+    }
+    return self;
+}
+
+- (id) initWithHotspots: (NSArray *) hotspots {
+    if (self = [super initWithNibName:@"HotspotsDetailsViewController" bundle:nil]) {
+        self.hotspots = hotspots;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.backButton setImage:[[self.backButton imageForState:UIControlStateNormal] imageTintedWithColor:[UIColor blackColor]] forState:UIControlStateNormal];
-    
-    self.imageView.image = [[DataManager instance] imageByHotspot: _hotspot];
-    self.titleLabel.text = _hotspot.name;
-    self.descriptionLabel.text = _hotspot.desc;
-    self.favouritesButton.selected = [[FavouritesManager sharedManager] isFavourite:_hotspot];
-}
-
-- (IBAction)favouritesAction:(id)sender {
-    _favouritesButton.selected = !_favouritesButton.selected;
-    if (_favouritesButton.selected) {
-        [[FavouritesManager sharedManager] addFavouriteHotspot:_hotspot];
-    } else {
-        [[FavouritesManager sharedManager] removeHotspotFromFavourites:_hotspot];
-    }
 }
 
 - (BOOL) prefersStatusBarHidden {

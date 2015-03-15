@@ -11,7 +11,9 @@
 
 @interface HotspotsDetailsViewController : UIViewController
 
-@property (strong, nonatomic) Hotspot *hotspot;
+@property (strong, nonatomic) NSArray *hotspots;
+
 - (id) initWithHotspot: (Hotspot *) hotspot;
+- (id) initWithHotspots: (NSArray *) hotspots;
 
 @end
