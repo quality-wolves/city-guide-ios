@@ -38,7 +38,6 @@
     self.favouritesButton.selected = [[FavouritesManager sharedManager] isFavourite:_hotspot];
 }
 
-
 - (IBAction)favouritesAction:(id)sender {
     _favouritesButton.selected = !_favouritesButton.selected;
     if (_favouritesButton.selected) {

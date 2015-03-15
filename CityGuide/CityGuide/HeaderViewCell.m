@@ -11,10 +11,6 @@
 
 @implementation HeaderViewCell
 
-- (void)awakeFromNib {
-    NSLog(@"Cell loaded");
-}
-
 - (void) setCategory: (CGCategory *) category {
     self.titleLabel.text = [category fullDescription];
     self.imageView.image = [UIImage imageNamed:[category imageFileName]];
