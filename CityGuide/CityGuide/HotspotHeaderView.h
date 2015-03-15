@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CGCategory;
+@class Hotspot;
 
 @interface HotspotHeaderView : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
-- (void) setCategory: (CGCategory *) category;
+- (void) setHotspot: (Hotspot *) hotspot;
 
 @end

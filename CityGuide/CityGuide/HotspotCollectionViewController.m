@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) NSArray *hotspots;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 
 @end
@@ -46,7 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.titleLabel.text = [[_hotspots lastObject] categoryName];
 	[self.collectionView registerNib: [UINib nibWithNibName: @"HotspotSmallCell" bundle:nil] forCellWithReuseIdentifier: @"HotspotSmallCell"];
 	[self.collectionView registerNib: [UINib nibWithNibName: @"HotspotHeaderView" bundle:nil] forCellWithReuseIdentifier: @"HotspotHeaderView"];
 }
@@ -66,8 +67,7 @@
         HotspotHeaderView *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"HotspotHeaderView" forIndexPath:indexPath];
         
         Hotspot *h = _hotspots[indexPath.row];
-        cell.titleLabel.text = [h desc];
-        cell.imageView.image = [[DataManager instance] imageByHotspot:h];
+        [cell setHotspot: h];
         
         return cell;
     }
@@ -80,7 +80,7 @@
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    HotspotsDetailsViewController *vc = [[HotspotsDetailsViewController alloc] initWithHotspot:[_hotspots objectAtIndex:indexPath.row]];
+    HotspotsDetailsViewController *vc = [[HotspotsDetailsViewController alloc] initWithHotspots:_hotspots showAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -114,18 +114,6 @@
     layout.minimumInteritemSpacing = 10;
     layout.minimumLineSpacing = 0;
 //    layout.minimumInteritemSpacing = 0;
-
-}
-
-#pragma mark - Details
-
-- (void) showDetailsForIndexPath: (NSIndexPath *) indexPath {
-
-}
-
-
-
-- (void) hideDetails {
 
 }
 

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotspotCollectionViewController" customModule="CityGuide" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="Tmp-IL-vhI" id="TTl-Bb-YsC"/>
+                <outlet property="titleLabel" destination="XG9-cl-cZD" id="WjR-nA-XUX"/>
                 <outlet property="view" destination="aJh-oK-qbr" id="d5R-dc-ELy"/>
             </connections>
         </placeholder>
