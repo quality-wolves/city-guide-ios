@@ -23,6 +23,7 @@
     NSLog(@"Header loaded");
     self.categories = [CGCategory allHotspotCategories];
     [self.collectionView registerNib:[UINib nibWithNibName:@"HeaderViewCell" bundle:nil] forCellWithReuseIdentifier:@"HeaderViewCell"];
+
 }
 
 
@@ -46,5 +47,9 @@
     return 1;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(collectionView.width, collectionView.height);
+    
+}
 
 @end
