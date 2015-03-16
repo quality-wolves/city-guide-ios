@@ -13,17 +13,6 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="280" height="218"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qEi-B4-wEq">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="169"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="169" id="KnO-T4-qK5"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="KnO-T4-qK5"/>
-                            </mask>
-                        </variation>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISCOVER ALL THE COOL PLACES TO STAY DURING YOUR TRIP TO BARCELONA" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2z-Tz-etx">
                         <rect key="frame" x="0.0" y="169" width="280" height="41"/>
                         <constraints>
@@ -41,6 +30,17 @@
                             </mask>
                         </variation>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qEi-B4-wEq">
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="169"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="169" id="KnO-T4-qK5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KnO-T4-qK5"/>
+                            </mask>
+                        </variation>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>

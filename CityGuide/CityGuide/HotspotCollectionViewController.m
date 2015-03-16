@@ -61,7 +61,6 @@
 }
 
 #pragma mark - UICollectionViewController
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) { //header cell
         HotspotHeaderView *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"HotspotHeaderView" forIndexPath:indexPath];
@@ -91,17 +90,29 @@
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 	return 1;
 }
+/*
+ var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+ var padding:CGFloat = 5
+ let rowsize = ceil((self.collectionView.height-38)/5)
+ NSLog("%@ %@", rowsize, rowsize*2+14)
+ var w:CGFloat = self.collectionView.frame.size.width/2.0 - padding
+ flowLayout?.itemSize = CGSizeMake(w, rowsize+1)
+ flowLayout?.minimumLineSpacing = 0;
+ flowLayout?.headerReferenceSize = CGSizeMake(self.collectionView.width, rowsize*2+14);
+ 
+ */
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    float padding = 5;
+    int rowSize = ceil((collectionView.height-38)/5.f);
+    float w = collectionView.width/2.0 - padding;
+    
     if (indexPath.row == 0) {
         CGFloat w = self.collectionView.frame.size.width;
-        return CGSizeMake(w, 210);
-        
+        return CGSizeMake(w, rowSize*2+14);
     }
     
-    CGFloat padding = 10;
-    CGFloat w = (self.collectionView.frame.size.width - padding)/2.0f;
-    return CGSizeMake(w, w/1.35f);
+    return CGSizeMake(w, rowSize+1);
 
 }
 
@@ -111,8 +122,9 @@
 //    CGFloat padding = 20;
 //    CGFloat w = (self.collectionView.frame.size.width - padding)/2.0f;
 //    layout.itemSize = CGSizeMake(w, w/1.35f);
-    layout.minimumInteritemSpacing = 10;
+    layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
+    
 //    layout.minimumInteritemSpacing = 0;
 
 }
