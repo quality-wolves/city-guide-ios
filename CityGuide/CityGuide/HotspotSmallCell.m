@@ -13,7 +13,7 @@
 @implementation HotspotSmallCell
 
 - (void) setHotspot: (Hotspot *) hotspot {
-    self.titleLabel.text = [hotspot name];
+    self.titleLabel.text = [[hotspot name] uppercaseString];
     self.backgroundImage.image = [[DataManager instance] imageByHotspot: hotspot];
 }
 
