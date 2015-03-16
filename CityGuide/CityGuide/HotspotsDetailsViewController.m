@@ -9,7 +9,7 @@
 #import "HotspotsDetailsViewController.h"
 #import "FavouritesManager.h"
 #import "HotspotDetailsCell.h"
-
+#import "HACollectionViewLargeLayout.h"
 
 @interface HotspotsDetailsViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
@@ -38,6 +38,7 @@
     [super viewDidLoad];
     
     [self.collectionView registerNib: [UINib nibWithNibName: @"HotspotDetailsCell" bundle:nil] forCellWithReuseIdentifier: @"HotspotDetailsCell"];
+
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -85,13 +86,14 @@
 //}
 //
 - (void) viewDidLayoutSubviews {
-    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
-    
+//    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
+    HACollectionViewLargeLayout *layout = [HACollectionViewLargeLayout new];
+    layout.itemSize = CGSizeMake(self.collectionView.width, self.collectionView.height);
+    self.collectionView.collectionViewLayout = layout;
     //    CGFloat padding = 20;
 //        CGFloat w = (self.collectionView.frame.size.width - padding)/2.0f;
-    layout.itemSize = CGSizeMake(self.collectionView.width, self.collectionView.height);
-    layout.minimumInteritemSpacing = 0;
-    layout.minimumLineSpacing = 0;
+//    layout.minimumInteritemSpacing = 0;
+//    layout.minimumLineSpacing = 0;
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
     //    layout.minimumInteritemSpacing = 0;
     
