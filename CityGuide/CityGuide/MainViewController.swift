@@ -23,17 +23,18 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 		
 		categories = CGCategory.allCategoriesExceptHotspots();
 		
-//		DataManager.instance().downloadImages({ () -> Void in
+		DataManager.instance().downloadImages({ () -> Void in
 //			self.loadingView.hidden = true
-//		});
+		});
     }
     
     override func viewDidLayoutSubviews() {
         var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         var padding:CGFloat = 10
-        var w:CGFloat = (self.collectionView.frame.size.width - padding)/2.0
+        var w:CGFloat = self.collectionView.frame.size.width/2.0 - padding
         flowLayout?.itemSize = CGSizeMake(w, w/1.35)
         flowLayout?.minimumLineSpacing = 0;
+        flowLayout?.headerReferenceSize = CGSizeMake(self.collectionView.width, 220);
 //        flowLayout?.minimumInteritemSpacing = 2;
 
         self.collectionView.collectionViewLayout = flowLayout!
