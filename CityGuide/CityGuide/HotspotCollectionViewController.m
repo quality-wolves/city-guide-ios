@@ -122,7 +122,7 @@
 //    CGFloat padding = 20;
 //    CGFloat w = (self.collectionView.frame.size.width - padding)/2.0f;
 //    layout.itemSize = CGSizeMake(w, w/1.35f);
-    layout.minimumInteritemSpacing = 0;
+    layout.minimumInteritemSpacing = 10;
     layout.minimumLineSpacing = 0;
     
 //    layout.minimumInteritemSpacing = 0;
