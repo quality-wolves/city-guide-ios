@@ -33,7 +33,23 @@
 	if(self = [super init]) {
 	}
 	
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    
 	return self;
+}
+
+- (void) downloadDatabase:(NSString *) urlPath completionHandler: (void (^)()) completionHandler {
+    dispatch_queue_t q = dispatch_get_global_queue(0,0);
+    
+    dispatch_async(q, ^{
+        NSURL *url = [NSURL URLWithString:urlPath];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        NSLog(@"%@", data);
+        // NSString *fileName = [[url path] lastPathComponent];
+        NSString *filePath = [self documentsDirectory];
+        [data writeToFile:filePath atomically:YES];
+    });
 }
 
 - (void) downloadImages: (void(^)()) completionHandler {
@@ -50,12 +66,12 @@
 	return [UIImage imageWithContentsOfFile: path];
 }
 
-#pragma mark - Privates
-
 - (NSString*) documentsDirectory {
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	return [paths objectAtIndex:0];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [paths objectAtIndex:0];
 }
+
+#pragma mark - Privates
 
 - (void) downloadAndUnzip: (NSString *) urlPath completionHandler: (void(^)()) completionHandler;
 {
