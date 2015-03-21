@@ -22,11 +22,18 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.collectionView.registerNib(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView")
 		
 		categories = CGCategory.allCategoriesExceptHotspots();
-		
-		DataManager.instance().downloadImages({ () -> Void in
-//			self.loadingView.hidden = true
-		});
-    }
+        
+        if (self.checkForUpdate()) {
+            let attachmentsUrl = SERVER_URL + "get_attachments_that_has_loaded_after/" + self.getLastUpdateDate()
+            let databaseUrl = SERVER_URL + "get_database"
+            DataManager.instance().downloadAndUnzip(attachmentsUrl, completionHandler: {
+                NSLog("Attachments downloaded and unzipped!");
+            })
+            DataManager.instance().downloadAndUnzip(databaseUrl, completionHandler: {
+                NSLog("Database downloaded and unzipped!");
+            })
+        }
+}
     
     override func viewDidLayoutSubviews() {
         var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
@@ -122,5 +129,37 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		let category = categories[indexPath.row]
         self.didSelectCategory(category)
+    }
+    
+    func getLastUpdateDate() -> NSString {
+        let fm = NSFileManager.defaultManager()
+        let attrs = fm.attributesOfItemAtPath(DataManager.instance().documentsDirectory() + "/db.sqlite3", error: nil)
+        let lastUpdateDate = attrs?["NSFileModificationDate"] as? NSDate
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.stringFromDate(lastUpdateDate!)
+        println(date)
+        return date
+    }
+    
+    func checkForUpdate() -> Bool {
+        let todayDate = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.stringFromDate(todayDate)
+        var isUpdated:NSInteger?
+        if (date != self.getLastUpdateDate()) { //TODO: add true check
+            let urlString: String = SERVER_URL + "is_updated/" + date + ".json"
+            let url = NSURL(string: urlString)
+            var data = NSData(contentsOfURL: url!)
+            var parseError: NSError?
+            if let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers, error:&parseError) as? NSDictionary {
+                if let count = json["count"] as? NSInteger {
+                    isUpdated = count
+                }
+            }
+        }
+        
+        return isUpdated != nil && isUpdated > 0
     }
 }
