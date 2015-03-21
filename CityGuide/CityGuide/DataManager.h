@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define SERVER_URL @"http://admin%40cityguide.com:12345678@city-guide.fuk-yeah.com/"
+
 @class Hotspot;
 
 @interface DataManager : NSObject
@@ -16,6 +18,8 @@
 + (instancetype) instance;
 
 - (void) downloadImages: (void(^)()) completionHandler;
+- (void) downloadAndUnzip: (NSString*) urlPath completionHandler: (void(^)()) completionHandler;
 - (UIImage*) imageByHotspot: (Hotspot*) hotspot;
+- (NSString*) documentsDirectory;
 
 @end
