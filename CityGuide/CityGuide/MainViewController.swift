@@ -23,15 +23,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 		
 		categories = CGCategory.allCategoriesExceptHotspots();
         
+        SQLiteWrapper.sharedInstance().checkFile()
+        
         if (self.checkForUpdate()) {
-            let attachmentsUrl = SERVER_URL + "get_attachments_that_has_loaded_after/" + self.getLastUpdateDate()
-            let databaseUrl = SERVER_URL + "get_database"
-            DataManager.instance().downloadAndUnzip(attachmentsUrl, completionHandler: {
-                NSLog("Attachments downloaded and unzipped!");
-            })
-            DataManager.instance().downloadAndUnzip(databaseUrl, completionHandler: {
-                NSLog("Database downloaded and unzipped!");
-            })
+            self.update()
         }
 }
     
@@ -131,24 +126,38 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.didSelectCategory(category)
     }
     
-    func getLastUpdateDate() -> NSString {
-        let fm = NSFileManager.defaultManager()
-        let attrs = fm.attributesOfItemAtPath(DataManager.instance().documentsDirectory() + "/db.sqlite3", error: nil)
-        let lastUpdateDate = attrs?["NSFileModificationDate"] as? NSDate
+    func update() {
+        let todayDate = NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.stringFromDate(lastUpdateDate!)
-        println(date)
+        let date = dateFormatter.stringFromDate(todayDate)
+        let attachmentsUrl = SERVER_URL + "get_attachments_that_has_loaded_after/" + date
+        let databaseUrl = SERVER_URL + "get_database"
+        DataManager.instance().downloadAndUnzip(attachmentsUrl, completionHandler: {
+            NSLog("Attachments downloaded and unzipped!");
+        })
+        DataManager.instance().downloadAndUnzip(databaseUrl, completionHandler: {
+            NSLog("Database downloaded and unzipped!");
+        })
+    }
+    
+    func getLastUpdateDate() -> NSDate {
+        let fm = NSFileManager.defaultManager()
+        let path = NSString(format: "%@/%@", DataManager.instance().documentsDirectory(), SQLiteWrapper.sharedInstance().name)
+        var error: NSError?
+        let attrs = fm.attributesOfItemAtPath(path, error: &error) as NSDictionary!
+        let date = attrs["NSFileModificationDate"] as NSDate!
         return date
     }
     
     func checkForUpdate() -> Bool {
         let todayDate = NSDate()
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.stringFromDate(todayDate)
+        let lastUpdate = self.getLastUpdateDate()
         var isUpdated:NSInteger?
-        if (date != self.getLastUpdateDate()) { //TODO: add true check
+        if (todayDate.timeIntervalSinceDate(lastUpdate) > 1) {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = dateFormatter.stringFromDate(todayDate)
             let urlString: String = SERVER_URL + "is_updated/" + date + ".json"
             let url = NSURL(string: urlString)
             var data = NSData(contentsOfURL: url!)
@@ -158,6 +167,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     isUpdated = count
                 }
             }
+
         }
         
         return isUpdated != nil && isUpdated > 0
