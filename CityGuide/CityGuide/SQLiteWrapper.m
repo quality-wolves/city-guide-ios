@@ -24,14 +24,21 @@
     return instance;
 }
 
+- (id) init {
+    if (self = [super init]) {
+        self.name = @"db.sqlite3";
+    }
+    return self;
+}
+
 #pragma mark - File Methods
 
 - (NSString *) bundleName {
-    return @"development.sqlite3";
+    return self.name;
 }
 
 - (NSString *) databaseBundlePath {
-	return [[NSBundle mainBundle] pathForResource:[self bundleName] ofType:@""];
+	return [[NSBundle mainBundle] pathForResource:[self bundleName] ofType:nil];
 }
 
 - (NSString *) databasePath {
@@ -59,10 +66,7 @@
 }
 
 - (void) openDatabase {
-    //if write database
-//	NSString *file = [self checkFile];
-    //only read database
-    NSString *file = [self databaseBundlePath];
+	NSString *file = [self checkFile];
 	if (sqlite3_open([file UTF8String], &database) == SQLITE_OK) {
 		NSLog(@"sqlite3_open = SQLITE_OK - %@", file);
 	}
