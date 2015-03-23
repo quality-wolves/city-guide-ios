@@ -45,7 +45,7 @@
         for (int i = 0; i < 10; i++) {
             NSLog(@"Count repeat -%d Status request %@ with request %@", i, @(statusRequest).stringValue, request);
             [[SQLiteWrapper sharedInstance] closeDatabase];
-            [[SQLiteWrapper sharedInstance] openDatabaseWithName: @"development.sqlite3"];
+            [[SQLiteWrapper sharedInstance] openDatabaseWithName: @"db.sqlite3"];
             statusRequest = sqlite3_prepare_v2([SQLiteWrapper sharedInstance].database, readyQuery, -1, &db_statement, NULL);
             if (statusRequest == SQLITE_OK) {
                 break;
