@@ -20,6 +20,8 @@
 - (void) openDatabaseWithName:(NSString *) name;
 - (void) openDatabase;
 - (void) closeDatabase;
+- (NSString *) checkFile;
 - (void) errorSelectCurrent:(void(^)(id)) block;
+- (NSString *) bundleName;
 
 @end
