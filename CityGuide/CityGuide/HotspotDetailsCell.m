@@ -73,9 +73,9 @@
     self.titleLabel.text = hotspot.name;
     self.descriptionLabel.text = hotspot.desc;
     _favouriteButton.selected = [[FavouritesManager sharedManager] isFavourite:_hotspot];
-    self.addressLabel.text = @"Carrer d'Elisabets, 11, 08001, Barcelona";
-    self.phoneLabel.text = @"+34 932426280";
-    self.webLabel.text = @"Praktikhotels.com";
+    self.addressLabel.text = hotspot.address;//@"Carrer d'Elisabets, 11, 08001, Barcelona";
+    self.phoneLabel.text = hotspot.phone;//@"+34 932426280";
+    self.webLabel.text = hotspot.site;//@"Praktikhotels.com";
 
 }
 

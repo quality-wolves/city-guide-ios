@@ -17,6 +17,9 @@ class Hotspot: BaseData {
     var lon: Double = 0
 	var category: CGCategory?
     var lastUpdated: NSDate?
+    var phone: String?
+    var site: String?
+    var address: String?
 
 	override init() {
 		super.init();
@@ -27,7 +30,7 @@ class Hotspot: BaseData {
 	}
 	
 	class private func dataRequestString() -> String {
-		return "SELECT id, name, description, category, image_file_name, lat, lng, updated_at FROM hotspots"
+		return "SELECT id, name, description, category, image_file_name, lat, lng, updated_at, phone, site, address FROM hotspots"
 	}
 	
 	class func hotspotById(id: UInt) -> Hotspot {
@@ -41,7 +44,7 @@ class Hotspot: BaseData {
     class func lastUpdateDate() -> NSDate {
         var lastUpdateDate: NSDate? = nil
         
-        let array = convertArray(sendRequest("SELECT id, name, description, category, image_file_name, lat, lng, updated_at FROM hotspots order by updated_at desc limit 1", converter: { (sqlite3_stmt stmt) -> AnyObject! in
+        let array = convertArray(sendRequest("SELECT id, name, description, category, image_file_name, lat, lng, updated_at, phone, site, address FROM hotspots order by updated_at desc limit 1", converter: { (sqlite3_stmt stmt) -> AnyObject! in
             return self.itemWithSqlite3_stmt(stmt);
         }));
         
@@ -131,6 +134,9 @@ class Hotspot: BaseData {
             NSLog("date str: %@", dateStr)
             item.lastUpdated = dateFormatter.dateFromString(dateStr)
         }
+        item.phone = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(8))))
+        item.site = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(9))))
+        item.address = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(10))))
 		
 		return item;
 	}
