@@ -10,4 +10,6 @@
 
 @interface MapViewController : UIViewController
 
+- (id) initWithHotspots: (NSArray *) hotspots;
+
 @end

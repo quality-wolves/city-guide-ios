@@ -11,15 +11,18 @@
 @class Hotspot;
 @class CollectionLayouts;
 
-//@protocol HotspotDetailsDelegate;
+@protocol HotspotDetailsDelegate;
 
 @interface HotspotDetailsCell : UICollectionViewCell
 
+@property (weak, nonatomic) NSObject<HotspotDetailsDelegate> *delegate;
 @property (nonatomic, strong) Hotspot *hotspot;
 @end
 
 @protocol HotspotDetailsDelegate
 
-//- (void) shouldCloseHotspotsDetails: (HotspotDetailsCell *) cell;
+- (void) hotspotDetailCell: (HotspotDetailsCell *) cell openHotspotMap: (Hotspot *) hotspot;
+- (void) hotspotDetailCell: (HotspotDetailsCell *) cell betterCallHotspot: (Hotspot *) hotspot;
+- (void) hotspotDetailCell: (HotspotDetailsCell *) cell openHotspotSite: (Hotspot *) hotspot;
 
 @end

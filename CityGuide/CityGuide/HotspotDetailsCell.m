@@ -76,7 +76,18 @@
     self.addressLabel.text = hotspot.address;//@"Carrer d'Elisabets, 11, 08001, Barcelona";
     self.phoneLabel.text = hotspot.phone;//@"+34 932426280";
     self.webLabel.text = hotspot.site;//@"Praktikhotels.com";
+}
 
+- (IBAction)webSiteAction:(id)sender {
+    [self.delegate hotspotDetailCell:self openHotspotSite:self.hotspot];
+}
+
+- (IBAction)mapAction:(id)sender {
+    [self.delegate hotspotDetailCell:self openHotspotMap:self.hotspot];
+}
+
+- (IBAction)phoneAction:(id)sender {
+    [self.delegate hotspotDetailCell:self betterCallHotspot:self.hotspot];
 }
 
 @end
