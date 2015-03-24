@@ -135,91 +135,44 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func update() {
-        let todayDate = NSDate()
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.stringFromDate(self.getLastUpdateDate())
-        let attachmentsUrl = SERVER_URL + "get_attachments_that_has_loaded_after/" + date
-        let databaseUrl = SERVER_URL + "get_database"
-        DataManager.instance().downloadAndUnzip(databaseUrl, completionHandler: {
-            DataManager.instance().downloadAndUnzip(attachmentsUrl, completionHandler: {
-                NSLog("Attachments downloaded and unzipped!");
-                self.collectionView.reloadData()
-//                self.refreshControl.endRefreshing()
-            })
+        DataManager.instance().updateWithCompletition({(bool finished) in
+            SQLiteWrapper.sharedInstance().closeDatabase()
+            SQLiteWrapper.sharedInstance().openDatabase()
         })
+//        let todayDate = NSDate()
+//        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        let date = dateFormatter.stringFromDate(self.getLastUpdateDate())
+//        let attachmentsUrl = SERVER_URL + "get_attachments_that_has_loaded_after/" + date
+//        let databaseUrl = SERVER_URL + "get_database"
+//        DataManager.instance().downloadAndUnzip(databaseUrl, completionHandler: {
+//            DataManager.instance().downloadAndUnzip(attachmentsUrl, completionHandler: {
+//                NSLog("Attachments downloaded and unzipped!");
+//                self.collectionView.reloadData()
+//
+////                self.refreshControl.endRefreshing()
+//            })
+//        })
 
     }
     
     func getLastUpdateDate() -> NSDate {
         return Hotspot.lastUpdateDate()
-//        let fm = NSFileManager.defaultManager()
-//        let path = NSString(format: "%@/%@", DataManager.instance().documentsDirectory(), SQLiteWrapper.sharedInstance().name)
-//
-//        var error: NSError?
-//        let attrs = fm.attributesOfItemAtPath(path, error: &error) as NSDictionary!
-//        let date = attrs["NSFileModificationDate"] as NSDate!
-//
-//        return date.dateByAddingTimeInterval(-24*60*60)
     }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if (buttonIndex == 1) { //ok
             self.update()
-        } else {
-//            self.refreshControl.endRefreshing()
         }
     }
     
     func checkForUpdate() {
-        let todayDate = NSDate()
-        let lastUpdate = self.getLastUpdateDate()
-        
-        if (todayDate.timeIntervalSinceDate(lastUpdate) > 1) {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let dateString = dateFormatter.stringFromDate(lastUpdate)
-            
-            let urlString: String = SERVER_URL + "is_updated/" + dateString + ".json"
-            let url = NSURL(string: urlString)
-
-            NSLog("Url string: %@", urlString)
-            NSLog("Url: %@", url!)
-            
-            dispatch_async(dispatch_get_global_queue(0,0), {
-                var isUpdated:NSInteger = 0
-
-                var parseError: NSError?
-                let str = NSString(contentsOfURL: url!, encoding: NSUTF8StringEncoding, error: &parseError)
-                if (parseError != nil) {
-                    NSLog("download error: %@", parseError!)
-                }
-                if (str != nil) {
-                    NSLog("data: %@", str!)
- 
-                    let data = str?.dataUsingEncoding(NSUTF8StringEncoding)
-                    NSLog("Data not null")
-                    if  let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers, error:&parseError) as? NSDictionary {
-                        NSLog("Serialization success")
-                        if let count = json["count"] as? NSInteger {
-                            isUpdated = count
-                        }
-                    }
-                    
-                    if (isUpdated > 0) {
-                        dispatch_async(dispatch_get_main_queue(), {
-                            let alert = UIAlertView(title: kAppName, message: "There is new hotspots coming. Would you like to update resources?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
-                            alert.show()
-                        })
-                    }
-                }
-
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.refreshControl.endRefreshing()
-                })
-
-            })
-
-        }
+        DataManager.instance().checkForUpdateWithCompletition({ (bool hasUpdates) in
+            self.refreshControl.endRefreshing()
+            if (hasUpdates) {
+                let alert = UIAlertView(title: kAppName, message: "There is new hotspots coming. Would you like to update resources?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+                alert.show()
+            }
+        });
     }
 }

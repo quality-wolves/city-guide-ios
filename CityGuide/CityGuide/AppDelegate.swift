@@ -21,6 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //check if this is a first launch.
+        //if database file exists in documents, then we was here already. Nothing todo here
+        if (!NSFileManager.defaultManager().fileExistsAtPath(SQLiteWrapper.sharedInstance().databasePath())) {
+            SQLiteWrapper.sharedInstance().checkFile()
+            var path: NSString = NSBundle.mainBundle().pathForResource("thumbnails.zip", ofType: nil)!
+            println(path)
+            if let thumbnailsUrl = NSURL(fileURLWithPath: path) {
+                DataManager.instance().downloadAndUnzip(thumbnailsUrl.absoluteString, completionHandler: {
+                    NSLog("Update complete!")
+                })
+            }
+        }
 		
 		DataManager.instance();
 		
