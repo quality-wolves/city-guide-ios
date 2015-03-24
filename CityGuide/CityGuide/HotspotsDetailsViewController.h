@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CityGuide-swift.h"
 
-@interface HotspotsDetailsViewController : UIViewController
+@interface HotspotsDetailsViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, nonatomic) NSArray *hotspots;
 

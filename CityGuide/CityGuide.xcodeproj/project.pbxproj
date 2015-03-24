@@ -46,6 +46,8 @@
 		A4E9A9151A9279C0006E12F7 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A9131A9279C0006E12F7 /* MapViewController.xib */; };
 		A4E9A9201A928FCE006E12F7 /* HotspotAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A91F1A928FCE006E12F7 /* HotspotAnnotation.m */; };
 		A4E9A9231A9290E6006E12F7 /* HotspotAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A9221A9290E6006E12F7 /* HotspotAnnotationView.m */; };
+		A4F593821AC1FDE400C96849 /* HotspotSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F593801AC1FDE400C96849 /* HotspotSiteViewController.m */; };
+		A4F593831AC1FDE400C96849 /* HotspotSiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F593811AC1FDE400C96849 /* HotspotSiteViewController.xib */; };
 		A4FA5FFD1AB4703600BC1CAE /* HotspotSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FA5FFC1AB4703600BC1CAE /* HotspotSmallCell.xib */; };
 		A4FA60001AB4704700BC1CAE /* HotspotSmallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FA5FFF1AB4704700BC1CAE /* HotspotSmallCell.m */; };
 		A9C8FEC81A90D8FF005826D3 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEC71A90D8FF005826D3 /* SSZipArchive.m */; };
@@ -179,6 +181,9 @@
 		A4E9A91F1A928FCE006E12F7 /* HotspotAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotAnnotation.m; sourceTree = "<group>"; };
 		A4E9A9211A9290E6006E12F7 /* HotspotAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotAnnotationView.h; sourceTree = "<group>"; };
 		A4E9A9221A9290E6006E12F7 /* HotspotAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotAnnotationView.m; sourceTree = "<group>"; };
+		A4F5937F1AC1FDE400C96849 /* HotspotSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotSiteViewController.h; sourceTree = "<group>"; };
+		A4F593801AC1FDE400C96849 /* HotspotSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotSiteViewController.m; sourceTree = "<group>"; };
+		A4F593811AC1FDE400C96849 /* HotspotSiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotSiteViewController.xib; sourceTree = "<group>"; };
 		A4FA5FFC1AB4703600BC1CAE /* HotspotSmallCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotSmallCell.xib; sourceTree = "<group>"; };
 		A4FA5FFE1AB4704700BC1CAE /* HotspotSmallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotSmallCell.h; sourceTree = "<group>"; };
 		A4FA5FFF1AB4704700BC1CAE /* HotspotSmallCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotSmallCell.m; sourceTree = "<group>"; };
@@ -380,6 +385,7 @@
 		A4A2FFF21AB04DDC008BB4B2 /* Hotspots details */ = {
 			isa = PBXGroup;
 			children = (
+				A4F5937E1AC1FDCD00C96849 /* Hotspot site */,
 				A9C8FF301A92A1A3005826D3 /* HotspotDetailsCell.h */,
 				A9C8FF311A92A1A3005826D3 /* HotspotDetailsCell.m */,
 				A9C8FF321A92A1A3005826D3 /* HotspotDetailsCell.xib */,
@@ -443,6 +449,16 @@
 				A4E9A9221A9290E6006E12F7 /* HotspotAnnotationView.m */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		A4F5937E1AC1FDCD00C96849 /* Hotspot site */ = {
+			isa = PBXGroup;
+			children = (
+				A4F5937F1AC1FDE400C96849 /* HotspotSiteViewController.h */,
+				A4F593801AC1FDE400C96849 /* HotspotSiteViewController.m */,
+				A4F593811AC1FDE400C96849 /* HotspotSiteViewController.xib */,
+			);
+			name = "Hotspot site";
 			sourceTree = "<group>";
 		};
 		A4FA5FFB1AB4702200BC1CAE /* Cells */ = {
@@ -713,6 +729,7 @@
 				F5A25C461A84059500A9B0E3 /* MenuCollectionCell.xib in Resources */,
 				A9C8FEEE1A9133ED005826D3 /* thumbnails.zip in Resources */,
 				A9C8FF341A92A1A3005826D3 /* HotspotDetailsCell.xib in Resources */,
+				A4F593831AC1FDE400C96849 /* HotspotSiteViewController.xib in Resources */,
 				A4373C8A1A96708800D854B9 /* LICENSE in Resources */,
 				A4E9A9151A9279C0006E12F7 /* MapViewController.xib in Resources */,
 				F5A25C411A83FCAC00A9B0E3 /* MainViewController.xib in Resources */,
@@ -755,6 +772,7 @@
 				A4373C9B1A96708800D854B9 /* TLCollectionViewController.m in Sources */,
 				F5A25C451A84059500A9B0E3 /* MenuCollectionCell.swift in Sources */,
 				A4373C8D1A96708800D854B9 /* TLIndexPathDataModel.m in Sources */,
+				A4F593821AC1FDE400C96849 /* HotspotSiteViewController.m in Sources */,
 				A4E9A9231A9290E6006E12F7 /* HotspotAnnotationView.m in Sources */,
 				A9C8FF051A915C62005826D3 /* TransparentView.m in Sources */,
 				A9C8FED51A90D921005826D3 /* unzip.c in Sources */,
@@ -902,7 +920,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PROVISIONING_PROFILE = "76315635-7717-4b0c-b792-61c9c40e4746";
+				PROVISIONING_PROFILE = "ca94f054-cb30-4208-b2c6-082f585199c5";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -917,7 +935,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "40ffdf60-b1d8-4b0b-b344-3403a5381a26";
 				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -932,10 +949,67 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76315635-7717-4b0c-b792-61c9c40e4746";
 				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
 			};
 			name = Release;
+		};
+		A4F593841AC203B300C96849 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vladislav Zozuliak (4685VULTFQ)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"Frameworks/**",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PROVISIONING_PROFILE = "ca94f054-cb30-4208-b2c6-082f585199c5";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Adhoc;
+		};
+		A4F593851AC203B300C96849 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = CityGuide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CityGuide/CityGuide-Bridging-Header.h";
+			};
+			name = Adhoc;
 		};
 /* End XCBuildConfiguration section */
 
@@ -945,6 +1019,7 @@
 			buildConfigurations = (
 				A4E9A9001A83E9E0006E12F7 /* Debug */,
 				A4E9A9011A83E9E0006E12F7 /* Release */,
+				A4F593841AC203B300C96849 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -954,6 +1029,7 @@
 			buildConfigurations = (
 				A4E9A9031A83E9E0006E12F7 /* Debug */,
 				A4E9A9041A83E9E0006E12F7 /* Release */,
+				A4F593851AC203B300C96849 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
