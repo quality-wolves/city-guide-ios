@@ -26,6 +26,20 @@
 
 @implementation MapViewController
 
+- (id) init {
+    if (self = [super init]) {
+        self.hotspots = [Hotspot allHotspots];
+    }
+    return self;
+}
+
+- (id) initWithHotspots: (NSArray *) hotspots {
+    if (self = [super init]) {
+        self.hotspots = hotspots;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -44,7 +58,6 @@
 }
 
 - (void) reload {
-    self.hotspots = [Hotspot allHotspots];
     [self.mapView removeAnnotations:self.annotations];
     NSMutableArray *ann = [NSMutableArray new];
     

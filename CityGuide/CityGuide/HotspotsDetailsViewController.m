@@ -10,8 +10,9 @@
 #import "FavouritesManager.h"
 #import "HotspotDetailsCell.h"
 #import "HACollectionViewLargeLayout.h"
+#import "MapViewController.h"
 
-@interface HotspotsDetailsViewController ()
+@interface HotspotsDetailsViewController ()<HotspotDetailsDelegate>
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSUInteger index;
@@ -48,11 +49,31 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void) hotspotDetailCell: (HotspotDetailsCell *) cell openHotspotMap: (Hotspot *) hotspot {
+    if (!hotspot)
+        return;
+    
+    MapViewController *mapVC = [[MapViewController alloc] initWithHotspots:@[hotspot]];
+    [self.navigationController pushViewController:mapVC animated:YES];
+}
+
+- (void) hotspotDetailCell: (HotspotDetailsCell *) cell betterCallHotspot: (Hotspot *) hotspot {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", [hotspot.phone stringByReplacingOccurrencesOfString:@" " withString:@""]]];
+
+    if (url)
+        [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) hotspotDetailCell: (HotspotDetailsCell *) cell openHotspotSite: (Hotspot *) hotspot {
+    
+}
+
 #pragma mark - UICollectionViewController
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HotspotDetailsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotspotDetailsCell" forIndexPath:indexPath];
     
+    cell.delegate = self;
     [cell setHotspot:_hotspots[indexPath.row]];
     
     return cell;
