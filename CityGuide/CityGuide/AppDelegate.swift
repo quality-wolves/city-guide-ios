@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		DataManager.instance();
 		
         mainVC = MainViewController()
+        SQLiteWrapper.sharedInstance().checkFile()
+        SQLiteWrapper.sharedInstance().openDatabase()
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
 

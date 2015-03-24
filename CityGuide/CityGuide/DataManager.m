@@ -36,6 +36,14 @@
 	return self;
 }
 
+- (void) checkForUpdateWithCompletition: (CompletionHandler) completionHandler {
+    
+}
+
+- (void) updateWithCompletition: (CompletionHandler) completionHandler {
+    
+}
+
 - (void) downloadDatabase:(NSString *) urlPath completionHandler: (void (^)()) completionHandler {
     dispatch_queue_t q = dispatch_get_global_queue(0,0);
     

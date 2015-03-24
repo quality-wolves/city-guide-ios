@@ -27,13 +27,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.collectionView.addSubview(self.refreshControl)
         
 		categories = CGCategory.allCategoriesExceptHotspots();
-        
-        SQLiteWrapper.sharedInstance().checkFile()
     }
     
     func refreshAction() {
         self.checkForUpdate()
-        self.refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -155,14 +152,15 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func getLastUpdateDate() -> NSDate {
-        let fm = NSFileManager.defaultManager()
-        let path = NSString(format: "%@/%@", DataManager.instance().documentsDirectory(), SQLiteWrapper.sharedInstance().name)
-
-        var error: NSError?
-        let attrs = fm.attributesOfItemAtPath(path, error: &error) as NSDictionary!
-        let date = attrs["NSFileModificationDate"] as NSDate!
-
-        return date.dateByAddingTimeInterval(-24*60*60)
+        return Hotspot.lastUpdateDate()
+//        let fm = NSFileManager.defaultManager()
+//        let path = NSString(format: "%@/%@", DataManager.instance().documentsDirectory(), SQLiteWrapper.sharedInstance().name)
+//
+//        var error: NSError?
+//        let attrs = fm.attributesOfItemAtPath(path, error: &error) as NSDictionary!
+//        let date = attrs["NSFileModificationDate"] as NSDate!
+//
+//        return date.dateByAddingTimeInterval(-24*60*60)
     }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
@@ -210,12 +208,16 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     
                     if (isUpdated > 0) {
                         dispatch_async(dispatch_get_main_queue(), {
-
                             let alert = UIAlertView(title: kAppName, message: "There is new hotspots coming. Would you like to update resources?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
                             alert.show()
                         })
                     }
                 }
+
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.refreshControl.endRefreshing()
+                })
+
             })
 
         }
