@@ -48,6 +48,7 @@
 		A4E9A9231A9290E6006E12F7 /* HotspotAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A9221A9290E6006E12F7 /* HotspotAnnotationView.m */; };
 		A4F593821AC1FDE400C96849 /* HotspotSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F593801AC1FDE400C96849 /* HotspotSiteViewController.m */; };
 		A4F593831AC1FDE400C96849 /* HotspotSiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F593811AC1FDE400C96849 /* HotspotSiteViewController.xib */; };
+		A4F593891AC2062300C96849 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F593871AC2062300C96849 /* LaunchScreen.xib */; };
 		A4FA5FFD1AB4703600BC1CAE /* HotspotSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FA5FFC1AB4703600BC1CAE /* HotspotSmallCell.xib */; };
 		A4FA60001AB4704700BC1CAE /* HotspotSmallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FA5FFF1AB4704700BC1CAE /* HotspotSmallCell.m */; };
 		A9C8FEC81A90D8FF005826D3 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FEC71A90D8FF005826D3 /* SSZipArchive.m */; };
@@ -173,7 +174,6 @@
 		A4E9A8E71A83E9DF006E12F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A4E9A8F21A83E9DF006E12F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A4E9A9111A9279C0006E12F7 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		A4E9A9121A9279C0006E12F7 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		A4E9A9131A9279C0006E12F7 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
@@ -184,6 +184,7 @@
 		A4F5937F1AC1FDE400C96849 /* HotspotSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotSiteViewController.h; sourceTree = "<group>"; };
 		A4F593801AC1FDE400C96849 /* HotspotSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotSiteViewController.m; sourceTree = "<group>"; };
 		A4F593811AC1FDE400C96849 /* HotspotSiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotSiteViewController.xib; sourceTree = "<group>"; };
+		A4F593881AC2062300C96849 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A4FA5FFC1AB4703600BC1CAE /* HotspotSmallCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotSmallCell.xib; sourceTree = "<group>"; };
 		A4FA5FFE1AB4704700BC1CAE /* HotspotSmallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotSmallCell.h; sourceTree = "<group>"; };
 		A4FA5FFF1AB4704700BC1CAE /* HotspotSmallCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotSmallCell.m; sourceTree = "<group>"; };
@@ -422,7 +423,7 @@
 				F5A25C3D1A83FB7900A9B0E3 /* View Controllers */,
 				A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */,
 				A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */,
-				A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */,
+				A4F593871AC2062300C96849 /* LaunchScreen.xib */,
 				A4E9A8E61A83E9DF006E12F7 /* Supporting Files */,
 			);
 			path = CityGuide;
@@ -736,6 +737,7 @@
 				A4FA5FFD1AB4703600BC1CAE /* HotspotSmallCell.xib in Resources */,
 				A4373CA11A967D6800D854B9 /* HotspotsDetailsViewController.xib in Resources */,
 				F5A25C4B1A84115100A9B0E3 /* HotspotCollectionViewController.xib in Resources */,
+				A4F593891AC2062300C96849 /* LaunchScreen.xib in Resources */,
 				A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */,
 				F54B70871AB5B3680059B9F2 /* HotspotHeaderView.xib in Resources */,
 				A4A2FFFC1AB05197008BB4B2 /* HeaderViewCell.xib in Resources */,
@@ -818,10 +820,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A4E9A8F11A83E9DF006E12F7 /* LaunchScreen.xib */ = {
+		A4F593871AC2062300C96849 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A4E9A8F21A83E9DF006E12F7 /* Base */,
+				A4F593881AC2062300C96849 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
