@@ -33,9 +33,6 @@
 	if(self = [super init]) {
 	}
 	
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
-    
 	return self;
 }
 

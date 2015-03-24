@@ -33,6 +33,9 @@
 		A4373CA01A967D6800D854B9 /* HotspotsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4373C9E1A967D6800D854B9 /* HotspotsDetailsViewController.m */; };
 		A4373CA11A967D6800D854B9 /* HotspotsDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4373C9F1A967D6800D854B9 /* HotspotsDetailsViewController.xib */; };
 		A449401F1AA8994C0091AE2D /* FavouritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A449401E1AA8994C0091AE2D /* FavouritesManager.m */; };
+		A44D86AD1AC0BEF600698324 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44D86AC1AC0BEF600698324 /* CFNetwork.framework */; };
+		A44D86AF1AC0BF1000698324 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44D86AE1AC0BF1000698324 /* SystemConfiguration.framework */; };
+		A44D86B11AC0BF2D00698324 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44D86B01AC0BF2D00698324 /* MobileCoreServices.framework */; };
 		A4A2FFF61AB04F56008BB4B2 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2FFF41AB04F56008BB4B2 /* HeaderView.m */; };
 		A4A2FFF71AB04F56008BB4B2 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A2FFF51AB04F56008BB4B2 /* HeaderView.xib */; };
 		A4A2FFFB1AB05197008BB4B2 /* HeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2FFF91AB05197008BB4B2 /* HeaderViewCell.m */; };
@@ -155,6 +158,9 @@
 		A4373C9F1A967D6800D854B9 /* HotspotsDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotsDetailsViewController.xib; sourceTree = "<group>"; };
 		A449401D1AA8994C0091AE2D /* FavouritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesManager.h; sourceTree = "<group>"; };
 		A449401E1AA8994C0091AE2D /* FavouritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesManager.m; sourceTree = "<group>"; };
+		A44D86AC1AC0BEF600698324 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A44D86AE1AC0BF1000698324 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A44D86B01AC0BF2D00698324 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A4A2FFF31AB04F56008BB4B2 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		A4A2FFF41AB04F56008BB4B2 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		A4A2FFF51AB04F56008BB4B2 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -244,6 +250,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44D86B11AC0BF2D00698324 /* MobileCoreServices.framework in Frameworks */,
+				A44D86AF1AC0BF1000698324 /* SystemConfiguration.framework in Frameworks */,
+				A44D86AD1AC0BEF600698324 /* CFNetwork.framework in Frameworks */,
 				A9C8FF2C1A92863B005826D3 /* MapKit.framework in Frameworks */,
 				A9C8FF2A1A9285F9005826D3 /* ImageIO.framework in Frameworks */,
 				A9C8FF261A9285B6005826D3 /* QuartzCore.framework in Frameworks */,
@@ -381,13 +390,6 @@
 			name = "Hotspots details";
 			sourceTree = "<group>";
 		};
-		A4D3E76C1A963A7500C194B5 /* Data manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Data manager";
-			sourceTree = "<group>";
-		};
 		A4E9A8DA1A83E9DF006E12F7 = {
 			isa = PBXGroup;
 			children = (
@@ -409,7 +411,6 @@
 		A4E9A8E51A83E9DF006E12F7 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
-				A4D3E76C1A963A7500C194B5 /* Data manager */,
 				A9C8FEFB1A9152DD005826D3 /* Views */,
 				A9C8FED71A90D924005826D3 /* Models */,
 				F5A25C3D1A83FB7900A9B0E3 /* View Controllers */,
@@ -460,6 +461,9 @@
 		A9C8FEC31A90D8B6005826D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A44D86B01AC0BF2D00698324 /* MobileCoreServices.framework */,
+				A44D86AE1AC0BF1000698324 /* SystemConfiguration.framework */,
+				A44D86AC1AC0BEF600698324 /* CFNetwork.framework */,
 				A9C8FF2B1A92863B005826D3 /* MapKit.framework */,
 				A9C8FF291A9285F9005826D3 /* ImageIO.framework */,
 				A9C8FF271A9285CE005826D3 /* AVFoundation.framework */,

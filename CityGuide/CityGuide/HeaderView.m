@@ -10,6 +10,7 @@
 #import "HeaderViewCell.h"
 #import "CityGuide-Swift.h"
 
+
 @interface HeaderView()
 
 @property (strong, nonatomic) NSArray *categories;
