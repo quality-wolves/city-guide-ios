@@ -16,6 +16,7 @@ class Hotspot: BaseData {
     var lat: Double = 0
     var lon: Double = 0
 	var category: CGCategory?
+    var lastUpdated: NSDate?
 
 	override init() {
 		super.init();
@@ -26,7 +27,7 @@ class Hotspot: BaseData {
 	}
 	
 	class private func dataRequestString() -> String {
-		return "SELECT id, name, description, category, image_file_name, lat, lng FROM hotspots"
+		return "SELECT id, name, description, category, image_file_name, lat, lng, updated_at FROM hotspots"
 	}
 	
 	class func hotspotById(id: UInt) -> Hotspot {
@@ -36,6 +37,25 @@ class Hotspot: BaseData {
 		
 		return array[0];
 	}
+    
+    class func lastUpdateDate() -> NSDate {
+        var lastUpdateDate: NSDate? = nil
+        
+        let array = convertArray(sendRequest("SELECT id, name, description, category, image_file_name, lat, lng, updated_at FROM hotspots order by updated_at desc limit 1", converter: { (sqlite3_stmt stmt) -> AnyObject! in
+            return self.itemWithSqlite3_stmt(stmt);
+        }));
+        
+        if (array.count > 0) {
+            let h = array[0]
+            lastUpdateDate = h.lastUpdated
+        }
+        
+        if lastUpdateDate == nil {
+            lastUpdateDate = NSDate(timeIntervalSince1970: 0)
+        }
+        
+        return lastUpdateDate!
+    }
     
     func categoryImageName() -> String {
 
@@ -102,6 +122,15 @@ class Hotspot: BaseData {
         
         item.lat = sqlite3_column_double(stmt, CInt(5))
         item.lon = sqlite3_column_double(stmt, CInt(6))
+        if let dateString = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(7)))) {
+            var dateFormatter: NSDateFormatter = NSDateFormatter()
+            var format:NSString = "YYYY-MM-dd HH:mm:ss"
+            dateFormatter.dateFormat = format
+            var dateStr = dateString as NSString
+            dateStr = dateStr.substringToIndex(format.length)
+            NSLog("date str: %@", dateStr)
+            item.lastUpdated = dateFormatter.dateFromString(dateStr)
+        }
 		
 		return item;
 	}

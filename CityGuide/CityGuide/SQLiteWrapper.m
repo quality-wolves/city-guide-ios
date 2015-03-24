@@ -91,7 +91,7 @@
         [[SQLiteWrapper sharedInstance] openDatabase];
     }
     else {
-        error = [NSError errorWithDomain:@"sqlite2.agora.open" code:-kMaxCountTry userInfo:@{NSLocalizedDescriptionKey : @"Open database Error"}];
+        error = [NSError errorWithDomain:@"sqlite" code:-kMaxCountTry userInfo:@{NSLocalizedDescriptionKey : @"Open database Error"}];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         block(error);

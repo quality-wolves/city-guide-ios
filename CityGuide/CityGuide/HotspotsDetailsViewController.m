@@ -38,7 +38,6 @@
     [super viewDidLoad];
     
     [self.collectionView registerNib: [UINib nibWithNibName: @"HotspotDetailsCell" bundle:nil] forCellWithReuseIdentifier: @"HotspotDetailsCell"];
-
 }
 
 - (BOOL)prefersStatusBarHidden {

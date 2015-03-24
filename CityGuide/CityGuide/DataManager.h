@@ -12,6 +12,8 @@
 #define SERVER_URL @"http://admin%40cityguide.com:12345678@cityguide.fuk-yeah.com/"
 
 @class Hotspot;
+typedef void (^CompletionHandler)(BOOL);
+
 
 @interface DataManager : NSObject
 
@@ -21,5 +23,8 @@
 - (void) downloadAndUnzip: (NSString*) urlPath completionHandler: (void(^)()) completionHandler;
 - (UIImage*) imageByHotspot: (Hotspot*) hotspot;
 - (NSString*) documentsDirectory;
+
+- (void) checkForUpdateWithCompletition: (CompletionHandler) completionHandler;
+- (void) updateWithCompletition: (CompletionHandler) completionHandler;
 
 @end
