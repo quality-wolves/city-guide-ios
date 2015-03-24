@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define SERVER_URL @"http://admin%40cityguide.com:12345678@city-guide.fuk-yeah.com/"
+#define SERVER_URL @"http://admin%40cityguide.com:12345678@cityguide.fuk-yeah.com/"
 
 @class Hotspot;
 

@@ -8,10 +8,11 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, HeaderViewDelegate {
+class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, HeaderViewDelegate, UIAlertViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var loadingView: UIView!
+    var refreshControl: UIRefreshControl!
     var headerView: HeaderView!
 
 	private var categories: [CGCategory]!
@@ -20,15 +21,25 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         self.collectionView.registerNib(UINib(nibName: "MenuCollectionCell", bundle: nil), forCellWithReuseIdentifier: "MenuCollectionCell")
         self.collectionView.registerNib(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView")
-		
+		self.refreshControl = UIRefreshControl()
+        self.refreshControl.tintColor = UIColor.blackColor()
+        self.refreshControl.addTarget(self, action: "refreshAction", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView.addSubview(self.refreshControl)
+        
 		categories = CGCategory.allCategoriesExceptHotspots();
         
         SQLiteWrapper.sharedInstance().checkFile()
-        
-        if (self.checkForUpdate()) {
-            self.update()
-        }
-}
+    }
+    
+    func refreshAction() {
+        self.checkForUpdate()
+        self.refreshControl.endRefreshing()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+//        self.checkForUpdate()
+    }
     
     override func viewDidLayoutSubviews() {
         var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
@@ -130,46 +141,83 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let todayDate = NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.stringFromDate(todayDate)
+        let date = dateFormatter.stringFromDate(self.getLastUpdateDate())
         let attachmentsUrl = SERVER_URL + "get_attachments_that_has_loaded_after/" + date
         let databaseUrl = SERVER_URL + "get_database"
-        DataManager.instance().downloadAndUnzip(attachmentsUrl, completionHandler: {
-            NSLog("Attachments downloaded and unzipped!");
-        })
         DataManager.instance().downloadAndUnzip(databaseUrl, completionHandler: {
-            NSLog("Database downloaded and unzipped!");
+            DataManager.instance().downloadAndUnzip(attachmentsUrl, completionHandler: {
+                NSLog("Attachments downloaded and unzipped!");
+                self.collectionView.reloadData()
+//                self.refreshControl.endRefreshing()
+            })
         })
+
     }
     
     func getLastUpdateDate() -> NSDate {
         let fm = NSFileManager.defaultManager()
         let path = NSString(format: "%@/%@", DataManager.instance().documentsDirectory(), SQLiteWrapper.sharedInstance().name)
+
         var error: NSError?
         let attrs = fm.attributesOfItemAtPath(path, error: &error) as NSDictionary!
         let date = attrs["NSFileModificationDate"] as NSDate!
-        return date
+
+        return date.dateByAddingTimeInterval(-24*60*60)
     }
     
-    func checkForUpdate() -> Bool {
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if (buttonIndex == 1) { //ok
+            self.update()
+        } else {
+//            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    func checkForUpdate() {
         let todayDate = NSDate()
         let lastUpdate = self.getLastUpdateDate()
-        var isUpdated:NSInteger?
+        
         if (todayDate.timeIntervalSinceDate(lastUpdate) > 1) {
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
-            let date = dateFormatter.stringFromDate(todayDate)
-            let urlString: String = SERVER_URL + "is_updated/" + date + ".json"
+            let dateString = dateFormatter.stringFromDate(lastUpdate)
+            
+            let urlString: String = SERVER_URL + "is_updated/" + dateString + ".json"
             let url = NSURL(string: urlString)
-            var data = NSData(contentsOfURL: url!)
-            var parseError: NSError?
-            if let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers, error:&parseError) as? NSDictionary {
-                if let count = json["count"] as? NSInteger {
-                    isUpdated = count
+
+            NSLog("Url string: %@", urlString)
+            NSLog("Url: %@", url!)
+            
+            dispatch_async(dispatch_get_global_queue(0,0), {
+                var isUpdated:NSInteger = 0
+
+                var parseError: NSError?
+                let str = NSString(contentsOfURL: url!, encoding: NSUTF8StringEncoding, error: &parseError)
+                if (parseError != nil) {
+                    NSLog("download error: %@", parseError!)
                 }
-            }
+                if (str != nil) {
+                    NSLog("data: %@", str!)
+ 
+                    let data = str?.dataUsingEncoding(NSUTF8StringEncoding)
+                    NSLog("Data not null")
+                    if  let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers, error:&parseError) as? NSDictionary {
+                        NSLog("Serialization success")
+                        if let count = json["count"] as? NSInteger {
+                            isUpdated = count
+                        }
+                    }
+                    
+                    if (isUpdated > 0) {
+                        dispatch_async(dispatch_get_main_queue(), {
+
+                            let alert = UIAlertView(title: kAppName, message: "There is new hotspots coming. Would you like to update resources?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+                            alert.show()
+                        })
+                    }
+                }
+            })
 
         }
-        
-        return isUpdated != nil && isUpdated > 0
     }
 }

@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigationController: UINavigationController?
     var mainVC: MainViewController!
-    var firstRun: Bool?
 	
     class func sharedInstance() -> AppDelegate {
         return  UIApplication.sharedApplication().delegate as AppDelegate
@@ -22,15 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if (defaults.objectForKey("firstRun") != nil) {
-            self.firstRun = true
-            defaults.setObject(true, forKey: "firstRun")
-        } else {
-            self.firstRun = false
-        }
-
 		
 		DataManager.instance();
 		

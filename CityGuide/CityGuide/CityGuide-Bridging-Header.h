@@ -15,9 +15,10 @@
 #import "FavouritesManager.h"
 #import "HeaderViewCell.h"
 #import "HeaderView.h"
-#import "AMToolkit/AMToolkit.h"
-#import "AMToolkit/AMCategories.h"
+
 
 #define kAppName @"City Guide"
+
+#import "AMToolkit/AMCategories.h"
 
 #endif
