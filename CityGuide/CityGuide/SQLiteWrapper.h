@@ -23,5 +23,6 @@
 - (NSString *) checkFile;
 - (void) errorSelectCurrent:(void(^)(id)) block;
 - (NSString *) bundleName;
+- (NSString *) databasePath;
 
 @end
