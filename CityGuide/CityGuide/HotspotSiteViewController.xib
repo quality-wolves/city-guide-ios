@@ -56,14 +56,14 @@
                     </variation>
                 </label>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-ZL-ayC">
-                    <rect key="frame" x="0.0" y="51" width="320" height="517"/>
+                    <rect key="frame" x="0.0" y="57" width="320" height="511"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Y2l-yZ-Zdi"/>
                     </connections>
                 </webView>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mby-BE-2tq">
-                    <rect key="frame" x="150" y="300" width="20" height="20"/>
+                    <rect key="frame" x="150" y="303" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -71,7 +71,7 @@
                 <constraint firstItem="VIm-Ys-VmA" firstAttribute="height" secondItem="a8T-sK-jsa" secondAttribute="height" id="E6S-7W-S0h"/>
                 <constraint firstAttribute="bottom" secondItem="DZI-ZL-ayC" secondAttribute="bottom" id="Mob-HS-Uo0"/>
                 <constraint firstItem="a8T-sK-jsa" firstAttribute="top" secondItem="sLO-42-p9R" secondAttribute="top" constant="16" id="Qt3-82-IxN"/>
-                <constraint firstItem="DZI-ZL-ayC" firstAttribute="top" secondItem="a8T-sK-jsa" secondAttribute="bottom" id="SPq-H1-kxl"/>
+                <constraint firstItem="DZI-ZL-ayC" firstAttribute="top" secondItem="a8T-sK-jsa" secondAttribute="bottom" constant="6" id="SPq-H1-kxl"/>
                 <constraint firstItem="VIm-Ys-VmA" firstAttribute="centerY" secondItem="a8T-sK-jsa" secondAttribute="centerY" constant="2" id="ZK6-Fm-qzG"/>
                 <constraint firstAttribute="trailing" secondItem="a8T-sK-jsa" secondAttribute="trailing" constant="27" id="aVQ-Cq-29t"/>
                 <constraint firstItem="DZI-ZL-ayC" firstAttribute="centerX" secondItem="mby-BE-2tq" secondAttribute="centerX" id="fdc-JE-hvz"/>

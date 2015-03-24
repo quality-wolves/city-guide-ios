@@ -994,7 +994,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PROVISIONING_PROFILE = "ca94f054-cb30-4208-b2c6-082f585199c5";
+				PROVISIONING_PROFILE = "00fb5689-64eb-4019-b0d7-dad6ca686f99";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
