@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="CityGuide" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="bQ3-xv-V8P" id="0f3-3I-EaR"/>
+                <outlet property="loadingView" destination="7vl-3Y-Oz5" id="D2f-nH-wGN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -88,19 +89,36 @@
                         </mask>
                     </variation>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vl-3Y-Oz5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TpW-Ok-cIS">
+                            <rect key="frame" x="142" y="265" width="37" height="37"/>
+                            <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="TpW-Ok-cIS" secondAttribute="centerX" id="6vV-71-8ej"/>
+                        <constraint firstAttribute="centerY" secondItem="TpW-Ok-cIS" secondAttribute="centerY" id="zcV-kQ-Q6H"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="J1i-37-o9p" firstAttribute="width" secondItem="mJz-hl-vf1" secondAttribute="width" id="1C9-F5-BfS"/>
                 <constraint firstItem="J1i-37-o9p" firstAttribute="bottom" secondItem="fFW-Sw-YjL" secondAttribute="bottom" constant="3" id="7y7-KF-rFp"/>
+                <constraint firstAttribute="bottom" secondItem="7vl-3Y-Oz5" secondAttribute="bottom" id="B51-Me-raR"/>
                 <constraint firstItem="mJz-hl-vf1" firstAttribute="leading" secondItem="wsw-hN-Ze8" secondAttribute="leading" id="Eau-Hp-3iO"/>
                 <constraint firstItem="mJz-hl-vf1" firstAttribute="top" secondItem="J1i-37-o9p" secondAttribute="bottom" constant="6" id="IIj-vD-qg5"/>
                 <constraint firstItem="wsw-hN-Ze8" firstAttribute="top" secondItem="mJz-hl-vf1" secondAttribute="bottom" constant="12" id="MM6-gJ-Y9E"/>
                 <constraint firstAttribute="trailing" secondItem="wsw-hN-Ze8" secondAttribute="trailing" id="PM3-DK-OeA"/>
                 <constraint firstItem="J1i-37-o9p" firstAttribute="trailing" secondItem="fFW-Sw-YjL" secondAttribute="trailing" id="VPa-o6-B6W"/>
+                <constraint firstItem="7vl-3Y-Oz5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YRM-yB-BZ0"/>
                 <constraint firstAttribute="centerX" secondItem="mJz-hl-vf1" secondAttribute="centerX" id="ZCI-Ef-0Jy"/>
                 <constraint firstItem="J1i-37-o9p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="aoq-FE-jKv"/>
                 <constraint firstItem="wsw-hN-Ze8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="102" id="dWi-Dk-i2M"/>
+                <constraint firstAttribute="trailing" secondItem="7vl-3Y-Oz5" secondAttribute="trailing" id="dyA-7x-ehI"/>
                 <constraint firstAttribute="trailing" secondItem="J1i-37-o9p" secondAttribute="trailing" constant="27" id="iuF-XG-Yaq"/>
                 <constraint firstItem="fFW-Sw-YjL" firstAttribute="top" secondItem="mJz-hl-vf1" secondAttribute="bottom" constant="5" id="lVo-DM-nSb"/>
                 <constraint firstItem="mJz-hl-vf1" firstAttribute="trailing" secondItem="wsw-hN-Ze8" secondAttribute="trailing" id="npK-ox-5lO"/>
@@ -108,6 +126,7 @@
                 <constraint firstAttribute="centerX" secondItem="fFW-Sw-YjL" secondAttribute="centerX" id="sPe-Cq-bdY"/>
                 <constraint firstItem="J1i-37-o9p" firstAttribute="width" secondItem="fFW-Sw-YjL" secondAttribute="width" id="tDO-n6-5MD"/>
                 <constraint firstAttribute="centerX" secondItem="J1i-37-o9p" secondAttribute="centerX" id="vgX-g5-qhl"/>
+                <constraint firstItem="7vl-3Y-Oz5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w6R-ni-JPt"/>
                 <constraint firstItem="J1i-37-o9p" firstAttribute="centerY" secondItem="fFW-Sw-YjL" secondAttribute="centerY" id="yYg-6h-EdU"/>
                 <constraint firstItem="J1i-37-o9p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="zST-rA-0U7"/>
                 <constraint firstItem="wsw-hN-Ze8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="znK-4A-NBf"/>
@@ -124,7 +143,7 @@
                     <exclude reference="znK-4A-NBf"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="563" y="507"/>
+            <point key="canvasLocation" x="415" y="531"/>
         </view>
     </objects>
 </document>

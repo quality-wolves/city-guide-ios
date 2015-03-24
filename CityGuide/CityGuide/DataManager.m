@@ -125,14 +125,19 @@
 
 - (void) downloadAndUnzip: (NSString *) urlPath completionHandler: (void(^)()) completionHandler;
 {
+    NSLog(@"Download and unzip from %@", urlPath);
 	dispatch_queue_t q = dispatch_get_global_queue(0, 0);
 	dispatch_queue_t main = dispatch_get_main_queue();
 	dispatch_async(q, ^{
 		//Path info
 		NSURL *url = [NSURL URLWithString:urlPath];
 		NSData *data = [NSData dataWithContentsOfURL:url];
+        if (data == nil) {
+            NSLog(@"Data is nil");
+        }
 		NSString *fileName = [[url path] lastPathComponent];
 		NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
+        NSLog(@"File path: %@", filePath);
 		[data writeToFile:filePath atomically:YES];
 		dispatch_async(main, ^ {
 			ZipArchiveDelegateHelper *helper = [[ZipArchiveDelegateHelper alloc] initWithCompletionHandler: completionHandler];

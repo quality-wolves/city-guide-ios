@@ -41,13 +41,33 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if date == nil {
             date = NSDate(timeIntervalSince1970: 0)
         }
-        
+    
         return date!
     }
     
     func setLastSaveDateNow() {
         let kPrevCheckTimeKey = "PrevCheckTimeKey"
         NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: kPrevCheckTimeKey)
+    }
+    
+    func showLoading(animated: Bool) {
+        if animated {
+            UIView.animateWithDuration(0.5, animations: {
+                self.loadingView.alpha = 1;
+            })
+        } else {
+            self.loadingView.alpha = 1;
+        }
+    }
+
+    func hideLoading(animated: Bool) {
+        if animated {
+            UIView.animateWithDuration(0.3, animations: {
+                self.loadingView.alpha = 0;
+            })
+        } else {
+            self.loadingView.alpha = 0;
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -61,6 +81,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     override func viewDidLayoutSubviews() {
+        self.hideLoading(false)
         var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         var padding:CGFloat = 5
         let rowsize = ceil((self.collectionView.height-38)/5)
@@ -157,9 +178,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func update() {
+        self.showLoading(true)
         DataManager.instance().updateWithCompletition({(bool finished) in
             SQLiteWrapper.sharedInstance().closeDatabase()
             SQLiteWrapper.sharedInstance().openDatabase()
+            self.hideLoading(true)
         })
 //        let todayDate = NSDate()
 //        let dateFormatter = NSDateFormatter()
