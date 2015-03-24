@@ -37,13 +37,13 @@
 }
 
 
+- (NSString *) formatHotspotLastUpdateDate {
+    return [[[Hotspot lastUpdateDate] stringValueWithFormat:@"YYYY-MM-dd HH:mm:ss"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
 
-- (void) checkForUpdateWithCompletition: (CompletionHandler) completionHandler {
-    __weak DataManager *wself = self;
-    
+- (void) checkForUpdateWithCompletition: (CompletionHandler) completionHandler {    
     dispatch_async(dispatch_get_global_queue(0,0), ^{
-        NSDate *lastUpdateDate = [Hotspot lastUpdateDate];
-        NSString *urlString = [NSString stringWithFormat:@"%@/is_updated/%@.json", SERVER_URL, [lastUpdateDate stringValueWithFormat:@"yyyy-MM-dd"]];
+        NSString *urlString = [NSString stringWithFormat:@"%@/is_updated/%@.json", SERVER_URL, [self formatHotspotLastUpdateDate]];
         NSURL *url = [NSURL URLWithString:urlString];
         NSLog(@"Url: %@", url);
         
@@ -73,22 +73,8 @@
 }
 
 - (void) updateWithCompletition: (CompletionHandler) completionHandler {
-//    let dateFormatter = NSDateFormatter()
-//    dateFormatter.dateFormat = "yyyy-MM-dd"
-//    let date = dateFormatter.stringFromDate(self.getLastUpdateDate())
-//    let attachmentsUrl = SERVER_URL + "get_attachments_that_has_loaded_after/" + date
-//    let databaseUrl = SERVER_URL + "get_database"
-//    DataManager.instance().downloadAndUnzip(databaseUrl, completionHandler: {
-//        DataManager.instance().downloadAndUnzip(attachmentsUrl, completionHandler: {
-//            NSLog("Attachments downloaded and unzipped!");
-//            self.collectionView.reloadData()
-//            
-//            //                self.refreshControl.endRefreshing()
-//        })
-//    })
-    NSDate *lastUpdateDate = [Hotspot lastUpdateDate];
     NSString *databaseUrl = [NSString stringWithFormat:@"%@/get_database", SERVER_URL];
-    NSString *attachementsUrl = [NSString stringWithFormat:@"%@/get_attachments_that_has_loaded_after/%@", SERVER_URL, [lastUpdateDate stringValueWithFormat:@"yyyy-MM-dd"]];
+    NSString *attachementsUrl = [NSString stringWithFormat:@"%@/get_attachments_that_has_loaded_after/%@", SERVER_URL, [self formatHotspotLastUpdateDate]];
     
     [[DataManager instance] downloadAndUnzip:databaseUrl completionHandler:^() {
         [[DataManager instance] downloadAndUnzip:attachementsUrl completionHandler:^() {

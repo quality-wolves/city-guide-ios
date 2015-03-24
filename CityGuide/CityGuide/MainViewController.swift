@@ -33,9 +33,31 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.checkForUpdate()
     }
     
+    func getLastSaveDate() -> NSDate {
+        let kPrevCheckTimeKey = "PrevCheckTimeKey"
+        var date:NSDate? = NSUserDefaults.standardUserDefaults().objectForKey(kPrevCheckTimeKey) as? NSDate
+        
+        
+        if date == nil {
+            date = NSDate(timeIntervalSince1970: 0)
+        }
+        
+        return date!
+    }
+    
+    func setLastSaveDateNow() {
+        let kPrevCheckTimeKey = "PrevCheckTimeKey"
+        NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: kPrevCheckTimeKey)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-//        self.checkForUpdate()
+        
+        var nowDate = NSDate()
+        if (nowDate.timeIntervalSinceDate(self.getLastSaveDate()) > 10*60) {//24*60*60) {
+            self.setLastSaveDateNow()
+            self.checkForUpdate()
+        }
     }
     
     override func viewDidLayoutSubviews() {
