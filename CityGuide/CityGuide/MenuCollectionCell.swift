@@ -13,7 +13,8 @@ class MenuCollectionCell: UICollectionViewCell {
     @IBOutlet private var backgroundImage: UIImageView!
 	
 	func setCategory(category: CGCategory) {
-		titleLabel.text = category.name.uppercaseString;
+		titleLabel.text = category.name.uppercaseString
+        titleLabel.font = titleLabel.font.fontWithSize(9)
 		backgroundImage.image = UIImage(named: category.imageFileName());
 	}
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,13 +14,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="280" height="218"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISCOVER ALL THE COOL PLACES TO STAY DURING YOUR TRIP TO BARCELONA" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2z-Tz-etx">
-                        <rect key="frame" x="0.0" y="169" width="280" height="41"/>
+                        <rect key="frame" x="0.0" y="177" width="280" height="41"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="41" id="0u5-e4-WLI"/>
                             <constraint firstAttribute="height" constant="21" id="WQX-VZ-edT"/>
                             <constraint firstAttribute="height" constant="34" id="z2K-wE-0ZQ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="13"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="10"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
@@ -31,7 +31,7 @@
                         </variation>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qEi-B4-wEq">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="169"/>
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="177"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="169" id="KnO-T4-qK5"/>
                         </constraints>
@@ -46,7 +46,7 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="N2z-Tz-etx" secondAttribute="bottom" constant="8" id="5jY-Lh-cjm"/>
+                <constraint firstAttribute="bottom" secondItem="N2z-Tz-etx" secondAttribute="bottom" id="5jY-Lh-cjm"/>
                 <constraint firstItem="qEi-B4-wEq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6ic-i4-tw8"/>
                 <constraint firstItem="N2z-Tz-etx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RBj-9l-qK4"/>
                 <constraint firstItem="qEi-B4-wEq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="c8U-Z7-axN"/>
