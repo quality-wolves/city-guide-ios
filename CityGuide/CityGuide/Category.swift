@@ -104,7 +104,7 @@ class CGCategory: NSObject {
 				CGCategory(id: CategoryEnum.Do, name: "Do"),
 				CGCategory(id: CategoryEnum.Favourites, name: "Favourites"),
 				CGCategory(id: CategoryEnum.Map, name: "Map"),
-				CGCategory(id: CategoryEnum.Whatson, name: "Whatson"),
+				CGCategory(id: CategoryEnum.Whatson, name: "What's on"),
                 CGCategory(id: CategoryEnum.DayInBarcelona, name: "A day in Barcelona"),
                 CGCategory(id: CategoryEnum.Whatson, name: "Basic Information"),
 				CGCategory(id: CategoryEnum.Soundtrack, name: "Soundtrack")];
@@ -113,7 +113,7 @@ class CGCategory: NSObject {
     class func allCategoriesExceptHotspots() -> [CGCategory] {
         return [CGCategory(id: CategoryEnum.Favourites, name: "Favourites"),
         CGCategory(id: CategoryEnum.Map, name: "Map"),
-        CGCategory(id: CategoryEnum.Whatson, name: "Whatson"),
+        CGCategory(id: CategoryEnum.Whatson, name: "What's on"),
         CGCategory(id: CategoryEnum.DayInBarcelona, name: "A day in Barcelona"),
         CGCategory(id: CategoryEnum.Whatson, name: "Basic Information"),
         CGCategory(id: CategoryEnum.Soundtrack, name: "Soundtrack")];
