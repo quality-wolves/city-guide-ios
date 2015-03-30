@@ -25,7 +25,8 @@
     self.categories = [CGCategory allHotspotCategories];
     [self.collectionView registerNib:[UINib nibWithNibName:@"HeaderViewCell" bundle:nil] forCellWithReuseIdentifier:@"HeaderViewCell"];
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
-    layout.minimumInteritemSpacing = 0;
+//    layout.minimumInteritemSpacing = 16;
+    layout.minimumLineSpacing = 10;
 }
 
 

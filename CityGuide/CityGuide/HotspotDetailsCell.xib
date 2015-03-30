@@ -27,7 +27,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEF-XR-joq">
-                                        <rect key="frame" x="22" y="247" width="262" height="150"/>
+                                        <rect key="frame" x="22" y="247" width="262" height="140"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -180,7 +180,7 @@
                                 <constraints>
                                     <constraint firstItem="wLF-aR-j1s" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" constant="22" id="1t9-yP-bx6"/>
                                     <constraint firstItem="Eac-0C-FCz" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" constant="22" id="3Qv-dR-V0B"/>
-                                    <constraint firstItem="wLF-aR-j1s" firstAttribute="top" secondItem="MEF-XR-joq" secondAttribute="bottom" constant="5" id="58S-qx-zGl"/>
+                                    <constraint firstItem="wLF-aR-j1s" firstAttribute="top" secondItem="MEF-XR-joq" secondAttribute="bottom" constant="15" id="58S-qx-zGl"/>
                                     <constraint firstItem="cbx-Am-DH3" firstAttribute="top" secondItem="wTl-YK-5Ma" secondAttribute="top" id="5sX-Yo-gYf"/>
                                     <constraint firstItem="cbx-Am-DH3" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" id="MMX-gt-voa"/>
                                     <constraint firstAttribute="bottom" secondItem="wLF-aR-j1s" secondAttribute="bottom" constant="24" id="VgI-B3-tJs"/>
