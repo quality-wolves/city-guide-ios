@@ -12,7 +12,8 @@ class Hotspot: BaseData {
 	var id: UInt = 0
 	var name: String?
 	var desc: String?
-	var imageFileName: String?
+    var isPrimary: Bool?
+//	var imageFileName: String
     var lat: Double = 0
     var lon: Double = 0
 	var category: CGCategory?
@@ -20,23 +21,79 @@ class Hotspot: BaseData {
     var phone: String?
     var site: String?
     var address: String?
+    private var images: [UIImage]?
 
 	override init() {
 		super.init();
 	}
+    
+    func convertedFileName(id: UInt, fileName: String?) -> String? {
+        if let fileName = fileName {
+            var filename = String(format: "hotspot_images-%d-%@", id, fileName);
+            var pathExtension = filename.pathExtension
+            return String(format: "%@-large.%@", filename.stringByDeletingPathExtension, pathExtension)
+        }
+        return ""
+    }
+    
+//    func imageFileNames:
+    
+    var imageFileName: String? {
+        let nsarray: NSArray = Hotspot.sendRequest(String(format:"select id, file_file_name from hotspot_images where hotspot_id = %d order by id limit 1", id), converter: { (sqlite3_stmt stmt) -> AnyObject! in
+            return self.convertedFileName(UInt(sqlite3_column_int(stmt, 0)), fileName:String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(1)))));
+        })
+        
+        if nsarray.count > 0 {
+            return nsarray.objectAtIndex(0) as String
+        }
+        
+        return nil
+    }
+    
+    func getImages() -> [UIImage] {
+        if let array = images {
+            return array
+        }
+        
+        //
+        let nsarray: NSArray = Hotspot.sendRequest(String(format:"select id, file_file_name where hotspot_id = %d from hotspot_images order by id", id), converter: { (sqlite3_stmt stmt) -> AnyObject! in
+            return self.convertedFileName(UInt(sqlite3_column_int(stmt, 0)), fileName:String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(1)))));
+        })
+        
+        images = []
+        
+        for file_file_name in nsarray {
+            let documentsPath : AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0]
+            let destinationPath:String = documentsPath.stringByAppendingString(file_file_name as String)
+
+            if NSFileManager.defaultManager().fileExistsAtPath(destinationPath) {
+                var img: UIImage? = UIImage(contentsOfFile: destinationPath)
+                images?.append(img!)
+            }
+            
+        }
+        
+        return images!
+        
+    }
 	
 	func categoryName() -> String {
 		return category!.name;
 	}
 	
+    class private func selectFromHotspots(query:String?) -> [Hotspot] {
+        let array = convertArray(sendRequest(String(format:"%@ %@", dataRequestString(), query!), converter: { (sqlite3_stmt stmt) -> AnyObject! in
+            return self.itemWithSqlite3_stmt(stmt);
+        }));
+        return array
+    }
+    
 	class private func dataRequestString() -> String {
-		return "SELECT id, name, description, category, image_file_name, lat, lng, updated_at, phone, site, address FROM hotspots"
+		return "SELECT id, name, description, category, is_primary, lat, lng, updated_at, phone, site, address FROM hotspots"
 	}
 	
 	class func hotspotById(id: UInt) -> Hotspot {
-		let array = convertArray(sendRequest(String(format: "%@ WHERE id = %d", dataRequestString(), id), converter: { (sqlite3_stmt stmt) -> AnyObject! in
-			return self.itemWithSqlite3_stmt(stmt);
-		}));
+        let array = selectFromHotspots(String(format:"WHERE id = %d", id))
 		
 		return array[0];
 	}
@@ -44,9 +101,7 @@ class Hotspot: BaseData {
     class func lastUpdateDate() -> NSDate {
         var lastUpdateDate: NSDate? = nil
         
-        let array = convertArray(sendRequest("SELECT id, name, description, category, image_file_name, lat, lng, updated_at, phone, site, address FROM hotspots order by updated_at desc limit 1", converter: { (sqlite3_stmt stmt) -> AnyObject! in
-            return self.itemWithSqlite3_stmt(stmt);
-        }));
+        let array = selectFromHotspots("order by updated_at desc limit 1")
         
         if (array.count > 0) {
             let h = array[0]
@@ -77,9 +132,7 @@ class Hotspot: BaseData {
             array = FavouritesManager.sharedManager().allFavourites() as [Hotspot]
         } else {
             let categoryString = category.name.lowercaseString
-            array = convertArray(sendRequest(String(format: "%@ WHERE category = \"%@\"", dataRequestString(), categoryString), converter: { (sqlite3_stmt stmt) -> AnyObject! in
-                return self.itemWithSqlite3_stmt(stmt)
-            }));
+            array = selectFromHotspots(String(format: "WHERE category = \"%@\"", categoryString))
         }
         
 		for item in array {
@@ -90,9 +143,7 @@ class Hotspot: BaseData {
 	}
 	
 	class func allHotspots() -> [Hotspot] {
-		return convertArray(sendRequest(dataRequestString(), converter: { (sqlite3_stmt stmt) -> AnyObject! in
-			return self.itemWithSqlite3_stmt(stmt);
-		}));
+		return selectFromHotspots(nil)
 	}
 	
 	class private func convertArray(array: NSArray) -> [Hotspot] {
@@ -119,9 +170,9 @@ class Hotspot: BaseData {
 		item.desc = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(2))));
         var n = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(3))))
         item.category = CGCategory.categoryByName(n!)
-        var filename = String(format: "hotspots-%d-%@", item.id, String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(4))))!);
-        var pathExtension = filename.pathExtension
-        item.imageFileName = String(format: "%@-large.%@", filename.stringByDeletingPathExtension, pathExtension)
+
+        var is_primary_str: String? = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(4))))
+        item.isPrimary = is_primary_str == "f" ? false : true
         
         item.lat = sqlite3_column_double(stmt, CInt(5))
         item.lon = sqlite3_column_double(stmt, CInt(6))
@@ -138,6 +189,8 @@ class Hotspot: BaseData {
         item.site = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(9))))
         item.address = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(10))))
 		
+        
+        
 		return item;
 	}
 }

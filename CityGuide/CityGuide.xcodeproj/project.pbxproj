@@ -40,6 +40,7 @@
 		A4A2FFF71AB04F56008BB4B2 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A2FFF51AB04F56008BB4B2 /* HeaderView.xib */; };
 		A4A2FFFB1AB05197008BB4B2 /* HeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2FFF91AB05197008BB4B2 /* HeaderViewCell.m */; };
 		A4A2FFFC1AB05197008BB4B2 /* HeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A2FFFA1AB05197008BB4B2 /* HeaderViewCell.xib */; };
+		A4A862C61ACDCDC60081C1C5 /* HeaderPagingLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A862C51ACDCDC60081C1C5 /* HeaderPagingLayout.m */; };
 		A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */; };
 		A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E9A8EF1A83E9DF006E12F7 /* Images.xcassets */; };
 		A4E9A9141A9279C0006E12F7 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9A9121A9279C0006E12F7 /* MapViewController.m */; };
@@ -172,6 +173,8 @@
 		A4A2FFF81AB05197008BB4B2 /* HeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderViewCell.h; sourceTree = "<group>"; };
 		A4A2FFF91AB05197008BB4B2 /* HeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderViewCell.m; sourceTree = "<group>"; };
 		A4A2FFFA1AB05197008BB4B2 /* HeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewCell.xib; sourceTree = "<group>"; };
+		A4A862C41ACDCDC60081C1C5 /* HeaderPagingLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderPagingLayout.h; sourceTree = "<group>"; };
+		A4A862C51ACDCDC60081C1C5 /* HeaderPagingLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderPagingLayout.m; sourceTree = "<group>"; };
 		A4E9A8E31A83E9DF006E12F7 /* CityGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E9A8E71A83E9DF006E12F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E9A8E81A83E9DF006E12F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -405,6 +408,15 @@
 			name = "Hotspots details";
 			sourceTree = "<group>";
 		};
+		A4A862C31ACDCD9F0081C1C5 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				A4A862C41ACDCDC60081C1C5 /* HeaderPagingLayout.h */,
+				A4A862C51ACDCDC60081C1C5 /* HeaderPagingLayout.m */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
 		A4E9A8DA1A83E9DF006E12F7 = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +634,7 @@
 		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A4A862C31ACDCD9F0081C1C5 /* Layout */,
 				A4E9A91D1A928F25006E12F7 /* Map */,
 				A9C8FF2D1A928884005826D3 /* Paper */,
 				F5A25C471A84113400A9B0E3 /* Hotspots page */,
@@ -764,6 +777,7 @@
 				A9C8FEE01A90D93E005826D3 /* SQLiteWrapper.m in Sources */,
 				F5FF3FE01A8D3CF80003D13E /* HATransitionLayout.m in Sources */,
 				A4373C901A96708800D854B9 /* TLIndexPathUpdates.m in Sources */,
+				A4A862C61ACDCDC60081C1C5 /* HeaderPagingLayout.m in Sources */,
 				A4373C981A96708800D854B9 /* TLTreeTableViewController.m in Sources */,
 				A4373C531A966F6C00D854B9 /* TLTransitionLayout.m in Sources */,
 				A4373C931A96708800D854B9 /* TLCollapsibleTableViewController.m in Sources */,
@@ -887,7 +901,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PROVISIONING_PROFILE = "40ffdf60-b1d8-4b0b-b344-3403a5381a26";
+				PROVISIONING_PROFILE = "00fb5689-64eb-4019-b0d7-dad6ca686f99";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
