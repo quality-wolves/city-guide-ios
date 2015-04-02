@@ -77,6 +77,8 @@
 		A9C8FF341A92A1A3005826D3 /* HotspotDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C8FF321A92A1A3005826D3 /* HotspotDetailsCell.xib */; };
 		A9C8FF371A92B492005826D3 /* CollectionLayouts.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF361A92B492005826D3 /* CollectionLayouts.m */; };
 		B94E3DFA1AC0B6D900776297 /* db.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = B94E3DF91AC0A9AD00776297 /* db.sqlite3 */; };
+		B9FF1F2F1ACDB98D004A005A /* HotspotImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FF1F2D1ACDB98D004A005A /* HotspotImageCell.m */; };
+		B9FF1F301ACDB98D004A005A /* HotspotImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9FF1F2E1ACDB98D004A005A /* HotspotImageCell.xib */; };
 		F54B70861AB5B3680059B9F2 /* HotspotHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F54B70841AB5B3680059B9F2 /* HotspotHeaderView.m */; };
 		F54B70871AB5B3680059B9F2 /* HotspotHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54B70851AB5B3680059B9F2 /* HotspotHeaderView.xib */; };
 		F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A25C3E1A83FCAC00A9B0E3 /* MainViewController.swift */; };
@@ -228,6 +230,9 @@
 		A9C8FF351A92B492005826D3 /* CollectionLayouts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionLayouts.h; sourceTree = "<group>"; };
 		A9C8FF361A92B492005826D3 /* CollectionLayouts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionLayouts.m; sourceTree = "<group>"; };
 		B94E3DF91AC0A9AD00776297 /* db.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = db.sqlite3; path = CityGuide/Resources/db.sqlite3; sourceTree = "<group>"; };
+		B9FF1F2C1ACDB98D004A005A /* HotspotImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotImageCell.h; sourceTree = "<group>"; };
+		B9FF1F2D1ACDB98D004A005A /* HotspotImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotImageCell.m; sourceTree = "<group>"; };
+		B9FF1F2E1ACDB98D004A005A /* HotspotImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotImageCell.xib; sourceTree = "<group>"; };
 		F54B70831AB5B3680059B9F2 /* HotspotHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotHeaderView.h; sourceTree = "<group>"; };
 		F54B70841AB5B3680059B9F2 /* HotspotHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotHeaderView.m; sourceTree = "<group>"; };
 		F54B70851AB5B3680059B9F2 /* HotspotHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotHeaderView.xib; sourceTree = "<group>"; };
@@ -393,6 +398,9 @@
 				A4373C9D1A967D6800D854B9 /* HotspotsDetailsViewController.h */,
 				A4373C9E1A967D6800D854B9 /* HotspotsDetailsViewController.m */,
 				A4373C9F1A967D6800D854B9 /* HotspotsDetailsViewController.xib */,
+				B9FF1F2C1ACDB98D004A005A /* HotspotImageCell.h */,
+				B9FF1F2D1ACDB98D004A005A /* HotspotImageCell.m */,
+				B9FF1F2E1ACDB98D004A005A /* HotspotImageCell.xib */,
 			);
 			name = "Hotspots details";
 			sourceTree = "<group>";
@@ -740,6 +748,7 @@
 				A4F593891AC2062300C96849 /* LaunchScreen.xib in Resources */,
 				A4E9A8F01A83E9DF006E12F7 /* Images.xcassets in Resources */,
 				F54B70871AB5B3680059B9F2 /* HotspotHeaderView.xib in Resources */,
+				B9FF1F301ACDB98D004A005A /* HotspotImageCell.xib in Resources */,
 				A4A2FFFC1AB05197008BB4B2 /* HeaderViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -768,6 +777,7 @@
 				A4E9A9141A9279C0006E12F7 /* MapViewController.m in Sources */,
 				A4373C9A1A96708800D854B9 /* UITableViewController+ScrollOptimizer.m in Sources */,
 				A9C8FEE81A9101C5005826D3 /* Category.swift in Sources */,
+				B9FF1F2F1ACDB98D004A005A /* HotspotImageCell.m in Sources */,
 				A4FA60001AB4704700BC1CAE /* HotspotSmallCell.m in Sources */,
 				A4373C961A96708800D854B9 /* TLIndexPathTreeItem.m in Sources */,
 				A4373C971A96708800D854B9 /* TLTreeDataModel.m in Sources */,

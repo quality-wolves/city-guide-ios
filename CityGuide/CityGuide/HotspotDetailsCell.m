@@ -13,10 +13,12 @@
 #import "HACollectionViewSmallLayout.h"
 #import "CityGuide-Swift.h"
 #import "FavouritesManager.h"
+#import "HotspotImageCell.h"
 
-@interface HotspotDetailsCell () <UIScrollViewDelegate>
+@interface HotspotDetailsCell () <UIScrollViewDelegate, UICollectionViewDataSource,
+UICollectionViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
@@ -60,7 +62,13 @@
     }
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.collectionView.width, self.collectionView.height);
+}
+
 - (void) awakeFromNib {
+    [self.collectionView registerNib:[UINib nibWithNibName:@"HotspotImageCell" bundle:nil] forCellWithReuseIdentifier:@"HotspotImageCell"];
+    
     self.bottomContainer.layer.borderColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:0.6] CGColor];
     self.bottomContainer.layer.borderWidth = 0.5;
     self.bottomContainer.backgroundColor = [UIColor clearColor];
@@ -69,7 +77,7 @@
 
 - (void)setHotspot:(Hotspot *)hotspot {
     _hotspot = hotspot;
-    self.imageView.image = [[DataManager instance] imageByHotspot: hotspot];
+//    self.imageView.image = [[DataManager instance] imageByHotspot: hotspot];
     self.titleLabel.text = hotspot.name;
     self.descriptionLabel.text = hotspot.desc;
     _favouriteButton.selected = [[FavouritesManager sharedManager] isFavourite:_hotspot];
@@ -88,6 +96,18 @@
 
 - (IBAction)phoneAction:(id)sender {
     [self.delegate hotspotDetailCell:self betterCallHotspot:self.hotspot];
+}
+
+#pragma mark - Collection
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HotspotImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotspotImageCell" forIndexPath:indexPath];
+    [cell setImage: _hotspot atIndex: indexPath.row];
+    return cell;
 }
 
 @end
