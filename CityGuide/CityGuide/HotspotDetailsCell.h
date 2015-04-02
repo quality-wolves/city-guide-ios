@@ -13,7 +13,7 @@
 
 @protocol HotspotDetailsDelegate;
 
-@interface HotspotDetailsCell : UICollectionViewCell
+@interface HotspotDetailsCell : UICollectionViewCell<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) NSObject<HotspotDetailsDelegate> *delegate;
 @property (nonatomic, strong) Hotspot *hotspot;
