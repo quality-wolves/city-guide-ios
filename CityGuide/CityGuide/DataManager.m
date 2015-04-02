@@ -113,6 +113,7 @@
 
 - (UIImage*) imageByHotspot: (Hotspot*) hotspot {
 	NSString *path = [NSString stringWithFormat: @"%@/%@", [self documentsDirectory], hotspot.imageFileName];
+    NSLog(@"Path: %@", path);
 	return [UIImage imageWithContentsOfFile: path];
 }
 

@@ -32,6 +32,7 @@
 
 #pragma mark - UICollectionViewController
 
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HeaderViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"HeaderViewCell" forIndexPath:indexPath];
     [cell setCategory:[self.categories objectAtIndex:indexPath.row]];
