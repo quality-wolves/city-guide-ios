@@ -12,7 +12,7 @@
 @implementation HotspotImageCell
 
 - (void) setImage: (Hotspot *) hotspot atIndex: (NSInteger) index {
-    self.imageView.image = [[DataManager instance] imageByHotspot:hotspot];
+    self.imageView.image = [hotspot.getImages objectAtIndex:index];
 }
 
 @end
