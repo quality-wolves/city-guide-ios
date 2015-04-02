@@ -56,7 +56,7 @@ class Hotspot: BaseData {
         }
         
         //
-        let nsarray: NSArray = Hotspot.sendRequest(String(format:"select id, file_file_name where hotspot_id = %d from hotspot_images order by id", id), converter: { (sqlite3_stmt stmt) -> AnyObject! in
+        let nsarray: NSArray = Hotspot.sendRequest(String(format:"select id, file_file_name from hotspot_images where hotspot_id = %d order by id", id), converter: { (sqlite3_stmt stmt) -> AnyObject! in
             return self.convertedFileName(UInt(sqlite3_column_int(stmt, 0)), fileName:String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(1)))));
         })
         
@@ -64,7 +64,7 @@ class Hotspot: BaseData {
         
         for file_file_name in nsarray {
             let documentsPath : AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0]
-            let destinationPath:String = documentsPath.stringByAppendingString(file_file_name as String)
+            let destinationPath:String = documentsPath.stringByAppendingPathComponent(file_file_name as String)
 
             if NSFileManager.defaultManager().fileExistsAtPath(destinationPath) {
                 var img: UIImage? = UIImage(contentsOfFile: destinationPath)
