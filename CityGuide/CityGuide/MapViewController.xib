@@ -22,7 +22,7 @@
                         <constraint firstAttribute="width" constant="150" id="AVi-V4-pRb"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
-                    <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="titleEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="31" maxY="0.0"/>
                     <state key="normal" image="back_arrow">
@@ -37,7 +37,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5r-fp-Rhn">
-                    <rect key="frame" x="27" y="8" width="266" height="35"/>
+                    <rect key="frame" x="15" y="8" width="290" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="3qm-UF-0o6"/>
                         <constraint firstAttribute="width" constant="200" id="H7O-Rh-IEH"/>
@@ -63,14 +63,14 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="0tz-Qr-0fa" secondAttribute="bottom" id="1DU-Du-Cg1"/>
-                <constraint firstItem="D5r-fp-Rhn" firstAttribute="leading" secondItem="6sg-LV-Qvp" secondAttribute="leading" constant="27" id="3i3-Rq-qvz"/>
+                <constraint firstItem="D5r-fp-Rhn" firstAttribute="leading" secondItem="6sg-LV-Qvp" secondAttribute="leading" constant="15" id="3i3-Rq-qvz"/>
                 <constraint firstItem="0tz-Qr-0fa" firstAttribute="leading" secondItem="6sg-LV-Qvp" secondAttribute="leading" id="Aro-WV-6XF"/>
                 <constraint firstItem="yRA-xU-2mm" firstAttribute="height" secondItem="D5r-fp-Rhn" secondAttribute="height" id="Ktz-ZH-KCn"/>
                 <constraint firstItem="0tz-Qr-0fa" firstAttribute="top" secondItem="yRA-xU-2mm" secondAttribute="bottom" constant="6" id="MKs-MF-Lli"/>
                 <constraint firstItem="D5r-fp-Rhn" firstAttribute="top" secondItem="6sg-LV-Qvp" secondAttribute="top" constant="8" id="RKj-i3-ZLX"/>
                 <constraint firstItem="yRA-xU-2mm" firstAttribute="leading" secondItem="6sg-LV-Qvp" secondAttribute="leading" id="fbs-xo-2Ne"/>
                 <constraint firstAttribute="centerX" secondItem="D5r-fp-Rhn" secondAttribute="centerX" id="fmn-Jx-jQ5"/>
-                <constraint firstAttribute="trailing" secondItem="D5r-fp-Rhn" secondAttribute="trailing" constant="27" id="lUH-Uh-UGN"/>
+                <constraint firstAttribute="trailing" secondItem="D5r-fp-Rhn" secondAttribute="trailing" constant="15" id="lUH-Uh-UGN"/>
                 <constraint firstAttribute="trailing" secondItem="0tz-Qr-0fa" secondAttribute="trailing" id="nzC-XF-WsA"/>
                 <constraint firstItem="yRA-xU-2mm" firstAttribute="centerY" secondItem="D5r-fp-Rhn" secondAttribute="centerY" constant="2" id="sQh-Nk-lJD"/>
             </constraints>

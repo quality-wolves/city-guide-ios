@@ -63,12 +63,18 @@ class CGCategory: NSObject {
 	
 	func imageFileName() -> String {
 		switch id {
-		case .Stay, .DayInBarcelona: return "Menu2 2"
-		case .Eat, .BasicInformation: return "Salero"
-		case .Buy, .Favourites: return "BARCELONA-BUY 5"
-		case .Drink, .Map: return "Drink-1 2"
-		case .See, .Whatson: return "See 2"
-		case .Do, .Soundtrack: return "Cine"
+        case .Stay: return "Menu2 2"
+        case .Eat: return "Salero"
+        case .Buy: return "BARCELONA-BUY 5"
+        case .Drink: return "Drink-1 2"
+        case .See: return "See 2"
+        case .Do: return "Cine"
+        case .Favourites: return "favourites-menu"
+        case .Map: return "map-menu"
+        case .Whatson: return "whatson-menu"
+        case .DayInBarcelona: return "dayin-menu"
+        case .BasicInformation: return "basicinformation-menu"
+        case .Soundtrack: return "soundtrack-menu"
 		}
 	}
     
@@ -106,16 +112,17 @@ class CGCategory: NSObject {
 				CGCategory(id: CategoryEnum.Map, name: "Map"),
 				CGCategory(id: CategoryEnum.Whatson, name: "What's on"),
                 CGCategory(id: CategoryEnum.DayInBarcelona, name: "A day in Barcelona"),
-                CGCategory(id: CategoryEnum.Whatson, name: "Basic Information"),
+                CGCategory(id: CategoryEnum.BasicInformation, name: "Basic Information"),
 				CGCategory(id: CategoryEnum.Soundtrack, name: "Soundtrack")];
 	}
     
     class func allCategoriesExceptHotspots() -> [CGCategory] {
-        return [CGCategory(id: CategoryEnum.Favourites, name: "Favourites"),
+        return [
+        CGCategory(id: CategoryEnum.Favourites, name: "Favourites"),
         CGCategory(id: CategoryEnum.Map, name: "Map"),
         CGCategory(id: CategoryEnum.Whatson, name: "What's on"),
         CGCategory(id: CategoryEnum.DayInBarcelona, name: "A day in Barcelona"),
-        CGCategory(id: CategoryEnum.Whatson, name: "Basic Information"),
+        CGCategory(id: CategoryEnum.BasicInformation, name: "Basic Information"),
         CGCategory(id: CategoryEnum.Soundtrack, name: "Soundtrack")];
     }
 }
