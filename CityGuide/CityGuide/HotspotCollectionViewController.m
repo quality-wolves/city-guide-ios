@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSArray *hotspots;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
 
 
 @end
@@ -47,6 +48,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    int count = _hotspots.count;
+    self.countLabel.text = [NSString stringWithFormat:@"More than %d cool places", count];
     self.titleLabel.text = [[_hotspots lastObject] categoryName];
 	[self.collectionView registerNib: [UINib nibWithNibName: @"HotspotSmallCell" bundle:nil] forCellWithReuseIdentifier: @"HotspotSmallCell"];
 	[self.collectionView registerNib: [UINib nibWithNibName: @"HotspotHeaderView" bundle:nil] forCellWithReuseIdentifier: @"HotspotHeaderView"];
