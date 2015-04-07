@@ -72,12 +72,7 @@ class CGCategory: NSObject {
 	
 	func imageFileName() -> String {
 		switch id {
-        case .Stay: return "Menu2 2"
-        case .Eat: return "Salero"
-        case .Buy: return "BARCELONA-BUY 5"
-        case .Drink: return "Drink-1 2"
-        case .See: return "See 2"
-        case .Do: return "Cine"
+        case .Stay, .Eat, .Buy, .Drink, .See, .Do: return imageForSelf()
         case .Favourites: return "favourites-menu"
         case .Map: return "map-menu"
         case .Whatson: return "whatson-menu"

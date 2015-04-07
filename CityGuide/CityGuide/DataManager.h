@@ -22,6 +22,7 @@ typedef void (^CompletionHandler)(BOOL);
 - (void) downloadImages: (void(^)()) completionHandler;
 - (void) downloadAndUnzip: (NSString*) urlPath completionHandler: (void(^)()) completionHandler;
 - (UIImage*) imageByHotspot: (Hotspot*) hotspot;
+- (UIImage*) documentsImage: (NSString *) imageFileName;
 - (NSString*) documentsDirectory;
 
 - (void) checkForUpdateWithCompletition: (CompletionHandler) completionHandler;
