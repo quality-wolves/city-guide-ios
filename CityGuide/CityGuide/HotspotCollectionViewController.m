@@ -113,7 +113,7 @@
     
     if (indexPath.row == 0) {
         CGFloat w = self.collectionView.frame.size.width;
-        return CGSizeMake(w, w * imgScaleFactor + 41 + 12);
+        return CGSizeMake(w, w * imgScaleFactor + 54);
     }
     
     return CGSizeMake(w, w * imgScaleFactor + 29);
