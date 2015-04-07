@@ -60,6 +60,15 @@ class CGCategory: NSObject {
         default: return ""
         }
     }
+    
+    func imageForSelf() -> String {
+        var array = Hotspot.hotspotsByCategory(self)
+        if array.count > 0 {
+            return array[0].imageFileName!
+        }
+        
+        return ""
+    }
 	
 	func imageFileName() -> String {
 		switch id {
