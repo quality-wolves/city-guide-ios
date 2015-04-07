@@ -109,13 +109,14 @@
     float padding = 5;
     int rowSize = ceil((collectionView.height-38)/5.f);
     float w = collectionView.width/2.0 - padding;
+    float imgScaleFactor = 335.0/640.0;
     
     if (indexPath.row == 0) {
         CGFloat w = self.collectionView.frame.size.width;
-        return CGSizeMake(w, rowSize*2+14);
+        return CGSizeMake(w, w * imgScaleFactor + 41 + 12);
     }
     
-    return CGSizeMake(w, rowSize+1);
+    return CGSizeMake(w, w * imgScaleFactor + 29);
 
 }
 
