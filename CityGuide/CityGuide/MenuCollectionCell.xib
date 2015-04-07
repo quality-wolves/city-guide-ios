@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MenuCollectionCell" id="gTV-IL-0wX" customClass="MenuCollectionCell" customModule="CityGuide" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="135" height="112"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="135" height="112"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cb3-Vh-wup">
+                        <rect key="frame" x="0.0" y="0.0" width="135" height="81"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Cb3-Vh-wup" secondAttribute="height" multiplier="1:1" id="yRo-Hk-NL3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="yRo-Hk-NL3"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000013" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAVOURITES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ix-pA-PmP">
+                        <rect key="frame" x="0.0" y="81" width="135" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="eEQ-Js-8pY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="9"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="5Ix-pA-PmP" firstAttribute="top" secondItem="Cb3-Vh-wup" secondAttribute="bottom" id="ALl-mr-7fD"/>
+                <constraint firstAttribute="bottom" secondItem="Cb3-Vh-wup" secondAttribute="bottom" constant="30" id="Au7-TC-dsc"/>
+                <constraint firstAttribute="trailing" secondItem="Cb3-Vh-wup" secondAttribute="trailing" id="MXQ-ia-TPK"/>
+                <constraint firstAttribute="trailing" secondItem="5Ix-pA-PmP" secondAttribute="trailing" id="Mrz-PS-TXW"/>
+                <constraint firstItem="Cb3-Vh-wup" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="N9a-gu-iGO"/>
+                <constraint firstAttribute="bottom" secondItem="5Ix-pA-PmP" secondAttribute="bottom" constant="2" id="PCJ-RD-y7d"/>
+                <constraint firstAttribute="bottom" secondItem="Cb3-Vh-wup" secondAttribute="bottom" id="RUc-7j-X1B"/>
+                <constraint firstItem="5Ix-pA-PmP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bkO-TB-H7D"/>
+                <constraint firstAttribute="trailing" secondItem="5Ix-pA-PmP" secondAttribute="trailing" constant="8" id="fpG-Yl-yPC"/>
+                <constraint firstItem="5Ix-pA-PmP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="w80-I4-J1W"/>
+                <constraint firstItem="Cb3-Vh-wup" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xfH-pP-qtd"/>
+                <constraint firstItem="5Ix-pA-PmP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="zqd-y2-gnm"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Au7-TC-dsc"/>
+                    <exclude reference="RUc-7j-X1B"/>
+                    <exclude reference="fpG-Yl-yPC"/>
+                    <exclude reference="w80-I4-J1W"/>
+                    <exclude reference="zqd-y2-gnm"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="backgroundImage" destination="Cb3-Vh-wup" id="Ixo-Ql-HUH"/>
+                <outlet property="titleLabel" destination="5Ix-pA-PmP" id="5BW-GL-3mI"/>
+            </connections>
+            <point key="canvasLocation" x="289.5" y="363"/>
+        </collectionViewCell>
+    </objects>
+</document>
