@@ -111,6 +111,12 @@
 	[SSZipArchive unzipFileAtPath: zipPath toDestination:outputPath delegate: helper];
 }
 
+- (UIImage*) documentsImage: (NSString *) imageFileName {
+    NSString *path = [NSString stringWithFormat: @"%@/%@", [self documentsDirectory], imageFileName];
+    NSLog(@"Path: %@", path);
+    return [UIImage imageWithContentsOfFile: path];
+}
+
 - (UIImage*) imageByHotspot: (Hotspot*) hotspot {
 	NSString *path = [NSString stringWithFormat: @"%@/%@", [self documentsDirectory], hotspot.imageFileName];
     NSLog(@"Path: %@", path);

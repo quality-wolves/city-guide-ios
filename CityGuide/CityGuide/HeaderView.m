@@ -23,6 +23,7 @@
 - (void)awakeFromNib {
     NSLog(@"Header loaded");
     self.collectionView.contentInset = UIEdgeInsetsZero;
+//    self.collectionView.decelerationRate = UIScrollViewDecelerationRateNor;
     self.categories = [CGCategory allHotspotCategories];
     [self.collectionView registerNib:[UINib nibWithNibName:@"HeaderViewCell" bundle:nil] forCellWithReuseIdentifier:@"HeaderViewCell"];
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;

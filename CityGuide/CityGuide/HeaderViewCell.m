@@ -14,7 +14,7 @@
 - (void) setCategory: (CGCategory *) category {
     self.titleLabel.text = [category fullDescription];
     self.titleLabel.font = [self.titleLabel.font fontWithSize:10.66f];
-    self.imageView.image = [UIImage imageNamed:[category imageFileName]];
+    self.imageView.image = [[DataManager instance] documentsImage:category.imageFileName];
 }
 
 @end
