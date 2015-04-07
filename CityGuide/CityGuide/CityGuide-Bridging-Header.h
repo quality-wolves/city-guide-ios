@@ -18,6 +18,7 @@
 
 
 #define kAppName @"City Guide"
+#define kImgScaleFactor (335.0/640.0)
 
 #import "AMToolkit/AMCategories.h"
 
