@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotspotCollectionViewController" customModule="CityGuide" customModuleProvider="target">
@@ -17,19 +17,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fj6-Fm-OvB">
-                    <rect key="frame" x="27" y="57" width="266" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fj6-Fm-OvB">
+                    <rect key="frame" x="15" y="49" width="290" height="1"/>
+                    <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="EY2-KO-QSC"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A guide for cool people" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hup-R5-XCI">
-                    <rect key="frame" x="27" y="36" width="266" height="12"/>
+                    <rect key="frame" x="15" y="29" width="290" height="11"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="zFN-Zy-7bq"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="10"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="9"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -39,13 +39,13 @@
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcelona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XG9-cl-cZD">
-                    <rect key="frame" x="27" y="16" width="266" height="35"/>
+                    <rect key="frame" x="15" y="8" width="290" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="eYH-Vq-OaK"/>
                         <constraint firstAttribute="height" constant="32" id="xzU-h0-7n0"/>
                         <constraint firstAttribute="height" constant="35" id="zsS-kg-jLw"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="32"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="27"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -56,10 +56,10 @@
                     </variation>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swc-MX-flE">
-                    <rect key="frame" x="27" y="70" width="266" height="498"/>
+                    <rect key="frame" x="15" y="62" width="290" height="506"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Tmp-IL-vhI">
-                            <rect key="frame" x="0.0" y="0.0" width="266" height="498"/>
+                            <rect key="frame" x="0.0" y="0.0" width="290" height="506"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="mIH-ip-utt">
                                 <size key="itemSize" width="300" height="300"/>
@@ -90,12 +90,12 @@
                     </variation>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mj-Ga-Xbc">
-                    <rect key="frame" x="0.0" y="18" width="150" height="35"/>
+                    <rect key="frame" x="0.0" y="10" width="150" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="0lt-Za-RCU"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
-                    <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="titleEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="31" maxY="0.0"/>
                     <state key="normal" image="back_arrow">
@@ -120,16 +120,16 @@
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="trailing" secondItem="hup-R5-XCI" secondAttribute="trailing" id="HbQ-9d-o0C"/>
                 <constraint firstItem="fj6-Fm-OvB" firstAttribute="top" secondItem="XG9-cl-cZD" secondAttribute="bottom" constant="6" id="I0Y-by-C1V"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="width" secondItem="fj6-Fm-OvB" secondAttribute="width" id="KdR-10-lhm"/>
-                <constraint firstItem="XG9-cl-cZD" firstAttribute="top" secondItem="aJh-oK-qbr" secondAttribute="top" constant="16" id="Mdm-Mn-bTs"/>
+                <constraint firstItem="XG9-cl-cZD" firstAttribute="top" secondItem="aJh-oK-qbr" secondAttribute="top" constant="8" id="Mdm-Mn-bTs"/>
                 <constraint firstItem="hup-R5-XCI" firstAttribute="top" secondItem="fj6-Fm-OvB" secondAttribute="bottom" constant="5" id="OnT-b0-Er5"/>
                 <constraint firstItem="0Mj-Ga-Xbc" firstAttribute="height" secondItem="XG9-cl-cZD" secondAttribute="height" id="TQS-zH-g9v"/>
-                <constraint firstItem="XG9-cl-cZD" firstAttribute="leading" secondItem="aJh-oK-qbr" secondAttribute="leading" constant="27" id="XEL-te-hKt"/>
+                <constraint firstItem="XG9-cl-cZD" firstAttribute="leading" secondItem="aJh-oK-qbr" secondAttribute="leading" constant="15" id="XEL-te-hKt"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="width" secondItem="hup-R5-XCI" secondAttribute="width" id="YD1-pX-x0S"/>
                 <constraint firstAttribute="bottom" secondItem="swc-MX-flE" secondAttribute="bottom" id="Z6k-ez-IqG"/>
                 <constraint firstItem="0Mj-Ga-Xbc" firstAttribute="leading" secondItem="aJh-oK-qbr" secondAttribute="leading" id="a3l-fd-xsP"/>
                 <constraint firstItem="swc-MX-flE" firstAttribute="top" secondItem="aJh-oK-qbr" secondAttribute="top" constant="102" id="cwa-4O-t4V"/>
                 <constraint firstItem="swc-MX-flE" firstAttribute="leading" secondItem="aJh-oK-qbr" secondAttribute="leading" id="eUw-na-o5Q"/>
-                <constraint firstAttribute="trailing" secondItem="XG9-cl-cZD" secondAttribute="trailing" constant="27" id="fLq-Bm-bZn"/>
+                <constraint firstAttribute="trailing" secondItem="XG9-cl-cZD" secondAttribute="trailing" constant="15" id="fLq-Bm-bZn"/>
                 <constraint firstItem="0Mj-Ga-Xbc" firstAttribute="centerY" secondItem="XG9-cl-cZD" secondAttribute="centerY" constant="2" id="hVF-Hi-Idm"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="bottom" secondItem="hup-R5-XCI" secondAttribute="bottom" constant="3" id="hhC-Vs-B4N"/>
                 <constraint firstAttribute="centerX" secondItem="fj6-Fm-OvB" secondAttribute="centerX" id="iUf-tF-ke6"/>

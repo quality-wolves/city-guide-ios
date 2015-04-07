@@ -11,9 +11,9 @@
             <rect key="frame" x="0.0" y="0.0" width="280" height="240"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-BH-bgf">
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-BH-bgf">
                     <rect key="frame" x="0.0" y="226" width="280" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="XyE-xn-3lD"/>
                     </constraints>

@@ -19,12 +19,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIm-Ys-VmA">
-                    <rect key="frame" x="0.0" y="18" width="150" height="35"/>
+                    <rect key="frame" x="0.0" y="10" width="150" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="Na3-tP-gfU"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
-                    <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="titleEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="31" maxY="0.0"/>
                     <state key="normal" image="back_arrow">
@@ -39,46 +39,46 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcelona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8T-sK-jsa">
-                    <rect key="frame" x="27" y="16" width="266" height="35"/>
+                    <rect key="frame" x="15" y="8" width="290" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="RdB-ov-luC"/>
                         <constraint firstAttribute="width" constant="200" id="VEq-U3-58T"/>
                         <constraint firstAttribute="height" constant="35" id="p4F-Js-ZcS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="32"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="27"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="VEq-U3-58T"/>
                             <exclude reference="RdB-ov-luC"/>
+                            <exclude reference="VEq-U3-58T"/>
                         </mask>
                     </variation>
                 </label>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-ZL-ayC">
-                    <rect key="frame" x="0.0" y="57" width="320" height="511"/>
+                    <rect key="frame" x="0.0" y="49" width="320" height="519"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Y2l-yZ-Zdi"/>
                     </connections>
                 </webView>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mby-BE-2tq">
-                    <rect key="frame" x="150" y="303" width="20" height="20"/>
+                    <rect key="frame" x="150" y="299" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="VIm-Ys-VmA" firstAttribute="height" secondItem="a8T-sK-jsa" secondAttribute="height" id="E6S-7W-S0h"/>
                 <constraint firstAttribute="bottom" secondItem="DZI-ZL-ayC" secondAttribute="bottom" id="Mob-HS-Uo0"/>
-                <constraint firstItem="a8T-sK-jsa" firstAttribute="top" secondItem="sLO-42-p9R" secondAttribute="top" constant="16" id="Qt3-82-IxN"/>
+                <constraint firstItem="a8T-sK-jsa" firstAttribute="top" secondItem="sLO-42-p9R" secondAttribute="top" constant="8" id="Qt3-82-IxN"/>
                 <constraint firstItem="DZI-ZL-ayC" firstAttribute="top" secondItem="a8T-sK-jsa" secondAttribute="bottom" constant="6" id="SPq-H1-kxl"/>
                 <constraint firstItem="VIm-Ys-VmA" firstAttribute="centerY" secondItem="a8T-sK-jsa" secondAttribute="centerY" constant="2" id="ZK6-Fm-qzG"/>
-                <constraint firstAttribute="trailing" secondItem="a8T-sK-jsa" secondAttribute="trailing" constant="27" id="aVQ-Cq-29t"/>
+                <constraint firstAttribute="trailing" secondItem="a8T-sK-jsa" secondAttribute="trailing" constant="15" id="aVQ-Cq-29t"/>
                 <constraint firstItem="DZI-ZL-ayC" firstAttribute="centerX" secondItem="mby-BE-2tq" secondAttribute="centerX" id="fdc-JE-hvz"/>
                 <constraint firstAttribute="centerX" secondItem="a8T-sK-jsa" secondAttribute="centerX" id="ktT-tm-Mdo"/>
                 <constraint firstItem="DZI-ZL-ayC" firstAttribute="leading" secondItem="sLO-42-p9R" secondAttribute="leading" id="sdU-eD-TpQ"/>
                 <constraint firstItem="VIm-Ys-VmA" firstAttribute="leading" secondItem="sLO-42-p9R" secondAttribute="leading" id="tmP-AY-lk1"/>
-                <constraint firstItem="a8T-sK-jsa" firstAttribute="leading" secondItem="sLO-42-p9R" secondAttribute="leading" constant="27" id="vrE-f6-tHj"/>
+                <constraint firstItem="a8T-sK-jsa" firstAttribute="leading" secondItem="sLO-42-p9R" secondAttribute="leading" constant="15" id="vrE-f6-tHj"/>
                 <constraint firstAttribute="trailing" secondItem="DZI-ZL-ayC" secondAttribute="trailing" id="ylo-w6-hCi"/>
                 <constraint firstItem="DZI-ZL-ayC" firstAttribute="centerY" secondItem="mby-BE-2tq" secondAttribute="centerY" id="zSE-6g-ygc"/>
             </constraints>
