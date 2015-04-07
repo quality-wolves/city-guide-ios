@@ -28,6 +28,7 @@ UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *webLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addedToFavouritesLabel;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 
 @end
@@ -84,6 +85,8 @@ UICollectionViewDelegate>
     self.addressLabel.text = hotspot.address;//@"Carrer d'Elisabets, 11, 08001, Barcelona";
     self.phoneLabel.text = hotspot.phone;//@"+34 932426280";
     self.webLabel.text = hotspot.site;//@"Praktikhotels.com";
+    self.pageControl.numberOfPages = [hotspot getImages].count;
+    self.pageControl.currentPage = 0 ;
 }
 
 - (IBAction)webSiteAction:(id)sender {
@@ -108,6 +111,14 @@ UICollectionViewDelegate>
     HotspotImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotspotImageCell" forIndexPath:indexPath];
     [cell setImage: _hotspot atIndex: indexPath.row];
     return cell;
+}
+
+#pragma mark - PageControl
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    CGFloat pageWidth = self.collectionView.frame.size.width;
+    self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
 }
 
 @end
