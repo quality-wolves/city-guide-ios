@@ -22,10 +22,11 @@
 
 - (void)awakeFromNib {
     NSLog(@"Header loaded");
+    self.collectionView.contentInset = UIEdgeInsetsZero;
     self.categories = [CGCategory allHotspotCategories];
     [self.collectionView registerNib:[UINib nibWithNibName:@"HeaderViewCell" bundle:nil] forCellWithReuseIdentifier:@"HeaderViewCell"];
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
-//    layout.minimumInteritemSpacing = 16;
+    layout.minimumInteritemSpacing = 10;
     layout.minimumLineSpacing = 10;
 }
 

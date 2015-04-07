@@ -14,7 +14,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="135" height="112"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cb3-Vh-wup">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cb3-Vh-wup">
                         <rect key="frame" x="0.0" y="0.0" width="135" height="81"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Cb3-Vh-wup" secondAttribute="height" multiplier="1:1" id="yRo-Hk-NL3"/>
