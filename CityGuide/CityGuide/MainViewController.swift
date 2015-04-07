@@ -89,8 +89,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var w:CGFloat = self.collectionView.frame.size.width/2.0 - padding
         var kImgScaleFactor:CGFloat = 335.0/640.0;
         flowLayout?.itemSize = CGSizeMake(w, w * kImgScaleFactor as CGFloat + 29)
+        
+        
         flowLayout?.minimumLineSpacing = 0;
-        flowLayout?.headerReferenceSize = CGSizeMake(self.collectionView.width, rowsize*2+14);
+        flowLayout?.headerReferenceSize = CGSizeMake(self.collectionView.width, self.collectionView.width * kImgScaleFactor as CGFloat + 41 + 12);
 
 //        flowLayout?.itemSize = CGSizeMake(w, (self.collectionView.height - 238)/3)
 //        flowLayout?.minimumLineSpacing = 0;
