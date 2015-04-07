@@ -82,7 +82,15 @@ class Hotspot: BaseData {
 	}
 	
     class private func selectFromHotspots(query:String?) -> [Hotspot] {
-        let array = convertArray(sendRequest(String(format:"%@ %@", dataRequestString(), query!), converter: { (sqlite3_stmt stmt) -> AnyObject! in
+        var queryString: String!
+        
+        if let query = query {
+            queryString = String(format:"%@ %@", dataRequestString(), query!)
+        } else {
+            queryString = dataRequestString()
+        }
+        
+        let array = convertArray(sendRequest(queryString, converter: { (sqlite3_stmt stmt) -> AnyObject! in
             return self.itemWithSqlite3_stmt(stmt);
         }));
         return array

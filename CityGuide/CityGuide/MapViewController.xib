@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRA-xU-2mm">
-                    <rect key="frame" x="0.0" y="18" width="150" height="35"/>
+                    <rect key="frame" x="0.0" y="10" width="150" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="AVi-V4-pRb"/>
                     </constraints>
@@ -37,24 +37,24 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5r-fp-Rhn">
-                    <rect key="frame" x="27" y="16" width="266" height="35"/>
+                    <rect key="frame" x="27" y="8" width="266" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="3qm-UF-0o6"/>
                         <constraint firstAttribute="width" constant="200" id="H7O-Rh-IEH"/>
                         <constraint firstAttribute="height" constant="35" id="bzd-ed-VHR"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="32"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="27"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="H7O-Rh-IEH"/>
                             <exclude reference="3qm-UF-0o6"/>
+                            <exclude reference="H7O-Rh-IEH"/>
                         </mask>
                     </variation>
                 </label>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tz-Qr-0fa">
-                    <rect key="frame" x="0.0" y="59" width="320" height="509"/>
+                    <rect key="frame" x="0.0" y="51" width="320" height="517"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="GH8-kg-fjv"/>
                     </connections>
@@ -67,7 +67,7 @@
                 <constraint firstItem="0tz-Qr-0fa" firstAttribute="leading" secondItem="6sg-LV-Qvp" secondAttribute="leading" id="Aro-WV-6XF"/>
                 <constraint firstItem="yRA-xU-2mm" firstAttribute="height" secondItem="D5r-fp-Rhn" secondAttribute="height" id="Ktz-ZH-KCn"/>
                 <constraint firstItem="0tz-Qr-0fa" firstAttribute="top" secondItem="yRA-xU-2mm" secondAttribute="bottom" constant="6" id="MKs-MF-Lli"/>
-                <constraint firstItem="D5r-fp-Rhn" firstAttribute="top" secondItem="6sg-LV-Qvp" secondAttribute="top" constant="16" id="RKj-i3-ZLX"/>
+                <constraint firstItem="D5r-fp-Rhn" firstAttribute="top" secondItem="6sg-LV-Qvp" secondAttribute="top" constant="8" id="RKj-i3-ZLX"/>
                 <constraint firstItem="yRA-xU-2mm" firstAttribute="leading" secondItem="6sg-LV-Qvp" secondAttribute="leading" id="fbs-xo-2Ne"/>
                 <constraint firstAttribute="centerX" secondItem="D5r-fp-Rhn" secondAttribute="centerX" id="fmn-Jx-jQ5"/>
                 <constraint firstAttribute="trailing" secondItem="D5r-fp-Rhn" secondAttribute="trailing" constant="27" id="lUH-Uh-UGN"/>
