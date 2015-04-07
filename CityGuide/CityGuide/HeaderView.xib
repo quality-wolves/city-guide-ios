@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-BH-bgf">
-                    <rect key="frame" x="0.0" y="226" width="280" height="1"/>
+                    <rect key="frame" x="0.0" y="227" width="280" height="1"/>
                     <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="XyE-xn-3lD"/>
@@ -39,7 +39,7 @@
                 <constraint firstAttribute="bottom" secondItem="oJA-iN-o4e" secondAttribute="bottom" constant="12" id="M77-Wb-PT2"/>
                 <constraint firstItem="oJA-iN-o4e" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="QMd-L4-3KZ"/>
                 <constraint firstItem="bDD-BH-bgf" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="f7N-PO-LPe"/>
-                <constraint firstAttribute="bottom" secondItem="bDD-BH-bgf" secondAttribute="bottom" constant="13" id="g95-Hg-6SP"/>
+                <constraint firstAttribute="bottom" secondItem="bDD-BH-bgf" secondAttribute="bottom" constant="12" id="g95-Hg-6SP"/>
                 <constraint firstAttribute="trailing" secondItem="oJA-iN-o4e" secondAttribute="trailing" id="gkM-HV-RER"/>
                 <constraint firstItem="oJA-iN-o4e" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="lzv-2X-dpj"/>
             </constraints>
