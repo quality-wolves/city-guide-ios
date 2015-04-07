@@ -12,14 +12,14 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-BH-bgf">
-                    <rect key="frame" x="0.0" y="220" width="280" height="1"/>
+                    <rect key="frame" x="0.0" y="226" width="280" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="XyE-xn-3lD"/>
                     </constraints>
                 </view>
                 <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="oJA-iN-o4e">
-                    <rect key="frame" x="0.0" y="0.0" width="280" height="220"/>
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="228"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="73l-l4-f4q">
                         <size key="itemSize" width="280" height="220"/>
@@ -36,10 +36,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bDD-BH-bgf" secondAttribute="trailing" id="L4D-NH-9uW"/>
-                <constraint firstAttribute="bottom" secondItem="oJA-iN-o4e" secondAttribute="bottom" constant="20" id="M77-Wb-PT2"/>
+                <constraint firstAttribute="bottom" secondItem="oJA-iN-o4e" secondAttribute="bottom" constant="12" id="M77-Wb-PT2"/>
                 <constraint firstItem="oJA-iN-o4e" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="QMd-L4-3KZ"/>
                 <constraint firstItem="bDD-BH-bgf" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="f7N-PO-LPe"/>
-                <constraint firstAttribute="bottom" secondItem="bDD-BH-bgf" secondAttribute="bottom" constant="19" id="g95-Hg-6SP"/>
+                <constraint firstAttribute="bottom" secondItem="bDD-BH-bgf" secondAttribute="bottom" constant="13" id="g95-Hg-6SP"/>
                 <constraint firstAttribute="trailing" secondItem="oJA-iN-o4e" secondAttribute="trailing" id="gkM-HV-RER"/>
                 <constraint firstItem="oJA-iN-o4e" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="lzv-2X-dpj"/>
             </constraints>
