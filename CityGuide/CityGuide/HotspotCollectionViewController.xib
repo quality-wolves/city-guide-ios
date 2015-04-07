@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotspotCollectionViewController" customModule="CityGuide" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="Tmp-IL-vhI" id="TTl-Bb-YsC"/>
+                <outlet property="countLabel" destination="hup-R5-XCI" id="fAd-Fp-75K"/>
                 <outlet property="titleLabel" destination="XG9-cl-cZD" id="WjR-nA-XUX"/>
                 <outlet property="view" destination="aJh-oK-qbr" id="d5R-dc-ELy"/>
             </connections>
@@ -117,6 +118,7 @@
                 <constraint firstAttribute="centerX" secondItem="XG9-cl-cZD" secondAttribute="centerX" id="44m-Gc-bNQ"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="centerY" secondItem="hup-R5-XCI" secondAttribute="centerY" id="6Me-Vh-tSo"/>
                 <constraint firstItem="fj6-Fm-OvB" firstAttribute="trailing" secondItem="swc-MX-flE" secondAttribute="trailing" id="CDz-aZ-h2Y"/>
+                <constraint firstItem="XG9-cl-cZD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aJh-oK-qbr" secondAttribute="leading" constant="15" id="HQI-b3-RQa"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="trailing" secondItem="hup-R5-XCI" secondAttribute="trailing" id="HbQ-9d-o0C"/>
                 <constraint firstItem="fj6-Fm-OvB" firstAttribute="top" secondItem="XG9-cl-cZD" secondAttribute="bottom" constant="6" id="I0Y-by-C1V"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="width" secondItem="fj6-Fm-OvB" secondAttribute="width" id="KdR-10-lhm"/>
@@ -133,6 +135,7 @@
                 <constraint firstItem="0Mj-Ga-Xbc" firstAttribute="centerY" secondItem="XG9-cl-cZD" secondAttribute="centerY" constant="2" id="hVF-Hi-Idm"/>
                 <constraint firstItem="XG9-cl-cZD" firstAttribute="bottom" secondItem="hup-R5-XCI" secondAttribute="bottom" constant="3" id="hhC-Vs-B4N"/>
                 <constraint firstAttribute="centerX" secondItem="fj6-Fm-OvB" secondAttribute="centerX" id="iUf-tF-ke6"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XG9-cl-cZD" secondAttribute="trailing" constant="15" id="jBz-L2-g9e"/>
                 <constraint firstAttribute="trailing" secondItem="swc-MX-flE" secondAttribute="trailing" id="oyG-Ru-saX"/>
                 <constraint firstItem="fj6-Fm-OvB" firstAttribute="leading" secondItem="swc-MX-flE" secondAttribute="leading" id="sgS-d6-xzG"/>
             </constraints>
