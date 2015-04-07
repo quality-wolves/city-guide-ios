@@ -85,7 +85,7 @@ class Hotspot: BaseData {
         var queryString: String!
         
         if let query = query {
-            queryString = String(format:"%@ %@", dataRequestString(), query!)
+            queryString = String(format:"%@ %@", dataRequestString(), query)
         } else {
             queryString = dataRequestString()
         }
