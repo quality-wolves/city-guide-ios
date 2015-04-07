@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -145,7 +145,7 @@
                                                     <action selector="favouriteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="FMa-bf-2XS"/>
                                                 </connections>
                                             </button>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="icg-Sq-edl">
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="5" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="icg-Sq-edl">
                                                 <rect key="frame" x="96" y="4" width="71" height="37"/>
                                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -237,6 +237,7 @@
                 <outlet property="collectionView" destination="7c7-vO-3Cw" id="hIa-LQ-MdU"/>
                 <outlet property="descriptionLabel" destination="MEF-XR-joq" id="rYY-XV-hsy"/>
                 <outlet property="favouriteButton" destination="31P-WE-LN5" id="uNj-Pl-MT7"/>
+                <outlet property="pageControl" destination="icg-Sq-edl" id="9fj-9E-KvX"/>
                 <outlet property="phoneLabel" destination="Ao6-Ns-qvi" id="5yk-Ww-O8k"/>
                 <outlet property="scrollView" destination="EZ5-YA-VTF" id="gFA-nz-6lZ"/>
                 <outlet property="webLabel" destination="DHh-cE-pe6" id="fSH-Oz-xc8"/>
