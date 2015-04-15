@@ -12,9 +12,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var headLabel: UILabel!
     var refreshControl: UIRefreshControl!
     var headerView: HeaderView!
-
 	private var categories: [CGCategory]!
     
     override func viewDidLoad() {
@@ -26,7 +26,19 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.refreshControl.addTarget(self, action: "refreshAction", forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView.addSubview(self.refreshControl)
         
-		categories = CGCategory.allCategoriesExceptHotspots();
+        let string = "by Coolmap"
+        let boldFont = UIFont.boldSystemFontOfSize(9.0)
+        let regularFont = UIFont.systemFontOfSize(9.0)
+        let range = NSMakeRange(3, 7)
+
+        let attrString:NSMutableAttributedString = NSMutableAttributedString(string: string)
+
+        attrString.beginEditing()
+        attrString.addAttribute(NSFontAttributeName, value: boldFont, range: range)
+        attrString.endEditing()
+        
+        self.headLabel.attributedText = attrString
+        categories = CGCategory.allCategoriesExceptHotspots();
     }
     
     func refreshAction() {
