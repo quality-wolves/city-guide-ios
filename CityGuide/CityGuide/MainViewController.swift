@@ -107,7 +107,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
     
-    required override init() {
+    required init() {
         super.init(nibName: "MainViewController", bundle: nil)
     }
 
@@ -130,13 +130,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell!
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView? {
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         if (kind == UICollectionElementKindSectionHeader) {
-            var headerView = self.collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as HeaderView
+            var headerView = self.collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! HeaderView
             headerView.delegate = self;
             return headerView
         }
-        return nil
+        return UICollectionReusableView()//TODO WTF AM I DOING
     }
     
     func headerViewDidSelectedCategory(category: CGCategory!) {
