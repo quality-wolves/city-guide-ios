@@ -80,13 +80,22 @@ UICollectionViewDelegate>
     _hotspot = hotspot;
 //    self.imageView.image = [[DataManager instance] imageByHotspot: hotspot];
     self.titleLabel.text = hotspot.name;
-    self.descriptionLabel.text = hotspot.desc;
     _favouriteButton.selected = [[FavouritesManager sharedManager] isFavourite:_hotspot];
     self.addressLabel.text = hotspot.address;//@"Carrer d'Elisabets, 11, 08001, Barcelona";
     self.phoneLabel.text = hotspot.phone;//@"+34 932426280";
     self.webLabel.text = hotspot.site;//@"Praktikhotels.com";
     self.pageControl.numberOfPages = [hotspot getImages].count;
-    self.pageControl.currentPage = 0 ;
+    self.pageControl.currentPage = 0;
+    
+    NSMutableParagraphStyle *stringStyle = [[NSMutableParagraphStyle alloc] init];
+    [stringStyle setAlignment:NSTextAlignmentJustified];
+    [stringStyle setFirstLineHeadIndent: 0.001];
+    NSMutableAttributedString* descriptionString = [[NSMutableAttributedString alloc] initWithString:hotspot.desc];
+    [descriptionString addAttribute:NSParagraphStyleAttributeName
+                              value:stringStyle
+                              range: NSMakeRange(0, [descriptionString length])];
+    self.descriptionLabel.attributedText = descriptionString;
+                                                 
 }
 
 - (IBAction)webSiteAction:(id)sender {
