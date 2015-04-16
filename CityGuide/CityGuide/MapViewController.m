@@ -15,7 +15,7 @@
 #import "HotspotsDetailsViewController.h"
 
 
-@interface MapViewController () <MKMapViewDelegate, UIActionSheetDelegate>
+@interface MapViewController () <MKMapViewDelegate, UIActionSheetDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSArray *hotspots;
@@ -47,14 +47,32 @@
 
     self.didUpdatedUserLocBefore = NO;
     self.locationManager = [CLLocationManager new];
+    self.locationManager.delegate = self;
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
+    } else {
+        [self.locationManager startUpdatingLocation];
     }
 
     
     self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(41.387128, 2.168564999999944), MKCoordinateSpanMake(1, 1));
     self.mapView.showsUserLocation = YES;
     [self reload];
+}
+
+- (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status >= kCLAuthorizationStatusAuthorizedAlways) {
+        [self.locationManager startUpdatingLocation];
+    }
+}
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    if (!self.didUpdatedUserLocBefore) {
+        CLLocation *location = [locations lastObject];
+        [self.mapView setRegion:MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(1/50., 1/50.)) animated:YES];
+        self.didUpdatedUserLocBefore = YES;
+        [self.locationManager stopUpdatingLocation];
+    }
 }
 
 - (void) reload {

@@ -21,6 +21,7 @@ class Hotspot: BaseData {
     var phone: String?
     var site: String?
     var address: String?
+    var tagline: String?
     private var images: [UIImage]?
 
 	override init() {
@@ -97,7 +98,7 @@ class Hotspot: BaseData {
     }
     
 	class private func dataRequestString() -> String {
-		return "SELECT id, name, description, category, is_primary, lat, lng, updated_at, phone, site, address FROM hotspots"
+		return "SELECT id, name, description, category, is_primary, lat, lng, updated_at, phone, site, address, tagline FROM hotspots"
 	}
 	
 	class func hotspotById(id: UInt) -> Hotspot {
@@ -196,6 +197,7 @@ class Hotspot: BaseData {
         item.phone = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(8))))
         item.site = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(9))))
         item.address = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(10))))
+        item.tagline = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(11))))
 		
         
         
