@@ -901,7 +901,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PROVISIONING_PROFILE = "00fb5689-64eb-4019-b0d7-dad6ca686f99";
+				PROVISIONING_PROFILE = "40ffdf60-b1d8-4b0b-b344-3403a5381a26";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
