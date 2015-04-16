@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var mainVC: MainViewController!
 	
     class func sharedInstance() -> AppDelegate {
-        return  UIApplication.sharedApplication().delegate as! AppDelegate
+        return  UIApplication.sharedApplication().delegate as AppDelegate
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SQLiteWrapper.sharedInstance().checkFile()
             var path: NSString = NSBundle.mainBundle().pathForResource("thumbnails.zip", ofType: nil)!
             println(path)
-            if let thumbnailsUrl = NSURL(fileURLWithPath: path as String) {
+            if let thumbnailsUrl = NSURL(fileURLWithPath: path) {
                 DataManager.instance().downloadAndUnzip(thumbnailsUrl.absoluteString, completionHandler: {
                     NSLog("Update complete!")
                 })
