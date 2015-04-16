@@ -14,20 +14,20 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="306" height="535"/>
                 <subviews>
-                    <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZ5-YA-VTF">
+                    <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZ5-YA-VTF">
                         <rect key="frame" x="0.0" y="0.0" width="306" height="535"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wTl-YK-5Ma">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTl-YK-5Ma">
                                 <rect key="frame" x="0.0" y="0.0" width="306" height="535"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEF-XR-joq">
-                                        <rect key="frame" x="22" y="210" width="262" height="177"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEF-XR-joq">
+                                        <rect key="frame" x="22" y="210" width="262" height="18"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wLF-aR-j1s">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLF-aR-j1s">
                                         <rect key="frame" x="22" y="402" width="262" height="109"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-icon" translatesAutoresizingMaskIntoConstraints="NO" id="qta-XH-LMF">
@@ -192,8 +192,9 @@
                                     <constraint firstItem="7c7-vO-3Cw" firstAttribute="top" secondItem="wTl-YK-5Ma" secondAttribute="top" id="0d9-S5-xiK"/>
                                     <constraint firstItem="wLF-aR-j1s" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" constant="22" id="1t9-yP-bx6"/>
                                     <constraint firstItem="Eac-0C-FCz" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" constant="22" id="3Qv-dR-V0B"/>
-                                    <constraint firstItem="wLF-aR-j1s" firstAttribute="top" secondItem="MEF-XR-joq" secondAttribute="bottom" constant="15" id="58S-qx-zGl"/>
+                                    <constraint firstItem="wLF-aR-j1s" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MEF-XR-joq" secondAttribute="bottom" constant="15" id="58S-qx-zGl"/>
                                     <constraint firstAttribute="trailing" secondItem="7c7-vO-3Cw" secondAttribute="trailing" id="5pt-gQ-fzp"/>
+                                    <constraint firstAttribute="bottom" secondItem="wLF-aR-j1s" secondAttribute="bottom" constant="24" id="Gut-jg-C54"/>
                                     <constraint firstItem="Eac-0C-FCz" firstAttribute="top" secondItem="7c7-vO-3Cw" secondAttribute="bottom" id="MJj-Cm-vqG"/>
                                     <constraint firstItem="7c7-vO-3Cw" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" id="OFD-Ri-eG7"/>
                                     <constraint firstAttribute="trailing" secondItem="wLF-aR-j1s" secondAttribute="trailing" constant="22" id="Xan-rb-8jK"/>
@@ -207,8 +208,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="7c7-vO-3Cw" secondAttribute="width" id="Kke-8D-flK"/>
-                            <constraint firstItem="wTl-YK-5Ma" firstAttribute="height" relation="greaterThanOrEqual" secondItem="EZ5-YA-VTF" secondAttribute="height" id="LTh-fx-eCc"/>
                             <constraint firstItem="wTl-YK-5Ma" firstAttribute="leading" secondItem="EZ5-YA-VTF" secondAttribute="leading" id="OyX-VP-vNn"/>
+                            <constraint firstAttribute="height" secondItem="wTl-YK-5Ma" secondAttribute="height" id="QRe-tF-B4d"/>
                             <constraint firstAttribute="trailing" secondItem="wTl-YK-5Ma" secondAttribute="trailing" id="SIF-SO-gsK"/>
                             <constraint firstItem="wTl-YK-5Ma" firstAttribute="top" secondItem="EZ5-YA-VTF" secondAttribute="top" id="eQL-6Q-KMJ"/>
                             <constraint firstAttribute="bottom" secondItem="wTl-YK-5Ma" secondAttribute="bottom" id="evo-xb-xL2"/>

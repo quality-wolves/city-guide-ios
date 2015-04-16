@@ -70,6 +70,7 @@ UICollectionViewDelegate>
 - (void) awakeFromNib {
     [self.collectionView registerNib:[UINib nibWithNibName:@"HotspotImageCell" bundle:nil] forCellWithReuseIdentifier:@"HotspotImageCell"];
     
+    self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
     self.bottomContainer.layer.borderColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:0.6] CGColor];
     self.bottomContainer.layer.borderWidth = 0.5;
     self.bottomContainer.backgroundColor = [UIColor clearColor];

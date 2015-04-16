@@ -12,7 +12,7 @@
 @implementation HotspotHeaderView
 
 - (void) setHotspot: (Hotspot *) h {
-    self.titleLabel.text = [[h desc] uppercaseString];
+    self.titleLabel.text = [[h tagline] uppercaseString];
     self.imageView.image = [[DataManager instance] imageByHotspot:h];
 }
 
