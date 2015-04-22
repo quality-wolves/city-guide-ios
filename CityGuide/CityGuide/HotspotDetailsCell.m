@@ -125,10 +125,11 @@ UICollectionViewDelegate>
 
 #pragma mark - PageControl
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat pageWidth = self.collectionView.frame.size.width;
-    self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
+    
+    int page = round(self.collectionView.contentOffset.x / self.collectionView.frame.size.width);
+    self.pageControl.currentPage = page;
 }
 
 @end
