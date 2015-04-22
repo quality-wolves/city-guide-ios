@@ -45,7 +45,7 @@ class Hotspot: BaseData {
         })
         
         if nsarray.count > 0 {
-            return nsarray.objectAtIndex(0) as String
+            return nsarray.objectAtIndex(0) as! String
         }
         
         return nil
@@ -65,7 +65,7 @@ class Hotspot: BaseData {
         
         for file_file_name in nsarray {
             let documentsPath : AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0]
-            let destinationPath:String = documentsPath.stringByAppendingPathComponent(file_file_name as String)
+            let destinationPath:String = documentsPath.stringByAppendingPathComponent(file_file_name as! String)
 
             if NSFileManager.defaultManager().fileExistsAtPath(destinationPath) {
                 var img: UIImage? = UIImage(contentsOfFile: destinationPath)
@@ -138,7 +138,7 @@ class Hotspot: BaseData {
         var array: [Hotspot];
         
         if (category.id == CategoryEnum.Favourites) {
-            array = FavouritesManager.sharedManager().allFavourites() as [Hotspot]
+            array = FavouritesManager.sharedManager().allFavourites() as! [Hotspot]
         } else {
             let categoryString = category.name.lowercaseString
             array = selectFromHotspots(String(format: "WHERE category = \"%@\"", categoryString))
@@ -158,7 +158,7 @@ class Hotspot: BaseData {
 	class private func convertArray(array: NSArray) -> [Hotspot] {
 		var hotspots: [Hotspot] = [];
 		for item in array {
-			hotspots.append(item as Hotspot);
+			hotspots.append(item as! Hotspot);
 		}
 		
 		return hotspots;
@@ -188,11 +188,11 @@ class Hotspot: BaseData {
         if let dateString = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(7)))) {
             var dateFormatter: NSDateFormatter = NSDateFormatter()
             var format:NSString = "YYYY-MM-dd HH:mm:ss"
-            dateFormatter.dateFormat = format
+            dateFormatter.dateFormat = format as String
             var dateStr = dateString as NSString
             dateStr = dateStr.substringToIndex(format.length)
             NSLog("date str: %@", dateStr)
-            item.lastUpdated = dateFormatter.dateFromString(dateStr)
+            item.lastUpdated = dateFormatter.dateFromString(dateStr as String)
         }
         item.phone = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(8))))
         item.site = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(9))))
