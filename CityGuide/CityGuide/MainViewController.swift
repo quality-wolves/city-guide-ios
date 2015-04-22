@@ -28,13 +28,15 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let string = "by Coolmapp"
         let boldFont = UIFont.boldSystemFontOfSize(9.0)
+        let italicFont = UIFont.italicSystemFontOfSize(9.0)
         let regularFont = UIFont.systemFontOfSize(9.0)
-        let range = NSMakeRange(3, 7)
+        let range = NSMakeRange(3, 8)
 
         let attrString:NSMutableAttributedString = NSMutableAttributedString(string: string)
 
         attrString.beginEditing()
         attrString.addAttribute(NSFontAttributeName, value: boldFont, range: range)
+        attrString.addAttribute(NSFontAttributeName, value: italicFont, range: range)
         attrString.endEditing()
         
         self.headLabel.attributedText = attrString
