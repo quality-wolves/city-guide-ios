@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotspotsDetailsViewController">
             <connections>
                 <outlet property="collectionView" destination="Soi-8a-5ww" id="bma-Kg-yn2"/>
-                <outlet property="titleLabel" destination="BVN-h8-Y2a" id="JtA-ll-xUH"/>
                 <outlet property="view" destination="bDT-2W-zCb" id="GmK-Mh-v4j"/>
             </connections>
         </placeholder>
@@ -17,47 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMd-Yi-aeD">
-                    <rect key="frame" x="0.0" y="10" width="150" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="150" id="A1s-0A-YFU"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
-                    <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="titleEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="31" maxY="0.0"/>
-                    <state key="normal" image="back_arrow">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" red="0.532907197" green="0.532907197" blue="0.532907197" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="sFk-Q4-hfb"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcelona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVN-h8-Y2a">
-                    <rect key="frame" x="15" y="8" width="290" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="Qrq-MZ-X9X"/>
-                        <constraint firstAttribute="height" constant="35" id="h2v-1A-QZb"/>
-                        <constraint firstAttribute="height" constant="32" id="rIK-gD-Vbq"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="27"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="Qrq-MZ-X9X"/>
-                            <exclude reference="rIK-gD-Vbq"/>
-                        </mask>
-                    </variation>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gke-aP-9fm">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gke-aP-9fm">
                     <rect key="frame" x="0.0" y="49" width="320" height="519"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Soi-8a-5ww">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Soi-8a-5ww">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="oy0-Kc-8Xi">
@@ -91,38 +53,23 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="BVN-h8-Y2a" secondAttribute="trailing" constant="15" id="8i9-FZ-DGA"/>
                 <constraint firstAttribute="trailing" secondItem="Gke-aP-9fm" secondAttribute="trailing" id="Br8-yi-eLD"/>
-                <constraint firstItem="QMd-Yi-aeD" firstAttribute="leading" secondItem="bDT-2W-zCb" secondAttribute="leading" id="DX9-eU-7bD"/>
                 <constraint firstItem="Gke-aP-9fm" firstAttribute="leading" secondItem="bDT-2W-zCb" secondAttribute="leading" id="Fdo-eh-jJN"/>
-                <constraint firstItem="QMd-Yi-aeD" firstAttribute="centerY" secondItem="BVN-h8-Y2a" secondAttribute="centerY" constant="2" id="Jp3-Eo-5fp"/>
-                <constraint firstItem="QMd-Yi-aeD" firstAttribute="height" secondItem="BVN-h8-Y2a" secondAttribute="height" id="M3S-NS-tdu"/>
-                <constraint firstItem="Gke-aP-9fm" firstAttribute="top" secondItem="BVN-h8-Y2a" secondAttribute="bottom" constant="6" id="PhI-hf-kQg"/>
                 <constraint firstAttribute="bottom" secondItem="Gke-aP-9fm" secondAttribute="bottom" id="XuI-Ua-DoX"/>
                 <constraint firstAttribute="trailing" secondItem="Gke-aP-9fm" secondAttribute="trailing" id="Zhh-Hl-jhy"/>
-                <constraint firstAttribute="centerX" secondItem="BVN-h8-Y2a" secondAttribute="centerX" id="fqn-wU-onR"/>
-                <constraint firstItem="Gke-aP-9fm" firstAttribute="top" secondItem="QMd-Yi-aeD" secondAttribute="bottom" id="h8n-2T-Rg9"/>
                 <constraint firstItem="Gke-aP-9fm" firstAttribute="leading" secondItem="bDT-2W-zCb" secondAttribute="leading" id="onv-2L-R7H"/>
-                <constraint firstItem="BVN-h8-Y2a" firstAttribute="top" secondItem="bDT-2W-zCb" secondAttribute="top" constant="8" id="umO-04-fLc"/>
-                <constraint firstItem="Gke-aP-9fm" firstAttribute="top" secondItem="QMd-Yi-aeD" secondAttribute="bottom" id="w33-hD-2dK"/>
-                <constraint firstItem="BVN-h8-Y2a" firstAttribute="leading" secondItem="bDT-2W-zCb" secondAttribute="leading" constant="15" id="wxk-HA-Gp1"/>
                 <constraint firstItem="Gke-aP-9fm" firstAttribute="top" secondItem="bDT-2W-zCb" secondAttribute="top" constant="102" id="zOw-Cq-nmr"/>
+                <constraint firstItem="Gke-aP-9fm" firstAttribute="top" secondItem="bDT-2W-zCb" secondAttribute="top" id="ziz-Zs-ayp"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="fqn-wU-onR"/>
                     <exclude reference="Br8-yi-eLD"/>
                     <exclude reference="Fdo-eh-jJN"/>
-                    <exclude reference="h8n-2T-Rg9"/>
-                    <exclude reference="w33-hD-2dK"/>
                     <exclude reference="zOw-Cq-nmr"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="432" y="458"/>
         </view>
     </objects>
-    <resources>
-        <image name="back_arrow" width="7" height="12"/>
-    </resources>
 </document>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="306" height="535"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEF-XR-joq">
-                                        <rect key="frame" x="22" y="210" width="262" height="18"/>
+                                        <rect key="frame" x="22" y="259" width="262" height="18"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -131,7 +131,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eac-0C-FCz">
-                                        <rect key="frame" x="22" y="160" width="262" height="45"/>
+                                        <rect key="frame" x="22" y="209" width="262" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31P-WE-LN5">
                                                 <rect key="frame" x="217" y="0.0" width="45" height="45"/>
@@ -171,7 +171,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7c7-vO-3Cw">
-                                        <rect key="frame" x="0.0" y="0.0" width="306" height="160"/>
+                                        <rect key="frame" x="0.0" y="49" width="306" height="160"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="7c7-vO-3Cw" secondAttribute="height" multiplier="640:335" id="kGS-Sz-fLm"/>
                                         </constraints>
@@ -186,19 +186,47 @@
                                             <outlet property="delegate" destination="gTV-IL-0wX" id="KVD-NY-tWA"/>
                                         </connections>
                                     </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIg-H7-olw">
+                                        <rect key="frame" x="0.0" y="17" width="150" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="gQN-Jo-1PR"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="back_arrow">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="sYS-zw-wG6"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcelona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcb-gd-9t2">
+                                        <rect key="frame" x="15" y="8" width="290" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="D5z-5o-JJj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="7c7-vO-3Cw" firstAttribute="top" secondItem="wTl-YK-5Ma" secondAttribute="top" id="0d9-S5-xiK"/>
+                                    <constraint firstItem="7c7-vO-3Cw" firstAttribute="top" secondItem="wTl-YK-5Ma" secondAttribute="top" constant="49" id="0d9-S5-xiK"/>
                                     <constraint firstItem="wLF-aR-j1s" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" constant="22" id="1t9-yP-bx6"/>
+                                    <constraint firstItem="rcb-gd-9t2" firstAttribute="top" secondItem="wTl-YK-5Ma" secondAttribute="top" constant="8" id="3P4-w5-Uud"/>
                                     <constraint firstItem="Eac-0C-FCz" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" constant="22" id="3Qv-dR-V0B"/>
                                     <constraint firstItem="wLF-aR-j1s" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MEF-XR-joq" secondAttribute="bottom" constant="15" id="58S-qx-zGl"/>
                                     <constraint firstAttribute="trailing" secondItem="7c7-vO-3Cw" secondAttribute="trailing" id="5pt-gQ-fzp"/>
+                                    <constraint firstItem="qIg-H7-olw" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" id="9YW-Ie-CRF"/>
+                                    <constraint firstItem="7c7-vO-3Cw" firstAttribute="top" secondItem="rcb-gd-9t2" secondAttribute="bottom" constant="6" id="FAh-DR-ZEf"/>
                                     <constraint firstAttribute="bottom" secondItem="wLF-aR-j1s" secondAttribute="bottom" constant="24" id="Gut-jg-C54"/>
+                                    <constraint firstAttribute="trailing" secondItem="rcb-gd-9t2" secondAttribute="trailing" constant="1" id="L7B-ww-WyY"/>
                                     <constraint firstItem="Eac-0C-FCz" firstAttribute="top" secondItem="7c7-vO-3Cw" secondAttribute="bottom" id="MJj-Cm-vqG"/>
                                     <constraint firstItem="7c7-vO-3Cw" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" id="OFD-Ri-eG7"/>
+                                    <constraint firstItem="qIg-H7-olw" firstAttribute="centerY" secondItem="rcb-gd-9t2" secondAttribute="centerY" constant="2" id="Pot-D1-WFf"/>
                                     <constraint firstAttribute="trailing" secondItem="wLF-aR-j1s" secondAttribute="trailing" constant="22" id="Xan-rb-8jK"/>
                                     <constraint firstAttribute="trailing" secondItem="MEF-XR-joq" secondAttribute="trailing" constant="22" id="Xep-KB-Btv"/>
+                                    <constraint firstItem="rcb-gd-9t2" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" constant="15" id="b8i-3y-uxp"/>
                                     <constraint firstItem="MEF-XR-joq" firstAttribute="top" secondItem="Eac-0C-FCz" secondAttribute="bottom" constant="5" id="dg4-pF-eN3"/>
                                     <constraint firstAttribute="trailing" secondItem="Eac-0C-FCz" secondAttribute="trailing" constant="22" id="gee-0m-oNe"/>
                                     <constraint firstItem="MEF-XR-joq" firstAttribute="leading" secondItem="wTl-YK-5Ma" secondAttribute="leading" constant="22" id="sHi-dJ-Vk4"/>
@@ -241,12 +269,14 @@
                 <outlet property="pageControl" destination="icg-Sq-edl" id="9fj-9E-KvX"/>
                 <outlet property="phoneLabel" destination="Ao6-Ns-qvi" id="5yk-Ww-O8k"/>
                 <outlet property="scrollView" destination="EZ5-YA-VTF" id="gFA-nz-6lZ"/>
+                <outlet property="titleLabel" destination="rcb-gd-9t2" id="aVU-sX-Xwx"/>
                 <outlet property="webLabel" destination="DHh-cE-pe6" id="fSH-Oz-xc8"/>
             </connections>
             <point key="canvasLocation" x="669" y="410.5"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="back_arrow" width="7" height="12"/>
         <image name="glasses" width="31" height="10"/>
         <image name="glasses_selected" width="31" height="10"/>
         <image name="map-icon" width="11" height="13"/>

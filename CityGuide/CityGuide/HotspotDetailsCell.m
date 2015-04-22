@@ -19,7 +19,6 @@
 UICollectionViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
@@ -29,6 +28,8 @@ UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *webLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addedToFavouritesLabel;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+- (IBAction)backButton:(id)sender;
 
 
 @end
@@ -131,5 +132,10 @@ UICollectionViewDelegate>
     int page = round(self.collectionView.contentOffset.x / self.collectionView.frame.size.width);
     self.pageControl.currentPage = page;
 }
+
+- (IBAction)backButton:(id)sender {
+    [[AppDelegate sharedInstance].navigationController popViewControllerAnimated:YES];
+}
+
 
 @end
