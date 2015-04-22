@@ -9,7 +9,7 @@
 #import "HAPaperCollectionViewController.h"
 
 @interface HotspotCollectionViewController : UIViewController
-
+@property (nonatomic, strong) NSArray *hotspots;
 - (id) initWithHotspots: (NSArray*) hotspots;
 
 @end

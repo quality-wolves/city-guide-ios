@@ -168,6 +168,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return
         }
         
+        if (category.id == CategoryEnum.Whatson) {
+            var whatsonVC = WhatsonCollectionViewController()
+            self.navigationController?.pushViewController(whatsonVC, animated: true)
+            return
+        }
+        
         let hotspots = Hotspot.hotspotsByCategory(category)
         
         if hotspots.count == 0 {

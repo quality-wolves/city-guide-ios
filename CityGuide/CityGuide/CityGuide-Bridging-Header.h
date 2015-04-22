@@ -15,6 +15,8 @@
 #import "FavouritesManager.h"
 #import "HeaderViewCell.h"
 #import "HeaderView.h"
+#import "WhatsonCollectionViewController.h"
+
 
 
 #define kAppName @"City Guide"
