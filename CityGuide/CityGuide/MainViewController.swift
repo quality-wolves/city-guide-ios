@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.refreshControl.addTarget(self, action: "refreshAction", forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView.addSubview(self.refreshControl)
         
-        let string = "by Coolmap"
+        let string = "by Coolmapp"
         let boldFont = UIFont.boldSystemFontOfSize(9.0)
         let regularFont = UIFont.systemFontOfSize(9.0)
         let range = NSMakeRange(3, 7)
