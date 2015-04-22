@@ -1,12 +1,12 @@
-diff -r 1ee58de0a919 -r 24e0f5549244 CityGuide/CityGuide/AppDelegate.swift
---- a/CityGuide/CityGuide/AppDelegate.swift	Wed Apr 15 23:04:28 2015 +0600
-+++ b/CityGuide/CityGuide/AppDelegate.swift	Wed Apr 08 00:29:09 2015 +0600
+diff -r 6fca8335c2b3 -r 6b74107a47e9 CityGuide/CityGuide/AppDelegate.swift
+--- a/CityGuide/CityGuide/AppDelegate.swift	Thu Apr 16 22:30:49 2015 +0600
++++ b/CityGuide/CityGuide/AppDelegate.swift	Thu Apr 16 22:29:39 2015 +0600
 @@ -15,7 +15,7 @@
      var mainVC: MainViewController!
  	
      class func sharedInstance() -> AppDelegate {
--        return  UIApplication.sharedApplication().delegate as! AppDelegate
-+        return  UIApplication.sharedApplication().delegate as AppDelegate
+-        return  UIApplication.sharedApplication().delegate as AppDelegate
++        return  UIApplication.sharedApplication().delegate as! AppDelegate
      }
  
      func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -14,20 +14,20 @@ diff -r 1ee58de0a919 -r 24e0f5549244 CityGuide/CityGuide/AppDelegate.swift
              SQLiteWrapper.sharedInstance().checkFile()
              var path: NSString = NSBundle.mainBundle().pathForResource("thumbnails.zip", ofType: nil)!
              println(path)
--            if let thumbnailsUrl = NSURL(fileURLWithPath: path as String) {
-+            if let thumbnailsUrl = NSURL(fileURLWithPath: path) {
+-            if let thumbnailsUrl = NSURL(fileURLWithPath: path) {
++            if let thumbnailsUrl = NSURL(fileURLWithPath: path as String) {
                  DataManager.instance().downloadAndUnzip(thumbnailsUrl.absoluteString, completionHandler: {
                      NSLog("Update complete!")
                  })
-diff -r 1ee58de0a919 -r 24e0f5549244 CityGuide/CityGuide/Hotspot.swift
---- a/CityGuide/CityGuide/Hotspot.swift	Wed Apr 15 23:04:28 2015 +0600
-+++ b/CityGuide/CityGuide/Hotspot.swift	Wed Apr 08 00:29:09 2015 +0600
+diff -r 6fca8335c2b3 -r 6b74107a47e9 CityGuide/CityGuide/Hotspot.swift
+--- a/CityGuide/CityGuide/Hotspot.swift	Thu Apr 16 22:30:49 2015 +0600
++++ b/CityGuide/CityGuide/Hotspot.swift	Thu Apr 16 22:29:39 2015 +0600
 @@ -44,7 +44,7 @@
          })
          
          if nsarray.count > 0 {
--            return nsarray.objectAtIndex(0) as! String
-+            return nsarray.objectAtIndex(0) as String
+-            return nsarray.objectAtIndex(0) as String
++            return nsarray.objectAtIndex(0) as! String
          }
          
          return nil
@@ -35,8 +35,8 @@ diff -r 1ee58de0a919 -r 24e0f5549244 CityGuide/CityGuide/Hotspot.swift
          
          for file_file_name in nsarray {
              let documentsPath : AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0]
--            let destinationPath:String = documentsPath.stringByAppendingPathComponent(file_file_name as! String)
-+            let destinationPath:String = documentsPath.stringByAppendingPathComponent(file_file_name as String)
+-            let destinationPath:String = documentsPath.stringByAppendingPathComponent(file_file_name as String)
++            let destinationPath:String = documentsPath.stringByAppendingPathComponent(file_file_name as! String)
  
              if NSFileManager.defaultManager().fileExistsAtPath(destinationPath) {
                  var img: UIImage? = UIImage(contentsOfFile: destinationPath)
@@ -44,8 +44,8 @@ diff -r 1ee58de0a919 -r 24e0f5549244 CityGuide/CityGuide/Hotspot.swift
          var array: [Hotspot];
          
          if (category.id == CategoryEnum.Favourites) {
--            array = FavouritesManager.sharedManager().allFavourites() as! [Hotspot]
-+            array = FavouritesManager.sharedManager().allFavourites() as [Hotspot]
+-            array = FavouritesManager.sharedManager().allFavourites() as [Hotspot]
++            array = FavouritesManager.sharedManager().allFavourites() as! [Hotspot]
          } else {
              let categoryString = category.name.lowercaseString
              array = selectFromHotspots(String(format: "WHERE category = \"%@\"", categoryString))
@@ -53,8 +53,8 @@ diff -r 1ee58de0a919 -r 24e0f5549244 CityGuide/CityGuide/Hotspot.swift
  	class private func convertArray(array: NSArray) -> [Hotspot] {
  		var hotspots: [Hotspot] = [];
  		for item in array {
--			hotspots.append(item as! Hotspot);
-+			hotspots.append(item as Hotspot);
+-			hotspots.append(item as Hotspot);
++			hotspots.append(item as! Hotspot);
  		}
  		
  		return hotspots;
@@ -62,42 +62,42 @@ diff -r 1ee58de0a919 -r 24e0f5549244 CityGuide/CityGuide/Hotspot.swift
          if let dateString = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(7)))) {
              var dateFormatter: NSDateFormatter = NSDateFormatter()
              var format:NSString = "YYYY-MM-dd HH:mm:ss"
--            dateFormatter.dateFormat = format as String
-+            dateFormatter.dateFormat = format
+-            dateFormatter.dateFormat = format
++            dateFormatter.dateFormat = format as String
              var dateStr = dateString as NSString
              dateStr = dateStr.substringToIndex(format.length)
              NSLog("date str: %@", dateStr)
--            item.lastUpdated = dateFormatter.dateFromString(dateStr as String)
-+            item.lastUpdated = dateFormatter.dateFromString(dateStr)
+-            item.lastUpdated = dateFormatter.dateFromString(dateStr)
++            item.lastUpdated = dateFormatter.dateFromString(dateStr as String)
          }
          item.phone = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(8))))
          item.site = String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(9))))
-diff -r 1ee58de0a919 -r 24e0f5549244 CityGuide/CityGuide/MainViewController.swift
---- a/CityGuide/CityGuide/MainViewController.swift	Wed Apr 15 23:04:28 2015 +0600
-+++ b/CityGuide/CityGuide/MainViewController.swift	Wed Apr 08 00:29:09 2015 +0600
-@@ -107,7 +107,7 @@
+diff -r 6fca8335c2b3 -r 6b74107a47e9 CityGuide/CityGuide/MainViewController.swift
+--- a/CityGuide/CityGuide/MainViewController.swift	Thu Apr 16 22:30:49 2015 +0600
++++ b/CityGuide/CityGuide/MainViewController.swift	Thu Apr 16 22:29:39 2015 +0600
+@@ -119,7 +119,7 @@
          // Dispose of any resources that can be recreated.
      }
      
--    required init() {
-+    required override init() {
+-    required override init() {
++    required init() {
          super.init(nibName: "MainViewController", bundle: nil)
      }
  
-@@ -130,13 +130,13 @@
+@@ -142,13 +142,13 @@
          return cell!
      }
      
--    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView? {
+-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView? {
++    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
          if (kind == UICollectionElementKindSectionHeader) {
--            var headerView = self.collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! HeaderView
-+            var headerView = self.collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as HeaderView
+-            var headerView = self.collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as HeaderView
++            var headerView = self.collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! HeaderView
              headerView.delegate = self;
              return headerView
          }
--        return UICollectionReusableView()//TODO WTF AM I DOING
-+        return nil
+-        return nil
++        return UICollectionReusableView()//TODO WTF AM I DOING
      }
      
      func headerViewDidSelectedCategory(category: CGCategory!) {
