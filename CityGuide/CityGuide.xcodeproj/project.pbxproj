@@ -78,6 +78,7 @@
 		A9C8FF341A92A1A3005826D3 /* HotspotDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C8FF321A92A1A3005826D3 /* HotspotDetailsCell.xib */; };
 		A9C8FF371A92B492005826D3 /* CollectionLayouts.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C8FF361A92B492005826D3 /* CollectionLayouts.m */; };
 		B94E3DFA1AC0B6D900776297 /* db.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = B94E3DF91AC0A9AD00776297 /* db.sqlite3 */; };
+		B9956BA21AE840D500DA7008 /* WhatsonCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9956BA11AE840D500DA7008 /* WhatsonCollectionViewController.m */; };
 		B9FF1F2F1ACDB98D004A005A /* HotspotImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FF1F2D1ACDB98D004A005A /* HotspotImageCell.m */; };
 		B9FF1F301ACDB98D004A005A /* HotspotImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9FF1F2E1ACDB98D004A005A /* HotspotImageCell.xib */; };
 		F54B70861AB5B3680059B9F2 /* HotspotHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F54B70841AB5B3680059B9F2 /* HotspotHeaderView.m */; };
@@ -233,6 +234,8 @@
 		A9C8FF351A92B492005826D3 /* CollectionLayouts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionLayouts.h; sourceTree = "<group>"; };
 		A9C8FF361A92B492005826D3 /* CollectionLayouts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionLayouts.m; sourceTree = "<group>"; };
 		B94E3DF91AC0A9AD00776297 /* db.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = db.sqlite3; path = CityGuide/Resources/db.sqlite3; sourceTree = "<group>"; };
+		B9956BA01AE840D500DA7008 /* WhatsonCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatsonCollectionViewController.h; sourceTree = "<group>"; };
+		B9956BA11AE840D500DA7008 /* WhatsonCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatsonCollectionViewController.m; sourceTree = "<group>"; };
 		B9FF1F2C1ACDB98D004A005A /* HotspotImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotImageCell.h; sourceTree = "<group>"; };
 		B9FF1F2D1ACDB98D004A005A /* HotspotImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotImageCell.m; sourceTree = "<group>"; };
 		B9FF1F2E1ACDB98D004A005A /* HotspotImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotImageCell.xib; sourceTree = "<group>"; };
@@ -631,9 +634,19 @@
 			name = Paper;
 			sourceTree = "<group>";
 		};
+		B9956B9F1AE8408F00DA7008 /* Whatson page */ = {
+			isa = PBXGroup;
+			children = (
+				B9956BA01AE840D500DA7008 /* WhatsonCollectionViewController.h */,
+				B9956BA11AE840D500DA7008 /* WhatsonCollectionViewController.m */,
+			);
+			name = "Whatson page";
+			sourceTree = "<group>";
+		};
 		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B9956B9F1AE8408F00DA7008 /* Whatson page */,
 				A4A862C31ACDCD9F0081C1C5 /* Layout */,
 				A4E9A91D1A928F25006E12F7 /* Map */,
 				A9C8FF2D1A928884005826D3 /* Paper */,
@@ -828,6 +841,7 @@
 				A9C8FF091A925549005826D3 /* ZipArchiveDelegateHelper.m in Sources */,
 				A4373C951A96708800D854B9 /* TLDynamicHeightLabelCell.m in Sources */,
 				A4A2FFFB1AB05197008BB4B2 /* HeaderViewCell.m in Sources */,
+				B9956BA21AE840D500DA7008 /* WhatsonCollectionViewController.m in Sources */,
 				A9C8FEEC1A912FDF005826D3 /* DataManager.m in Sources */,
 				F5FF3FE21A8D3CF80003D13E /* HACollectionViewLargeLayout.m in Sources */,
 			);
