@@ -97,6 +97,7 @@ UICollectionViewDelegate>
                               value:stringStyle
                               range: NSMakeRange(0, [descriptionString length])];
     self.descriptionLabel.attributedText = descriptionString;
+    [self.collectionView reloadData];
                                                  
 }
 
