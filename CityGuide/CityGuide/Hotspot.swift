@@ -45,18 +45,19 @@ class Hotspot: BaseData {
         })
         
         if nsarray.count > 0 {
-            return nsarray.objectAtIndex(0) as! String
+            return nsarray.objectAtIndex(0) as? String
         }
         
         return nil
     }
     
     func getImages() -> [UIImage] {
-        if let array = images {
-            return array
-        }
-        
+//        if let array = images {
+//            return array
+//        }
+//        
         //
+        
         let nsarray: NSArray = Hotspot.sendRequest(String(format:"select id, file_file_name from hotspot_images where hotspot_id = %d order by id", id), converter: { (sqlite3_stmt stmt) -> AnyObject! in
             return self.convertedFileName(UInt(sqlite3_column_int(stmt, 0)), fileName:String.fromCString(UnsafePointer <Int8> (sqlite3_column_text(stmt, CInt(1)))));
         })

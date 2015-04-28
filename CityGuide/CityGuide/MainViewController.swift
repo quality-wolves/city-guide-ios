@@ -99,7 +99,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var flowLayout: UICollectionViewFlowLayout? = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         var padding:CGFloat = 5
         let rowsize = ceil((self.collectionView.height-38)/5)
-        NSLog("%@ %@", rowsize, rowsize*2+14)
+//        NSLog("%@ %@", rowsize, rowsize*2+14)
         var w:CGFloat = self.collectionView.frame.size.width/2.0 - padding
         var kImgScaleFactor:CGFloat = 335.0/640.0;
         flowLayout?.itemSize = CGSizeMake(w, w * kImgScaleFactor as CGFloat + 29)
@@ -173,7 +173,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.navigationController?.pushViewController(whatsonVC, animated: true)
             return
         }
-        
+
+        if (category.id == CategoryEnum.Soundtrack) {
+            var soundtrackVC = SoundtrackViewController()
+            self.navigationController?.pushViewController(soundtrackVC, animated: true)
+            return
+        }
         let hotspots = Hotspot.hotspotsByCategory(category)
         
         if hotspots.count == 0 {

@@ -32,6 +32,7 @@
 		A4373C9C1A96708800D854B9 /* TLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4373C891A96708800D854B9 /* TLTableViewController.m */; };
 		A4373CA01A967D6800D854B9 /* HotspotsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4373C9E1A967D6800D854B9 /* HotspotsDetailsViewController.m */; };
 		A4373CA11A967D6800D854B9 /* HotspotsDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4373C9F1A967D6800D854B9 /* HotspotsDetailsViewController.xib */; };
+		A43A9CEB1AEE950E0047DD1B /* SoundtrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43A9CEA1AEE950E0047DD1B /* SoundtrackViewController.m */; };
 		A449401F1AA8994C0091AE2D /* FavouritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A449401E1AA8994C0091AE2D /* FavouritesManager.m */; };
 		A44D86AD1AC0BEF600698324 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44D86AC1AC0BEF600698324 /* CFNetwork.framework */; };
 		A44D86AF1AC0BF1000698324 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44D86AE1AC0BF1000698324 /* SystemConfiguration.framework */; };
@@ -163,6 +164,8 @@
 		A4373C9D1A967D6800D854B9 /* HotspotsDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotspotsDetailsViewController.h; sourceTree = "<group>"; };
 		A4373C9E1A967D6800D854B9 /* HotspotsDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotspotsDetailsViewController.m; sourceTree = "<group>"; };
 		A4373C9F1A967D6800D854B9 /* HotspotsDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotspotsDetailsViewController.xib; sourceTree = "<group>"; };
+		A43A9CE91AEE950E0047DD1B /* SoundtrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundtrackViewController.h; sourceTree = "<group>"; };
+		A43A9CEA1AEE950E0047DD1B /* SoundtrackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundtrackViewController.m; sourceTree = "<group>"; };
 		A449401D1AA8994C0091AE2D /* FavouritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesManager.h; sourceTree = "<group>"; };
 		A449401E1AA8994C0091AE2D /* FavouritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesManager.m; sourceTree = "<group>"; };
 		A44D86AC1AC0BEF600698324 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -392,6 +395,15 @@
 				A4373C891A96708800D854B9 /* TLTableViewController.m */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A43A9CE81AEE94F90047DD1B /* SoundtrackViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A43A9CE91AEE950E0047DD1B /* SoundtrackViewController.h */,
+				A43A9CEA1AEE950E0047DD1B /* SoundtrackViewController.m */,
+			);
+			name = SoundtrackViewController;
 			sourceTree = "<group>";
 		};
 		A4A2FFF21AB04DDC008BB4B2 /* Hotspots details */ = {
@@ -646,6 +658,7 @@
 		F5A25C3D1A83FB7900A9B0E3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A43A9CE81AEE94F90047DD1B /* SoundtrackViewController */,
 				B9956B9F1AE8408F00DA7008 /* Whatson page */,
 				A4A862C31ACDCD9F0081C1C5 /* Layout */,
 				A4E9A91D1A928F25006E12F7 /* Map */,
@@ -822,6 +835,7 @@
 				A4E9A8E91A83E9DF006E12F7 /* AppDelegate.swift in Sources */,
 				A4373C991A96708800D854B9 /* UITableView+ScrollOptimizer.m in Sources */,
 				F5A25C401A83FCAC00A9B0E3 /* MainViewController.swift in Sources */,
+				A43A9CEB1AEE950E0047DD1B /* SoundtrackViewController.m in Sources */,
 				F5FF3FDF1A8D3CF80003D13E /* HATransitionController.m in Sources */,
 				A9C8FF371A92B492005826D3 /* CollectionLayouts.m in Sources */,
 				F54B70861AB5B3680059B9F2 /* HotspotHeaderView.m in Sources */,
